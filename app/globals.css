@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f3e3;
+  --foreground: #061b11;
+
+  --green-deep: #061b11;
+  --green-main: #075b35;
+  --green-bright: #08713f;
+  --green-olive: #5d842e;
+  --gold-main: #f4c430;
+  --gold-dark: #c79a00;
+  --cream-main: #f8f3e3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--gold-main);
+  color: var(--green-deep);
+}
+
+/* =========================
+   Animations générales
+========================= */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(36px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(1.08);
+  }
+}
+
+/* =========================
+   Animations titre hero
+========================= */
+
+@keyframes title-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes gradient-text {
+  0% {
+    background-position: 0% 50%;
+    filter: saturate(1);
+  }
+
+  50% {
+    background-position: 100% 50%;
+    filter: saturate(1.25);
+  }
+
+  100% {
+    background-position: 0% 50%;
+    filter: saturate(1);
+  }
+}
+
+@keyframes fade-up-delayed {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badge-glow {
+  0%,
+  100% {
+    box-shadow: 0 10px 24px rgba(7, 91, 53, 0.08);
+  }
+
+  50% {
+    box-shadow: 0 12px 32px rgba(244, 196, 48, 0.24);
+  }
+}
+
+/* =========================
+   Animations footer
+========================= */
+
+@keyframes footer-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes footer-shine {
+  0% {
+    transform: translateX(-120%) rotate(8deg);
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: translateX(140%) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   Classes animation
+========================= */
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease both;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.9s ease both;
+}
+
+.animate-float-soft {
+  animation: float-soft 4.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+.animate-title-rise {
+  animation: title-rise 0.8s ease both;
+}
+
+.animate-gradient-text {
+  background-size: 220% 220%;
+  animation:
+    title-rise 0.9s ease both,
+    gradient-text 7s ease-in-out infinite;
+}
+
+.animate-gradient-text-delayed {
+  background-size: 220% 220%;
+  animation:
+    title-rise 1s ease 0.12s both,
+    gradient-text 8s ease-in-out infinite;
+}
+
+.animate-fade-up-delayed {
+  animation: fade-up-delayed 0.85s ease 0.25s both;
+}
+
+.animate-badge-glow {
+  animation:
+    title-rise 0.7s ease both,
+    badge-glow 4s ease-in-out infinite;
+}
+
+.animate-footer-rise {
+  animation: footer-rise 0.8s ease both;
+}
+
+.animate-footer-rise-delayed {
+  animation: footer-rise 0.9s ease 0.12s both;
+}
+
+/* =========================
+   Scrollbar premium
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03140c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f4c430, #08713f);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffe27a, #08a947);
+}
