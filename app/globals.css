@@ -3,7 +3,6 @@
 :root {
   --background: #f8f3e3;
   --foreground: #061b11;
-
   --green-deep: #061b11;
   --green-main: #075b35;
   --green-bright: #08713f;
@@ -53,36 +52,43 @@ select {
 }
 
 /* =========================
-   Animations générales
+   HERO SLIDESHOW
 ========================= */
 
-@keyframes fade-up {
-  from {
+@keyframes heroSlideshow {
+  0% {
     opacity: 0;
-    transform: translateY(24px);
+    transform: scale(1.06);
   }
 
-  to {
+  5% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
+  }
+
+  12% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  17% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.06);
   }
 }
 
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(36px) scale(0.98);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
+.animate-hero-slideshow {
+  animation: heroSlideshow 40s infinite ease-in-out;
+  will-change: opacity, transform;
 }
 
 @keyframes float-soft {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) rotate(0deg);
   }
 
@@ -92,8 +98,7 @@ select {
 }
 
 @keyframes pulse-glow {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.35;
     transform: scale(1);
   }
@@ -104,10 +109,7 @@ select {
   }
 }
 
-/* =========================
-   Animations titre hero
-========================= */
-
+/* TITRE HERO */
 @keyframes title-rise {
   from {
     opacity: 0;
@@ -152,8 +154,7 @@ select {
 }
 
 @keyframes badge-glow {
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: 0 10px 24px rgba(7, 91, 53, 0.08);
   }
 
@@ -162,10 +163,7 @@ select {
   }
 }
 
-/* =========================
-   Animations footer
-========================= */
-
+/* FOOTER */
 @keyframes footer-rise {
   from {
     opacity: 0;
@@ -196,10 +194,7 @@ select {
   }
 }
 
-/* =========================
-   Classes animation
-========================= */
-
+/* CLASSES */
 .animate-fade-up {
   animation: fade-up 0.8s ease both;
 }
@@ -252,10 +247,7 @@ select {
   animation: footer-rise 0.9s ease 0.12s both;
 }
 
-/* =========================
-   Scrollbar premium
-========================= */
-
+/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 10px;
 }
