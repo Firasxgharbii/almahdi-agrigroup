@@ -47,7 +47,7 @@ export default function SignatureGallerySection() {
   return (
     <section
       id="gallery"
-      className="overflow-hidden bg-[#dfe2dc] px-6 py-24 md:px-10 lg:px-16"
+      className="overflow-hidden bg-white px-6 py-24 md:px-10 lg:px-16"
     >
       <div
         onMouseEnter={() => setPaused(true)}

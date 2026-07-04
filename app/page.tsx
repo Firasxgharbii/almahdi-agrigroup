@@ -13,6 +13,10 @@ import {
   Sprout,
   Tractor,
 } from "lucide-react";
+import PremiumOliveHero from "./components/PremiumOliveHero";
+import FilialesSection from "./components/FilialesSection";
+import GlobalTestimonialsSection from "./components/GlobalTestimonialsSection";
+import CinematicStorySection from "./components/CinematicStorySection";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -300,7 +304,7 @@ export default function Home() {
         </div>
       </section>
 
-      <SignatureGallerySection />
+      
 
       <section className={styles.section}>
         <div className={styles.sectionInner}>
@@ -338,7 +342,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+       <PremiumOliveHero />
       <AwardsSection />
+ <SignatureGallerySection />
+ <GlobalTestimonialsSection />
+ <FilialesSection /> 
+ <CinematicStorySection />   
     </main>
   );
 }
