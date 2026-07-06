@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
-import SignatureGallerySection from "./components/SignatureGallerySection";
-import AwardsSection from "./components/AwardsSection";
+
 import {
   ArrowRight,
   BadgeCheck,
@@ -13,11 +12,12 @@ import {
   Sprout,
   Tractor,
 } from "lucide-react";
-import PremiumOliveHero from "./components/PremiumOliveHero";
+
 import FilialesSection from "./components/FilialesSection";
 import GlobalTestimonialsSection from "./components/GlobalTestimonialsSection";
 import CinematicStorySection from "./components/CinematicStorySection";
-
+import WhyChooseSection from "./components/WhyChooseSection";
+import SoftPaintingHero from "./components/SoftPaintingHero";
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["600", "700"],
@@ -303,8 +303,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      
+ <GlobalTestimonialsSection />
+       <CinematicStorySection />  
 
       <section className={styles.section}>
         <div className={styles.sectionInner}>
@@ -342,12 +342,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-       <PremiumOliveHero />
-      <AwardsSection />
- <SignatureGallerySection />
- <GlobalTestimonialsSection />
+       
+      <WhyChooseSection />
+      <SoftPaintingHero
+  title="collections de peinture à l’huile"
+  image="/images/5312.jpg"
+/>
+ 
+
  <FilialesSection /> 
- <CinematicStorySection />   
+ 
     </main>
   );
 }
