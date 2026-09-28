@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import {
   ArrowRight,
   Globe2,
@@ -9,6 +10,7 @@ import {
   Play,
   ShieldCheck,
 } from "lucide-react";
+
 import {
   Cormorant_Garamond,
   Plus_Jakarta_Sans,
@@ -55,19 +57,21 @@ export default function PremiumOliveHero() {
           "
         />
 
+        {/* Overlay gauche */}
         <div
           className="
             absolute
             inset-0
-            bg-[linear-gradient(90deg,rgba(2,27,18,0.96)_0%,rgba(2,27,18,0.86)_38%,rgba(2,27,18,0.45)_67%,rgba(2,27,18,0.30)_100%)]
+            bg-[linear-gradient(90deg,rgba(2,27,18,0.97)_0%,rgba(2,27,18,0.90)_34%,rgba(2,27,18,0.56)_62%,rgba(2,27,18,0.28)_100%)]
           "
         />
 
+        {/* Overlay vertical */}
         <div
           className="
             absolute
             inset-0
-            bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.02)_50%,rgba(0,0,0,0.35)_100%)]
+            bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_0%,rgba(0,0,0,0.02)_48%,rgba(0,0,0,0.38)_100%)]
           "
         />
       </div>
@@ -81,14 +85,14 @@ export default function PremiumOliveHero() {
         className="
           pointer-events-none
           absolute
-          -left-40
+          -left-52
           top-1/2
-          h-[600px]
-          w-[600px]
+          h-[650px]
+          w-[650px]
           -translate-y-1/2
           rounded-full
           bg-[#d3a866]/10
-          blur-[150px]
+          blur-[160px]
         "
       />
 
@@ -100,27 +104,49 @@ export default function PremiumOliveHero() {
         className="
           relative
           z-10
-          mx-auto
           grid
           min-h-[calc(100vh-108px)]
           w-full
-          max-w-[1500px]
           grid-cols-1
           items-center
-          gap-14
+          gap-12
           px-6
-          py-16
+          py-14
+
+          sm:px-8
+
           md:px-10
-          lg:grid-cols-[0.92fr_1.08fr]
-          lg:px-16
-          xl:px-20
+          md:py-16
+
+          lg:grid-cols-[minmax(0,760px)_minmax(420px,1fr)]
+          lg:gap-12
+          lg:pl-6
+          lg:pr-10
+          lg:py-16
+
+          xl:grid-cols-[minmax(0,760px)_minmax(500px,1fr)]
+          xl:gap-16
+          xl:pl-8
+          xl:pr-14
+
+          2xl:grid-cols-[minmax(0,800px)_minmax(540px,1fr)]
+          2xl:gap-20
+          2xl:pl-10
+          2xl:pr-16
         "
       >
         {/* =====================================================
             LEFT SIDE
         ===================================================== */}
 
-        <div className="relative z-20 max-w-[720px]">
+        <div
+          className="
+            relative
+            z-20
+            w-full
+            max-w-[760px]
+          "
+        >
           {/* EYEBROW */}
 
           <div className="hero-fade-up mb-7 flex items-center gap-4">
@@ -140,22 +166,26 @@ export default function PremiumOliveHero() {
             </p>
           </div>
 
-          {/* TITLE */}
+          {/* =====================================================
+              TITLE
+          ===================================================== */}
 
           <h1
             className={`
               ${displayFont.className}
               hero-title
-              max-w-[720px]
+              max-w-[760px]
               text-[52px]
               font-medium
               leading-[0.91]
               tracking-[-0.045em]
               text-[#f8f2e7]
+
               sm:text-[68px]
               md:text-[82px]
               lg:text-[76px]
               xl:text-[94px]
+              2xl:text-[100px]
             `}
           >
             L’huile d’olive
@@ -174,7 +204,9 @@ export default function PremiumOliveHero() {
             à son excellence.
           </h1>
 
-          {/* DESCRIPTION */}
+          {/* =====================================================
+              DESCRIPTION
+          ===================================================== */}
 
           <p
             className="
@@ -185,6 +217,7 @@ export default function PremiumOliveHero() {
               font-normal
               leading-7
               text-white/75
+
               sm:text-base
               md:text-[17px]
               md:leading-8
@@ -195,7 +228,9 @@ export default function PremiumOliveHero() {
             exigence et destinée aux marchés internationaux.
           </p>
 
-          {/* INTERNATIONAL INFO */}
+          {/* =====================================================
+              INTERNATIONAL INFO
+          ===================================================== */}
 
           <div
             className="
@@ -211,6 +246,7 @@ export default function PremiumOliveHero() {
               uppercase
               tracking-[0.2em]
               text-[#d7b06a]
+
               sm:text-[11px]
             "
           >
@@ -225,7 +261,9 @@ export default function PremiumOliveHero() {
             <span>Producer & Exporter</span>
           </div>
 
-          {/* BUTTONS */}
+          {/* =====================================================
+              BUTTONS
+          ===================================================== */}
 
           <div
             className="
@@ -234,7 +272,9 @@ export default function PremiumOliveHero() {
               flex
               flex-col
               gap-4
+
               sm:flex-row
+              sm:items-center
             "
           >
             <Link
@@ -255,6 +295,7 @@ export default function PremiumOliveHero() {
                 text-[#082c1f]
                 transition-all
                 duration-500
+
                 hover:-translate-y-1
                 hover:bg-[#e5c486]
                 hover:shadow-[0_18px_45px_rgba(0,0,0,0.25)]
@@ -291,6 +332,7 @@ export default function PremiumOliveHero() {
                 text-white
                 transition-all
                 duration-300
+
                 hover:border-[#d7ad6a]
                 hover:text-[#d7ad6a]
               "
@@ -317,6 +359,7 @@ export default function PremiumOliveHero() {
               hero-fade-up
               mt-12
               grid
+              w-full
               max-w-[620px]
               grid-cols-3
               border-t
@@ -375,6 +418,145 @@ export default function PremiumOliveHero() {
               </p>
             </div>
           </div>
+
+          {/* =====================================================
+              CERTIFICATIONS
+          ===================================================== */}
+
+          <div
+            className="
+              hero-fade-up
+              mt-10
+              flex
+              max-w-[650px]
+              flex-wrap
+              items-center
+              gap-3
+              border-t
+              border-white/10
+              pt-6
+            "
+          >
+            {/* ECOCERT */}
+
+            <div
+              className="
+                certification-item
+                flex
+                items-center
+                gap-3
+                rounded-full
+                border
+                border-[#d7ad6a]/45
+                bg-[#062b1d]/75
+                py-2
+                pl-2
+                pr-5
+                backdrop-blur-xl
+                transition-all
+                duration-300
+
+                hover:border-[#d7ad6a]/80
+                hover:bg-[#062b1d]/90
+              "
+            >
+              <div
+                className="
+                  relative
+                  h-11
+                  w-11
+                  shrink-0
+                  overflow-hidden
+                  rounded-full
+                "
+              >
+                <Image
+                  src="/images/seal-bio-ecocert.svg"
+                  alt="Certification Bio Ecocert"
+                  fill
+                  sizes="44px"
+                  className="object-contain"
+                />
+              </div>
+
+              <div>
+                <p
+                  className="
+                    text-[10px]
+                    uppercase
+                    tracking-[0.16em]
+                    text-[#d7ad6a]
+                  "
+                >
+                  Certification
+                </p>
+
+                <p className="text-xs font-semibold text-white/85">
+                  Certifiée Bio · Ecocert
+                </p>
+              </div>
+            </div>
+
+            {/* USDA */}
+
+            <div
+              className="
+                certification-item
+                flex
+                items-center
+                gap-3
+                rounded-full
+                border
+                border-[#d7ad6a]/45
+                bg-[#062b1d]/75
+                py-2
+                pl-2
+                pr-5
+                backdrop-blur-xl
+                transition-all
+                duration-300
+
+                hover:border-[#d7ad6a]/80
+                hover:bg-[#062b1d]/90
+              "
+            >
+              <div
+                className="
+                  relative
+                  h-11
+                  w-11
+                  shrink-0
+                  overflow-hidden
+                  rounded-full
+                "
+              >
+                <Image
+                  src="/images/seal-usda-organic.svg"
+                  alt="USDA Organic"
+                  fill
+                  sizes="44px"
+                  className="object-contain"
+                />
+              </div>
+
+              <div>
+                <p
+                  className="
+                    text-[10px]
+                    uppercase
+                    tracking-[0.16em]
+                    text-[#d7ad6a]
+                  "
+                >
+                  Certification
+                </p>
+
+                <p className="text-xs font-semibold text-white/85">
+                  USDA Organic · NOP
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* =====================================================
@@ -406,32 +588,28 @@ export default function PremiumOliveHero() {
               backdrop-blur-[2px]
             "
           >
-            {/*
-              ==================================================
-              ESPACE RÉSERVÉ À TA VIDÉO
+            {/* Quand la vidéo sera prête :
 
-              Quand ta vidéo sera prête :
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
+            >
+              <source
+                src="/videos/almahdi.mp4"
+                type="video/mp4"
+              />
+            </video>
 
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 h-full w-full object-cover"
-              >
-                <source
-                  src="/videos/almahdi.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              ==================================================
             */}
 
             <div
               className="
                 absolute
                 inset-0
-                bg-[linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.28))]
+                bg-[linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.30))]
               "
             />
 
@@ -442,6 +620,7 @@ export default function PremiumOliveHero() {
                 absolute
                 left-8
                 top-8
+                z-10
                 flex
                 items-center
                 gap-3
@@ -462,26 +641,32 @@ export default function PremiumOliveHero() {
               className="
                 absolute
                 inset-0
+                z-10
                 flex
                 items-center
                 justify-center
               "
             >
-              <div
+              <button
+                type="button"
+                aria-label="Lire la vidéo AlMahdi Olive"
                 className="
                   group
                   flex
                   h-[82px]
                   w-[82px]
+                  cursor-pointer
                   items-center
                   justify-center
                   rounded-full
                   border
                   border-white/30
                   bg-white/10
+                  text-white
                   backdrop-blur-xl
                   transition-all
                   duration-500
+
                   hover:scale-110
                   hover:border-[#d7ad6a]
                   hover:bg-[#d7ad6a]
@@ -493,12 +678,12 @@ export default function PremiumOliveHero() {
                   fill="currentColor"
                   className="ml-1"
                 />
-              </div>
+              </button>
             </div>
 
             {/* VIDEO TEXT */}
 
-            <div className="absolute bottom-8 left-8 right-8">
+            <div className="absolute bottom-8 left-8 right-8 z-10">
               <p
                 className={`
                   ${displayFont.className}
@@ -512,7 +697,15 @@ export default function PremiumOliveHero() {
                 au monde.
               </p>
 
-              <p className="mt-3 max-w-[380px] text-xs leading-5 text-white/55">
+              <p
+                className="
+                  mt-3
+                  max-w-[380px]
+                  text-xs
+                  leading-5
+                  text-white/55
+                "
+              >
                 Une production tunisienne portée par l’héritage,
                 la qualité et une vision internationale.
               </p>
@@ -522,178 +715,54 @@ export default function PremiumOliveHero() {
       </div>
 
       {/* =====================================================
-          CERTIFICATIONS
+          BOTTOM INTERNATIONAL INFO
       ===================================================== */}
 
       <div
         className="
           relative
           z-20
-          mx-auto
+          hidden
           w-full
-          max-w-[1500px]
+          items-center
+          justify-end
+          gap-6
           px-6
-          pb-10
+          pb-7
+          text-[10px]
+          font-semibold
+          uppercase
+          tracking-[0.18em]
+          text-white/45
+
           md:px-10
-          lg:px-16
-          xl:px-20
+
+          xl:flex
+          xl:px-14
+
+          2xl:px-16
         "
       >
-        <div
-          className="
-            flex
-            flex-col
-            gap-4
-            border-t
-            border-white/10
-            pt-6
-            md:flex-row
-            md:items-center
-            md:justify-between
-          "
-        >
-          <div
-            className="
-              flex
-              flex-wrap
-              items-center
-              gap-3
-            "
-          >
-            {/* ECOCERT */}
+        <span className="flex items-center gap-2">
+          <Leaf size={13} className="text-[#d7ad6a]" />
+          Agriculture
+        </span>
 
-            <div
-              className="
-                certification-item
-                flex
-                items-center
-                gap-3
-                rounded-full
-                border
-                border-[#d7ad6a]/45
-                bg-[#062b1d]/70
-                py-2
-                pl-2
-                pr-5
-                backdrop-blur-xl
-              "
-            >
-              <div
-                className="
-                  relative
-                  h-11
-                  w-11
-                  shrink-0
-                  overflow-hidden
-                  rounded-full
-                "
-              >
-                <Image
-                  src="/images/seal-bio-ecocert.svg"
-                  alt="Certification Bio Ecocert"
-                  fill
-                  sizes="44px"
-                  className="object-contain"
-                />
-              </div>
+        <span className="flex items-center gap-2">
+          <ShieldCheck
+            size={13}
+            className="text-[#d7ad6a]"
+          />
+          Traçabilité
+        </span>
 
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.16em] text-[#d7ad6a]">
-                  Certification
-                </p>
-
-                <p className="text-xs font-semibold text-white/85">
-                  Certifiée Bio · Ecocert
-                </p>
-              </div>
-            </div>
-
-            {/* USDA */}
-
-            <div
-              className="
-                certification-item
-                flex
-                items-center
-                gap-3
-                rounded-full
-                border
-                border-[#d7ad6a]/45
-                bg-[#062b1d]/70
-                py-2
-                pl-2
-                pr-5
-                backdrop-blur-xl
-              "
-            >
-              <div
-                className="
-                  relative
-                  h-11
-                  w-11
-                  shrink-0
-                  overflow-hidden
-                  rounded-full
-                "
-              >
-                <Image
-                  src="/images/seal-usda-organic.svg"
-                  alt="USDA Organic"
-                  fill
-                  sizes="44px"
-                  className="object-contain"
-                />
-              </div>
-
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.16em] text-[#d7ad6a]">
-                  Certification
-                </p>
-
-                <p className="text-xs font-semibold text-white/85">
-                  USDA Organic · NOP
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* INTERNATIONAL INFO */}
-
-          <div
-            className="
-              hidden
-              items-center
-              gap-6
-              text-[10px]
-              font-semibold
-              uppercase
-              tracking-[0.18em]
-              text-white/45
-              xl:flex
-            "
-          >
-            <span className="flex items-center gap-2">
-              <Leaf size={13} className="text-[#d7ad6a]" />
-              Agriculture
-            </span>
-
-            <span className="flex items-center gap-2">
-              <ShieldCheck
-                size={13}
-                className="text-[#d7ad6a]"
-              />
-              Traçabilité
-            </span>
-
-            <span className="flex items-center gap-2">
-              <Globe2
-                size={13}
-                className="text-[#d7ad6a]"
-              />
-              Export
-            </span>
-          </div>
-        </div>
+        <span className="flex items-center gap-2">
+          <Globe2
+            size={13}
+            className="text-[#d7ad6a]"
+          />
+          Export
+        </span>
       </div>
     </section>
   );

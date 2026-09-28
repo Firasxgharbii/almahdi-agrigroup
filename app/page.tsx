@@ -80,14 +80,14 @@ export default function Home() {
       {/* ================================================= */}
       {/* TESTIMONIALS */}
       {/* ================================================= */}
-
-      <GlobalTestimonialsSection />
+<CinematicStorySection />
+      
 
       {/* ================================================= */}
       {/* CINEMATIC STORY */}
       {/* ================================================= */}
-
-      <CinematicStorySection />
+<GlobalTestimonialsSection />
+      
 
       {/* ================================================= */}
       {/* PILIERS */}
