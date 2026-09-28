@@ -12,8 +12,9 @@ import FilialesSection from "./components/FilialesSection";
 import GlobalTestimonialsSection from "./components/GlobalTestimonialsSection";
 import CinematicStorySection from "./components/CinematicStorySection";
 import WhyChooseSection from "./components/WhyChooseSection";
-import SoftPaintingHero from "./components/SoftPaintingHero";
+
 import WelcomePopup from "./components/WelcomePopup";
+import PremiumFAQSection from "./components/PremiumFAQSection";
 
 // =====================================================
 // FONT
@@ -301,10 +302,8 @@ export default function Home() {
       {/* ART / IMAGE SECTION */}
       {/* ================================================= */}
 
-      <SoftPaintingHero
-        title="collections de peinture à l’huile"
-        image="/images/5312.jpg"
-      />
+  
+      <PremiumFAQSection />
 
       {/* ================================================= */}
       {/* FILIALES */}
