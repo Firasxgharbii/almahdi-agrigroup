@@ -1,5 +1,5 @@
 import AwardsSection from "../components/AwardsSection";
-import PremiumOliveHero from "../components/PremiumOliveHero";
+
 
 export default function AwardsPage() {
   return (
@@ -18,7 +18,7 @@ export default function AwardsPage() {
           qualité de nos produits.
         </p>
       </section>
-      <PremiumOliveHero />
+    
       <AwardsSection />
        
     </main>
