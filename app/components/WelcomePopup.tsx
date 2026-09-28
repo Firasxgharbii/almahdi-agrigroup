@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -29,13 +28,11 @@ const CONFIG = {
 
   // false : afficher à chaque actualisation
   // true : afficher une fois par session
-
   showOncePerSession: false,
 
   storageKey: "almahdi-welcome-v6",
 
   logo: "/logoalmahdi.png",
-
   image: "/images/olivehero.png",
 
   groupUrl: "/notre-groupe",
@@ -46,33 +43,18 @@ const CONFIG = {
 // ============================================
 
 export default function WelcomePopup() {
-  const [mounted, setMounted] =
-    useState(false);
+  const [open, setOpen] = useState(false);
 
-  const [open, setOpen] =
-    useState(false);
-
-  const [visible, setVisible] =
-    useState(false);
-
-  // IMPORTANT :
-  // window.setTimeout retourne un number.
-
-  const closeTimer =
-    useRef<number | null>(null);
+  const closeTimer = useRef<number | null>(null);
 
   const closeButton =
-    useRef<HTMLButtonElement | null>(
-      null
-    );
+    useRef<HTMLButtonElement | null>(null);
 
   // ==========================================
   // OPEN POPUP
   // ==========================================
 
   useEffect(() => {
-    setMounted(true);
-
     if (CONFIG.showOncePerSession) {
       try {
         const alreadySeen =
@@ -84,27 +66,24 @@ export default function WelcomePopup() {
           return;
         }
       } catch {
-        // Continue without storage.
+        // Storage is optional.
       }
     }
 
-    const timer = window.setTimeout(
-      () => {
-        setOpen(true);
+    const timer = window.setTimeout(() => {
+      setOpen(true);
 
-        if (CONFIG.showOncePerSession) {
-          try {
-            window.sessionStorage.setItem(
-              CONFIG.storageKey,
-              "true"
-            );
-          } catch {
-            // Storage is optional.
-          }
+      if (CONFIG.showOncePerSession) {
+        try {
+          window.sessionStorage.setItem(
+            CONFIG.storageKey,
+            "true"
+          );
+        } catch {
+          // Storage is optional.
         }
-      },
-      CONFIG.delay
-    );
+      }
+    }, CONFIG.delay);
 
     return () => {
       window.clearTimeout(timer);
@@ -116,8 +95,6 @@ export default function WelcomePopup() {
   // ==========================================
 
   const closePopup = useCallback(() => {
-    setVisible(false);
-
     if (closeTimer.current !== null) {
       window.clearTimeout(
         closeTimer.current
@@ -150,14 +127,12 @@ export default function WelcomePopup() {
     document.body.style.overflow =
       "hidden";
 
-    const animationTimer =
+    const focusTimer =
       window.setTimeout(() => {
-        setVisible(true);
-
         closeButton.current?.focus({
           preventScroll: true,
         });
-      }, 30);
+      }, 50);
 
     function handleKeyDown(
       event: KeyboardEvent
@@ -188,7 +163,6 @@ export default function WelcomePopup() {
       }
 
       const first = focusable[0];
-
       const last =
         focusable[focusable.length - 1];
 
@@ -197,14 +171,12 @@ export default function WelcomePopup() {
         document.activeElement === first
       ) {
         event.preventDefault();
-
         last.focus();
       } else if (
         !event.shiftKey &&
         document.activeElement === last
       ) {
         event.preventDefault();
-
         first.focus();
       }
     }
@@ -215,9 +187,7 @@ export default function WelcomePopup() {
     );
 
     return () => {
-      window.clearTimeout(
-        animationTimer
-      );
+      window.clearTimeout(focusTimer);
 
       document.body.style.overflow =
         previousOverflow;
@@ -257,7 +227,7 @@ export default function WelcomePopup() {
   // RENDER GUARD
   // ==========================================
 
-  if (!mounted || !open) {
+  if (!open) {
     return null;
   }
 
@@ -267,12 +237,45 @@ export default function WelcomePopup() {
 
   return createPortal(
     <>
-
-      {/* ==================================== */}
-      {/* ANIMATIONS */}
-      {/* ==================================== */}
-
       <style>{`
+
+        /* ====================================
+           BACKDROP
+        ==================================== */
+
+        @keyframes almahdiBackdropIn {
+          from {
+            opacity: 0;
+          }
+
+          to {
+            opacity: 1;
+          }
+        }
+
+        /* ====================================
+           MODAL
+        ==================================== */
+
+        @keyframes almahdiModalIn {
+          from {
+            opacity: 0;
+            transform:
+              translateY(24px)
+              scale(0.96);
+          }
+
+          to {
+            opacity: 1;
+            transform:
+              translateY(0)
+              scale(1);
+          }
+        }
+
+        /* ====================================
+           CONTENT
+        ==================================== */
 
         @keyframes almahdiFadeUp {
           from {
@@ -286,6 +289,10 @@ export default function WelcomePopup() {
           }
         }
 
+        /* ====================================
+           IMAGE
+        ==================================== */
+
         @keyframes almahdiZoom {
           from {
             transform: scale(1.12);
@@ -296,6 +303,10 @@ export default function WelcomePopup() {
           }
         }
 
+        /* ====================================
+           LINE
+        ==================================== */
+
         @keyframes almahdiLine {
           from {
             transform: scaleX(0);
@@ -304,6 +315,31 @@ export default function WelcomePopup() {
           to {
             transform: scaleX(1);
           }
+        }
+
+        /* ====================================
+           CLASSES
+        ==================================== */
+
+        .almahdi-backdrop {
+          animation:
+            almahdiBackdropIn
+            350ms
+            ease-out
+            both;
+        }
+
+        .almahdi-modal {
+          animation:
+            almahdiModalIn
+            500ms
+            cubic-bezier(
+              0.22,
+              1,
+              0.36,
+              1
+            )
+            both;
         }
 
         .almahdi-enter {
@@ -345,9 +381,24 @@ export default function WelcomePopup() {
             transparent;
         }
 
+        .almahdi-scroll::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .almahdi-scroll::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .almahdi-scroll::-webkit-scrollbar-thumb {
+          background: #B7A575;
+          border-radius: 999px;
+        }
+
         @media (
           prefers-reduced-motion: reduce
         ) {
+          .almahdi-backdrop,
+          .almahdi-modal,
           .almahdi-enter,
           .almahdi-photo,
           .almahdi-line {
@@ -357,13 +408,17 @@ export default function WelcomePopup() {
 
       `}</style>
 
-      {/* ==================================== */}
-      {/* BACKDROP */}
-      {/* ==================================== */}
+      {/* ====================================
+          BACKDROP
+      ==================================== */}
 
       <div
-        className={`
-          fixed inset-0
+        className="
+          almahdi-backdrop
+
+          fixed
+          inset-0
+
           z-[999999]
 
           flex
@@ -378,17 +433,7 @@ export default function WelcomePopup() {
           sm:p-6
 
           backdrop-blur-md
-
-          transition-opacity
-          duration-500
-
-          ${
-            visible
-              ? "opacity-100"
-              : "opacity-0"
-          }
-        `}
-
+        "
         onMouseDown={(event) => {
           if (
             event.target ===
@@ -398,23 +443,18 @@ export default function WelcomePopup() {
           }
         }}
       >
-
-        {/* ================================== */}
-        {/* MODAL */}
-        {/* ================================== */}
+        {/* ==================================
+            MODAL
+        ================================== */}
 
         <div
           id="almahdi-welcome-dialog"
-
           role="dialog"
-
           aria-modal="true"
-
           aria-labelledby="almahdi-title"
-
           aria-describedby="almahdi-description"
-
-          className={`
+          className="
+            almahdi-modal
             almahdi-scroll
 
             relative
@@ -434,22 +474,13 @@ export default function WelcomePopup() {
 
             shadow-[0_35px_100px_rgba(0,0,0,0.45)]
 
-            transition-all
-            duration-500
-
             sm:max-h-[calc(100dvh-48px)]
-
-            ${
-              visible
-                ? "translate-y-0 scale-100 opacity-100"
-                : "translate-y-6 scale-95 opacity-0"
-            }
-          `}
+          "
         >
-
           {/* GOLD ACCENT */}
 
           <div
+            aria-hidden="true"
             className="
               absolute
               inset-x-0
@@ -467,19 +498,15 @@ export default function WelcomePopup() {
             "
           />
 
-          {/* ================================== */}
-          {/* CLOSE BUTTON */}
-          {/* ================================== */}
+          {/* ==================================
+              CLOSE BUTTON
+          ================================== */}
 
           <button
             ref={closeButton}
-
             type="button"
-
             onClick={closePopup}
-
             aria-label="Fermer la fenêtre de bienvenue"
-
             className="
               absolute
               right-4
@@ -508,6 +535,7 @@ export default function WelcomePopup() {
               hover:rotate-90
               hover:bg-[#E8D49A]
 
+              focus-visible:outline
               focus-visible:outline-2
               focus-visible:outline-offset-2
               focus-visible:outline-[#D9C18A]
@@ -519,9 +547,9 @@ export default function WelcomePopup() {
             />
           </button>
 
-          {/* ================================== */}
-          {/* HERO */}
-          {/* ================================== */}
+          {/* ==================================
+              HERO
+          ================================== */}
 
           <div
             className="
@@ -546,10 +574,10 @@ export default function WelcomePopup() {
               sm:pt-10
             "
           >
-
             {/* BACKGROUND IMAGE */}
 
             <div
+              aria-hidden="true"
               className="
                 almahdi-photo
 
@@ -561,7 +589,6 @@ export default function WelcomePopup() {
                 bg-cover
                 bg-center
               "
-
               style={{
                 backgroundImage:
                   `url("${CONFIG.image}")`,
@@ -571,6 +598,7 @@ export default function WelcomePopup() {
             {/* DARK OVERLAY */}
 
             <div
+              aria-hidden="true"
               className="
                 absolute
                 inset-0
@@ -585,9 +613,9 @@ export default function WelcomePopup() {
               "
             />
 
-            {/* ================================= */}
-            {/* LOGO */}
-            {/* ================================= */}
+            {/* =================================
+                LOGO
+            ================================= */}
 
             <div
               className="
@@ -604,30 +632,24 @@ export default function WelcomePopup() {
                 sm:w-[185px]
               "
             >
-
               <Image
                 src={CONFIG.logo}
-
                 alt="AlMahdi AgriGroup"
-
                 fill
-
                 sizes="185px"
-
-                unoptimized
-
+                priority
                 className="
                   object-contain
                   brightness-0
                   invert
                 "
               />
-
             </div>
 
             {/* DIVIDER */}
 
             <div
+              aria-hidden="true"
               className="
                 almahdi-line
 
@@ -659,7 +681,6 @@ export default function WelcomePopup() {
 
                 text-[#E8D49A]
               "
-
               style={{
                 animationDelay: "150ms",
               }}
@@ -671,7 +692,6 @@ export default function WelcomePopup() {
 
             <h2
               id="almahdi-title"
-
               className="
                 almahdi-enter
 
@@ -689,15 +709,12 @@ export default function WelcomePopup() {
 
                 sm:text-[43px]
               "
-
               style={{
                 animationDelay: "250ms",
               }}
             >
               Bienvenue
-
               <br />
-
               chez AlMahdi
             </h2>
 
@@ -715,19 +732,17 @@ export default function WelcomePopup() {
 
                 text-[#E8D49A]
               "
-
               style={{
                 animationDelay: "350ms",
               }}
             >
               Cinq générations de savoir-faire
             </p>
-
           </div>
 
-          {/* ================================== */}
-          {/* MAIN CONTENT */}
-          {/* ================================== */}
+          {/* ==================================
+              MAIN CONTENT
+          ================================== */}
 
           <div
             className="
@@ -742,7 +757,6 @@ export default function WelcomePopup() {
               sm:pt-9
             "
           >
-
             {/* BRAND */}
 
             <p
@@ -759,7 +773,6 @@ export default function WelcomePopup() {
 
                 text-[#A18A51]
               "
-
               style={{
                 animationDelay: "400ms",
               }}
@@ -771,7 +784,6 @@ export default function WelcomePopup() {
 
             <div
               id="almahdi-description"
-
               className="
                 almahdi-enter
 
@@ -790,12 +802,10 @@ export default function WelcomePopup() {
 
                 sm:text-[14px]
               "
-
               style={{
                 animationDelay: "500ms",
               }}
             >
-
               <p>
                 Depuis cinq générations,
                 notre famille cultive un
@@ -811,14 +821,14 @@ export default function WelcomePopup() {
                 exigence : faire les choses
                 avec soin et voir plus loin.
               </p>
-
             </div>
 
-            {/* ================================= */}
-            {/* DECORATIVE DIVIDER */}
-            {/* ================================= */}
+            {/* =================================
+                DECORATIVE DIVIDER
+            ================================= */}
 
             <div
+              aria-hidden="true"
               className="
                 almahdi-enter
 
@@ -831,12 +841,10 @@ export default function WelcomePopup() {
                 items-center
                 gap-4
               "
-
               style={{
                 animationDelay: "600ms",
               }}
             >
-
               <div
                 className="
                   h-px
@@ -865,7 +873,6 @@ export default function WelcomePopup() {
                   bg-[#D9C18A]/70
                 "
               />
-
             </div>
 
             {/* INVITATION */}
@@ -886,7 +893,6 @@ export default function WelcomePopup() {
 
                 sm:text-[13px]
               "
-
               style={{
                 animationDelay: "650ms",
               }}
@@ -897,15 +903,13 @@ export default function WelcomePopup() {
               aventure.
             </p>
 
-            {/* ================================= */}
-            {/* MAIN BUTTON */}
-            {/* ================================= */}
+            {/* =================================
+                MAIN BUTTON
+            ================================= */}
 
             <Link
               href={CONFIG.groupUrl}
-
               onClick={closePopup}
-
               className="
                 almahdi-enter
 
@@ -936,26 +940,23 @@ export default function WelcomePopup() {
                 duration-300
 
                 hover:bg-[#12543D]
-
                 hover:shadow-lg
 
+                focus-visible:outline
                 focus-visible:outline-2
                 focus-visible:outline-offset-2
                 focus-visible:outline-[#073C2C]
               "
-
               style={{
                 animationDelay: "750ms",
               }}
             >
-
               <span>
                 Découvrir notre groupe
               </span>
 
               <ArrowUpRight
                 size={19}
-
                 className="
                   transition-transform
                   duration-300
@@ -964,18 +965,15 @@ export default function WelcomePopup() {
                   group-hover:translate-x-1
                 "
               />
-
             </Link>
 
-            {/* ================================= */}
-            {/* CONTINUE BUTTON */}
-            {/* ================================= */}
+            {/* =================================
+                CONTINUE BUTTON
+            ================================= */}
 
             <button
               type="button"
-
               onClick={closePopup}
-
               className="
                 almahdi-enter
 
@@ -1007,26 +1005,23 @@ export default function WelcomePopup() {
                 duration-300
 
                 hover:border-[#073C2C]
-
                 hover:bg-[#F0EFE7]
 
+                focus-visible:outline
                 focus-visible:outline-2
                 focus-visible:outline-offset-2
                 focus-visible:outline-[#073C2C]
               "
-
               style={{
                 animationDelay: "850ms",
               }}
             >
-
               <span>
                 Continuer vers le site
               </span>
 
               <ArrowRight
                 size={17}
-
                 className="
                   transition-transform
                   duration-300
@@ -1034,14 +1029,12 @@ export default function WelcomePopup() {
                   group-hover:translate-x-1
                 "
               />
-
             </button>
-
           </div>
 
-          {/* ================================== */}
-          {/* FOOTER */}
-          {/* ================================== */}
+          {/* ==================================
+              FOOTER
+          ================================== */}
 
           <div
             className="
@@ -1056,7 +1049,6 @@ export default function WelcomePopup() {
               text-center
             "
           >
-
             <p
               className="
                 text-[9px]
@@ -1072,13 +1064,9 @@ export default function WelcomePopup() {
             >
               AlMahdi AgriGroup · Tunisie
             </p>
-
           </div>
-
         </div>
-
       </div>
-
     </>,
     document.body
   );

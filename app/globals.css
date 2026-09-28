@@ -339,3 +339,115 @@ select {
   animation: heritage-story 42s linear infinite;
   will-change: transform;
 }
+/* =========================================================
+   PREMIUM OLIVE HERO
+   ========================================================= */
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.02);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes videoReveal {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* TITRE PRINCIPAL */
+
+.hero-title {
+  opacity: 0;
+  animation:
+    titleReveal 1.1s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s forwards;
+}
+
+/* ÉLÉMENTS TEXTE */
+
+.hero-fade-up {
+  opacity: 0;
+  animation:
+    heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    0.25s forwards;
+}
+
+/* ESPACE VIDÉO */
+
+.hero-video {
+  opacity: 0;
+  animation:
+    videoReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1)
+    0.4s forwards;
+}
+
+/* CERTIFICATIONS */
+
+.certification-item {
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.certification-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(215, 173, 106, 0.8);
+  background-color: rgba(6, 43, 29, 0.9);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* ACCESSIBILITÉ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .hero-fade-up,
+  .hero-video {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+
+  .certification-item {
+    transition: none;
+  }
+}
