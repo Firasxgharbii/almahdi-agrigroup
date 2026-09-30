@@ -12,8 +12,6 @@ import FilialesSection from "./components/FilialesSection";
 import GlobalTestimonialsSection from "./components/GlobalTestimonialsSection";
 import CinematicStorySection from "./components/CinematicStorySection";
 import WhyChooseSection from "./components/WhyChooseSection";
-
-import WelcomePopup from "./components/WelcomePopup";
 import PremiumFAQSection from "./components/PremiumFAQSection";
 
 // =====================================================
@@ -36,14 +34,12 @@ const values = [
     text:
       "Une base solide autour de la terre, des produits tunisiens et du savoir-faire transmis depuis plusieurs générations.",
   },
-
   {
     icon: Factory,
     title: "Transformation",
     text:
       "Une vision moderne pour structurer, transformer et valoriser les produits agroalimentaires avec une image professionnelle.",
   },
-
   {
     icon: BadgeCheck,
     title: "Qualité & traçabilité",
@@ -67,28 +63,22 @@ export default function Home() {
       `}
     >
       {/* ================================================= */}
-      {/* WELCOME POPUP */}
-      {/* ================================================= */}
-
-      <WelcomePopup />
-
-      {/* ================================================= */}
       {/* PREMIUM HERO */}
       {/* ================================================= */}
 
       <PremiumOliveHero />
 
       {/* ================================================= */}
-      {/* TESTIMONIALS */}
-      {/* ================================================= */}
-<CinematicStorySection />
-      
-
-      {/* ================================================= */}
       {/* CINEMATIC STORY */}
       {/* ================================================= */}
-<GlobalTestimonialsSection />
-      
+
+      <CinematicStorySection />
+
+      {/* ================================================= */}
+      {/* TESTIMONIALS */}
+      {/* ================================================= */}
+
+      <GlobalTestimonialsSection />
 
       {/* ================================================= */}
       {/* PILIERS */}
@@ -110,7 +100,6 @@ export default function Home() {
           {/* HEADER */}
 
           <div className="mb-14 max-w-3xl">
-
             <div
               className="
                 mb-5
@@ -161,10 +150,9 @@ export default function Home() {
                 md:text-lg
               "
             >
-              AlMahdi AgriGroup présente une image sérieuse,
-              familiale et moderne, capable de développer
-              plusieurs sociétés, produits et marchés en
-              Tunisie et à l’international.
+              AlMahdi AgriGroup présente une image sérieuse, familiale et
+              moderne, capable de développer plusieurs sociétés, produits et
+              marchés en Tunisie et à l’international.
             </p>
           </div>
 
@@ -299,10 +287,9 @@ export default function Home() {
       <WhyChooseSection />
 
       {/* ================================================= */}
-      {/* ART / IMAGE SECTION */}
+      {/* FAQ */}
       {/* ================================================= */}
 
-  
       <PremiumFAQSection />
 
       {/* ================================================= */}

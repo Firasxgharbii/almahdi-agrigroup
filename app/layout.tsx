@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import MusicWelcome from "./components/MusicWelcome";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,8 +38,16 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-full flex flex-col bg-[#F8F3E3]"
       >
+        {/* ÉCRAN D'ENTRÉE + MUSIQUE */}
+        <MusicWelcome />
+
+        {/* NAVIGATION */}
         <Navbar />
+
+        {/* CONTENU */}
         <div className="flex-1">{children}</div>
+
+        {/* FOOTER */}
         <Footer />
       </body>
     </html>
