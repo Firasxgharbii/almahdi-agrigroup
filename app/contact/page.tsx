@@ -1,6 +1,11 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  useState,
+} from "react";
+
 import {
   Building,
   CheckCircle2,
@@ -16,7 +21,7 @@ import SoftPaintingHero from "../components/SoftPaintingHero";
 // TYPES
 // =====================================================
 
-type FormData = {
+type ContactFormData = {
   name: string;
   email: string;
   phone: string;
@@ -84,7 +89,11 @@ function ContactInfo({
       </div>
 
       <p className="text-black">
-        {label && <span className="font-semibold">{label}: </span>}
+        {label && (
+          <span className="font-semibold">
+            {label}:{" "}
+          </span>
+        )}
 
         <a
           href={href}
@@ -98,28 +107,34 @@ function ContactInfo({
 }
 
 // =====================================================
-// CONTACT PAGE
+// PAGE
 // =====================================================
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    message: "",
-  });
+  const [formData, setFormData] =
+    useState<ContactFormData>({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: "",
+    });
 
-  const [status, setStatus] = useState<FormStatus>("idle");
-  const [statusMessage, setStatusMessage] = useState("");
+  const [status, setStatus] =
+    useState<FormStatus>("idle");
+
+  const [statusMessage, setStatusMessage] =
+    useState("");
 
   // =====================================================
   // INPUT CHANGE
   // =====================================================
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  function handleChange(
+    event: ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement
+    >
+  ) {
     const { name, value } = event.target;
 
     setFormData((previous) => ({
@@ -127,56 +142,86 @@ export default function ContactPage() {
       [name]: value,
     }));
 
-    if (status === "error") {
+    if (
+      status === "error" ||
+      status === "success"
+    ) {
       setStatus("idle");
       setStatusMessage("");
     }
-  };
+  }
 
   // =====================================================
   // SUBMIT
   // =====================================================
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    // IMPORTANT :
+    // empêche le navigateur de recharger la page.
     event.preventDefault();
 
-    if (status === "loading") return;
+    if (status === "loading") {
+      return;
+    }
 
     setStatus("loading");
     setStatusMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
+      const response = await fetch(
+        "/api/contact",
+        {
+          method: "POST",
 
-        headers: {
-          "Content-Type": "application/json",
-        },
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
 
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          message: formData.message,
-        }),
-      });
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: formData.phone.trim(),
+            company: formData.company.trim(),
+            message: formData.message.trim(),
+          }),
+        }
+      );
 
-      const data = await response.json();
+      let data: {
+        success?: boolean;
+        message?: string;
+      } = {};
+
+      try {
+        data = await response.json();
+      } catch {
+        throw new Error(
+          "Réponse invalide du serveur."
+        );
+      }
 
       if (!response.ok) {
         throw new Error(
-          data.message || "Une erreur est survenue pendant l’envoi."
+          data.message ||
+            "Impossible d'envoyer le message."
         );
       }
+
+      // =================================================
+      // SUCCESS
+      // =================================================
 
       setStatus("success");
 
       setStatusMessage(
-        "Merci ! Votre message a été envoyé avec succès. Notre équipe vous répondra dès que possible."
+        data.message ||
+          "Merci ! Votre message a été envoyé avec succès."
       );
 
-      // Réinitialisation du formulaire
+      // Nettoyer les champs seulement après succès.
       setFormData({
         name: "",
         email: "",
@@ -185,20 +230,25 @@ export default function ContactPage() {
         message: "",
       });
     } catch (error) {
-      console.error("Erreur formulaire :", error);
+      console.error(
+        "Erreur formulaire contact :",
+        error
+      );
 
       setStatus("error");
 
-      setStatusMessage(
-        error instanceof Error
-          ? error.message
-          : "Impossible d’envoyer le message. Veuillez réessayer."
-      );
+      if (error instanceof Error) {
+        setStatusMessage(error.message);
+      } else {
+        setStatusMessage(
+          "Une erreur est survenue. Veuillez réessayer."
+        );
+      }
     }
-  };
+  }
 
   // =====================================================
-  // RENDER
+  // UI
   // =====================================================
 
   return (
@@ -213,22 +263,22 @@ export default function ContactPage() {
       />
 
       {/* ================================================= */}
-      {/* CONTACT */}
+      {/* CONTACT SECTION */}
       {/* ================================================= */}
 
       <section className="w-full px-6 py-16 md:px-10 lg:px-16">
         <div className="mx-auto flex w-full max-w-[1500px] flex-col justify-between gap-16 md:flex-row md:gap-24">
 
-          {/* ================================================= */}
-          {/* LEFT SIDE */}
-          {/* ================================================= */}
+          {/* ============================================= */}
+          {/* LEFT */}
+          {/* ============================================= */}
 
           <div className="w-full max-w-[560px]">
             <h1 className="mb-6 text-2xl font-extrabold uppercase text-black">
               Envoyez-nous un message
             </h1>
 
-            {/* CONTACT INFORMATION */}
+            {/* CONTACT INFO */}
 
             <div className="mb-8 space-y-5">
               <ContactInfo
@@ -253,17 +303,19 @@ export default function ContactPage() {
             </div>
 
             <p className="mb-5 text-sm leading-6 text-gray-800">
-              Complétez le formulaire ci-dessous et nous répondrons à toute
-              question dès que possible.
+              Complétez le formulaire
+              ci-dessous et nous répondrons à
+              toute question dès que possible.
             </p>
 
-            {/* ================================================= */}
+            {/* =========================================== */}
             {/* FORM */}
-            {/* ================================================= */}
+            {/* =========================================== */}
 
             <form
               onSubmit={handleSubmit}
               className="space-y-4"
+              noValidate={false}
             >
               {/* NOM */}
 
@@ -418,9 +470,9 @@ export default function ContactPage() {
                 "
               />
 
-              {/* ================================================= */}
-              {/* SUCCESS MESSAGE */}
-              {/* ================================================= */}
+              {/* ========================================= */}
+              {/* SUCCESS */}
+              {/* ========================================= */}
 
               {status === "success" && (
                 <div
@@ -445,13 +497,15 @@ export default function ContactPage() {
                     className="mt-0.5 shrink-0"
                   />
 
-                  <span>{statusMessage}</span>
+                  <span>
+                    {statusMessage}
+                  </span>
                 </div>
               )}
 
-              {/* ================================================= */}
-              {/* ERROR MESSAGE */}
-              {/* ================================================= */}
+              {/* ========================================= */}
+              {/* ERROR */}
+              {/* ========================================= */}
 
               {status === "error" && (
                 <div
@@ -472,16 +526,16 @@ export default function ContactPage() {
                 </div>
               )}
 
-              {/* ================================================= */}
-              {/* SUBMIT */}
-              {/* ================================================= */}
+              {/* ========================================= */}
+              {/* BUTTON */}
+              {/* ========================================= */}
 
               <button
                 type="submit"
                 disabled={status === "loading"}
                 className="
                   inline-flex
-                  min-w-[210px]
+                  min-w-[220px]
                   items-center
                   justify-center
                   gap-2
@@ -515,9 +569,9 @@ export default function ContactPage() {
             </form>
           </div>
 
-          {/* ================================================= */}
-          {/* RIGHT SIDE / OFFICES */}
-          {/* ================================================= */}
+          {/* ============================================= */}
+          {/* RIGHT / OFFICES */}
+          {/* ============================================= */}
 
           <div className="w-full max-w-[640px]">
             <h2 className="mb-6 text-2xl font-extrabold uppercase text-black">

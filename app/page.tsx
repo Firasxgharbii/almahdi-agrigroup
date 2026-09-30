@@ -96,7 +96,6 @@ export default function Home() {
         "
       >
         <div className="mx-auto w-full max-w-[1500px]">
-
           {/* HEADER */}
 
           <div className="mb-14 max-w-3xl">
@@ -156,7 +155,9 @@ export default function Home() {
             </p>
           </div>
 
+          {/* ================================================= */}
           {/* CARDS */}
+          {/* ================================================= */}
 
           <div
             className="
