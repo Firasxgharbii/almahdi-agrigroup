@@ -1,11 +1,19 @@
 "use client";
 
-import { MapPin, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
+
+// =====================================================
+// CONFIGURATION
+// =====================================================
 
 const ADDRESS = "Hichria, Sidi Bouzid, Tunisia, 9131";
 
 const MAP_URL =
   "https://www.google.com/maps/search/?api=1&query=Hichria%2C%20Sidi%20Bouzid%2C%20Tunisia%2C%209131";
+
+// =====================================================
+// COMPONENT
+// =====================================================
 
 export default function ContactMapHero() {
   return (
@@ -25,31 +33,42 @@ export default function ContactMapHero() {
       {/* SATELLITE MAP */}
       {/* ================================================= */}
 
-      <iframe
-        title="Localisation AlMahdi AgriGroup"
-        src={`https://www.google.com/maps?q=${encodeURIComponent(
-          ADDRESS
-        )}&t=k&z=14&output=embed`}
-        loading="eager"
-        referrerPolicy="no-referrer-when-downgrade"
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          -z-30
-          h-full
-          w-full
-          scale-[1.04]
-          border-0
-        "
-      />
+      {/*
+        IMPORTANT :
+        L'iframe est volontairement plus grande que le hero.
+
+        Elle est déplacée vers le haut et vers la gauche afin
+        de masquer les petits contrôles Google Maps visibles
+        dans le coin supérieur gauche.
+      */}
+
+      <div className="absolute inset-0 -z-30 overflow-hidden">
+        <iframe
+          title="Localisation AlMahdi AgriGroup"
+          src={`https://www.google.com/maps?q=${encodeURIComponent(
+            ADDRESS
+          )}&t=k&z=14&output=embed`}
+          loading="eager"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="
+            pointer-events-none
+            absolute
+            -left-[110px]
+            -top-[100px]
+            h-[calc(100%+200px)]
+            w-[calc(100%+220px)]
+            border-0
+          "
+        />
+      </div>
 
       {/* ================================================= */}
-      {/* PREMIUM MAP FILTER */}
+      {/* FILTRE VERT SUR LA CARTE */}
       {/* ================================================= */}
 
       <div
         className="
+          pointer-events-none
           absolute
           inset-0
           -z-20
@@ -58,8 +77,13 @@ export default function ContactMapHero() {
         "
       />
 
+      {/* ================================================= */}
+      {/* GRADIENT GAUCHE -> DROITE */}
+      {/* ================================================= */}
+
       <div
         className="
+          pointer-events-none
           absolute
           inset-0
           -z-10
@@ -70,8 +94,13 @@ export default function ContactMapHero() {
         "
       />
 
+      {/* ================================================= */}
+      {/* GRADIENT BAS */}
+      {/* ================================================= */}
+
       <div
         className="
+          pointer-events-none
           absolute
           inset-0
           -z-10
@@ -83,7 +112,7 @@ export default function ContactMapHero() {
       />
 
       {/* ================================================= */}
-      {/* DECORATIVE GLOW */}
+      {/* LUMIERE VERTE DECORATIVE */}
       {/* ================================================= */}
 
       <div
@@ -102,7 +131,7 @@ export default function ContactMapHero() {
       />
 
       {/* ================================================= */}
-      {/* CONTENT */}
+      {/* MAIN CONTENT */}
       {/* ================================================= */}
 
       <div
@@ -133,14 +162,14 @@ export default function ContactMapHero() {
           "
         >
           {/* ================================================= */}
-          {/* LEFT */}
+          {/* LEFT SIDE */}
           {/* ================================================= */}
 
           <div className="max-w-[720px]">
-            {/* SMALL LABEL */}
+            {/* SMALL BRAND */}
 
             <div className="mb-7 flex items-center gap-3">
-              <span className="h-[1px] w-10 bg-[#d9ad62]" />
+              <span className="h-px w-10 bg-[#d9ad62]" />
 
               <span
                 className="
@@ -155,24 +184,29 @@ export default function ContactMapHero() {
               </span>
             </div>
 
+            {/* ================================================= */}
             {/* TITLE */}
+            {/* ================================================= */}
 
             <h1
               className="
-                text-[46px]
+                text-[44px]
                 font-light
+                lowercase
                 leading-none
                 tracking-[0.18em]
                 text-white
-                sm:text-[54px]
-                md:text-[64px]
-                lg:text-[72px]
+                sm:text-[52px]
+                md:text-[62px]
+                lg:text-[70px]
               "
             >
               contact
             </h1>
 
+            {/* ================================================= */}
             {/* DESCRIPTION */}
+            {/* ================================================= */}
 
             <p
               className="
@@ -189,7 +223,9 @@ export default function ContactMapHero() {
               d&apos;exportation.
             </p>
 
+            {/* ================================================= */}
             {/* ADDRESS */}
+            {/* ================================================= */}
 
             <a
               href={MAP_URL}
@@ -199,6 +235,7 @@ export default function ContactMapHero() {
                 group
                 mt-8
                 inline-flex
+                max-w-full
                 items-center
                 gap-3
                 border-b
@@ -211,17 +248,22 @@ export default function ContactMapHero() {
             >
               <MapPin
                 size={17}
-                className="text-[#d9ad62]"
+                className="
+                  shrink-0
+                  text-[#d9ad62]
+                "
               />
 
               <span
                 className="
-                  text-[10px]
+                  text-[9px]
                   font-semibold
                   uppercase
-                  tracking-[0.2em]
+                  tracking-[0.16em]
                   text-white/90
-                  sm:text-[11px]
+                  sm:text-[10px]
+                  sm:tracking-[0.20em]
+                  md:text-[11px]
                 "
               >
                 Hichria, Sidi Bouzid, Tunisia, 9131
@@ -230,6 +272,7 @@ export default function ContactMapHero() {
               <ArrowUpRight
                 size={15}
                 className="
+                  shrink-0
                   text-[#d9ad62]
                   transition-transform
                   duration-300
@@ -241,7 +284,7 @@ export default function ContactMapHero() {
           </div>
 
           {/* ================================================= */}
-          {/* RIGHT LOCATION */}
+          {/* RIGHT LOCATION TARGET */}
           {/* ================================================= */}
 
           <a
@@ -278,7 +321,7 @@ export default function ContactMapHero() {
               "
             />
 
-            {/* MIDDLE RING */}
+            {/* SECOND RING */}
 
             <div
               className="
@@ -290,7 +333,7 @@ export default function ContactMapHero() {
               "
             />
 
-            {/* INNER RING */}
+            {/* THIRD RING */}
 
             <div
               className="
@@ -302,7 +345,9 @@ export default function ContactMapHero() {
               "
             />
 
-            {/* CENTER PIN */}
+            {/* ================================================= */}
+            {/* CENTER LOCATION PIN */}
+            {/* ================================================= */}
 
             <div
               className="
@@ -329,22 +374,25 @@ export default function ContactMapHero() {
               />
             </div>
 
+            {/* ================================================= */}
             {/* LOCATION LABEL */}
+            {/* ================================================= */}
 
             <div
               className="
                 absolute
                 -bottom-3
                 left-1/2
-                min-w-[185px]
+                min-w-[190px]
                 -translate-x-1/2
                 rounded-full
                 border
                 border-white/10
-                bg-[#031b12]/80
+                bg-[#031b12]/85
                 px-5
                 py-2.5
                 text-center
+                shadow-[0_10px_30px_rgba(0,0,0,0.20)]
                 backdrop-blur-xl
               "
             >
@@ -365,11 +413,12 @@ export default function ContactMapHero() {
       </div>
 
       {/* ================================================= */}
-      {/* BOTTOM DETAILS */}
+      {/* BOTTOM GOLD LINE */}
       {/* ================================================= */}
 
       <div
         className="
+          pointer-events-none
           absolute
           bottom-0
           left-0
@@ -383,8 +432,11 @@ export default function ContactMapHero() {
         "
       />
 
+      {/* GOLD ACCENT */}
+
       <div
         className="
+          pointer-events-none
           absolute
           bottom-0
           left-[8%]
