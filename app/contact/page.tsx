@@ -15,7 +15,7 @@ import {
   Printer,
 } from "lucide-react";
 
-import SoftPaintingHero from "../components/SoftPaintingHero";
+import ContactMapHero from "../components/ContactMapHero";
 
 // =====================================================
 // TYPES
@@ -29,7 +29,11 @@ type ContactFormData = {
   message: string;
 };
 
-type FormStatus = "idle" | "loading" | "success" | "error";
+type FormStatus =
+  | "idle"
+  | "loading"
+  | "success"
+  | "error";
 
 // =====================================================
 // OFFICE ITEM
@@ -61,7 +65,9 @@ function OfficeItem({
           </a>
         </p>
 
-        <p className="mt-1 text-gray-800">{address}</p>
+        <p className="mt-1 text-gray-800">
+          {address}
+        </p>
       </div>
     </div>
   );
@@ -158,8 +164,6 @@ export default function ContactPage() {
   async function handleSubmit(
     event: FormEvent<HTMLFormElement>
   ) {
-    // IMPORTANT :
-    // empêche le navigateur de recharger la page.
     event.preventDefault();
 
     if (status === "loading") {
@@ -210,10 +214,6 @@ export default function ContactPage() {
         );
       }
 
-      // =================================================
-      // SUCCESS
-      // =================================================
-
       setStatus("success");
 
       setStatusMessage(
@@ -221,7 +221,6 @@ export default function ContactPage() {
           "Merci ! Votre message a été envoyé avec succès."
       );
 
-      // Nettoyer les champs seulement après succès.
       setFormData({
         name: "",
         email: "",
@@ -254,13 +253,10 @@ export default function ContactPage() {
   return (
     <main className="bg-white text-black">
       {/* ================================================= */}
-      {/* HERO */}
+      {/* MAP HERO */}
       {/* ================================================= */}
 
-      <SoftPaintingHero
-        title="Contact"
-        image="/images/5312.jpg"
-      />
+      <ContactMapHero />
 
       {/* ================================================= */}
       {/* CONTACT SECTION */}
@@ -268,7 +264,6 @@ export default function ContactPage() {
 
       <section className="w-full px-6 py-16 md:px-10 lg:px-16">
         <div className="mx-auto flex w-full max-w-[1500px] flex-col justify-between gap-16 md:flex-row md:gap-24">
-
           {/* ============================================= */}
           {/* LEFT */}
           {/* ============================================= */}
@@ -303,9 +298,9 @@ export default function ContactPage() {
             </div>
 
             <p className="mb-5 text-sm leading-6 text-gray-800">
-              Complétez le formulaire
-              ci-dessous et nous répondrons à
-              toute question dès que possible.
+              Complétez le formulaire ci-dessous
+              et nous répondrons à toute question
+              dès que possible.
             </p>
 
             {/* =========================================== */}
@@ -315,7 +310,6 @@ export default function ContactPage() {
             <form
               onSubmit={handleSubmit}
               className="space-y-4"
-              noValidate={false}
             >
               {/* NOM */}
 
@@ -409,7 +403,7 @@ export default function ContactPage() {
                 "
               />
 
-              {/* COMPANY */}
+              {/* ENTREPRISE */}
 
               <input
                 type="text"
@@ -470,9 +464,7 @@ export default function ContactPage() {
                 "
               />
 
-              {/* ========================================= */}
               {/* SUCCESS */}
-              {/* ========================================= */}
 
               {status === "success" && (
                 <div
@@ -503,9 +495,7 @@ export default function ContactPage() {
                 </div>
               )}
 
-              {/* ========================================= */}
               {/* ERROR */}
-              {/* ========================================= */}
 
               {status === "error" && (
                 <div
@@ -526,9 +516,7 @@ export default function ContactPage() {
                 </div>
               )}
 
-              {/* ========================================= */}
               {/* BUTTON */}
-              {/* ========================================= */}
 
               <button
                 type="submit"
@@ -570,7 +558,7 @@ export default function ContactPage() {
           </div>
 
           {/* ============================================= */}
-          {/* RIGHT / OFFICES */}
+          {/* RIGHT / BUREAUX */}
           {/* ============================================= */}
 
           <div className="w-full max-w-[640px]">
