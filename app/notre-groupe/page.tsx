@@ -8,6 +8,7 @@ import {
 import GroupPage from "../components/GroupPage";
 import CinematicStorySection from "../components/CinematicStorySection";
 import HeritagePillarsSection from "../components/HeritagePillarsSection";
+import GroupCompaniesSection from "../components/GroupCompaniesSection";
 
 const values = [
   {
@@ -56,6 +57,12 @@ export default function NotreGroupePage() {
       <HeritagePillarsSection />
 
       {/* =====================================================
+          SOCIÉTÉS DU GROUPE
+      ===================================================== */}
+
+      <GroupCompaniesSection />
+
+      {/* =====================================================
           NOS PILIERS
       ===================================================== */}
 
@@ -70,7 +77,9 @@ export default function NotreGroupePage() {
         "
       >
         <div className="mx-auto max-w-[1400px]">
-          {/* HEADER */}
+          {/* =================================================
+              HEADER
+          ================================================= */}
 
           <div className="mb-14 max-w-[760px]">
             <p
@@ -127,7 +136,9 @@ export default function NotreGroupePage() {
             </p>
           </div>
 
-          {/* CARDS */}
+          {/* =================================================
+              CARDS
+          ================================================= */}
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {values.map((item) => {
