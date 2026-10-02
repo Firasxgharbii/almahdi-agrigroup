@@ -44,11 +44,6 @@ export default function NotreGroupePage() {
       />
 
       {/* =====================================================
-          HISTOIRE CINÉMATIQUE
-      ===================================================== */}
-
-
-      {/* =====================================================
           5 GÉNÉRATIONS / HÉRITAGE ALMAHDI
       ===================================================== */}
 
@@ -64,141 +59,365 @@ export default function NotreGroupePage() {
           NOS PILIERS
       ===================================================== */}
 
-      <section
-        className="
-          bg-[#fbf8e8]
-          px-6
-          py-24
-          text-[#06291b]
-          md:px-10
-          lg:px-20
-        "
-      >
-        <div className="mx-auto max-w-[1400px]">
+      <section className="relative overflow-hidden bg-[#fbf8e8] px-6 py-24 text-[#06291b] md:px-10 md:py-28 lg:px-20 lg:py-32">
+        {/* Décoration arrière-plan */}
+
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            -left-[180px]
+            top-[40px]
+            h-[420px]
+            w-[420px]
+            rounded-full
+            bg-[#0b6844]/[0.05]
+            blur-[120px]
+          "
+        />
+
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            -bottom-[180px]
+            right-[-120px]
+            h-[450px]
+            w-[450px]
+            rounded-full
+            bg-[#c49555]/[0.08]
+            blur-[130px]
+          "
+        />
+
+        <div className="relative z-10 mx-auto max-w-[1400px]">
           {/* =================================================
               HEADER
           ================================================= */}
 
-          <div className="mb-14 max-w-[760px]">
-            <p
-              className="
-                mb-6
-                inline-flex
-                items-center
-                gap-2
-                rounded-full
-                border
-                border-[#007a3d]/20
-                bg-white
-                px-5
-                py-2
-                text-sm
-                font-black
-                uppercase
-                tracking-[0.25em]
-                text-[#007a3d]
-                shadow-sm
-              "
-            >
-              <Sprout size={16} />
-              Nos piliers
-            </p>
+          <div
+            className="
+              grid
+              grid-cols-1
+              gap-10
+              border-b
+              border-[#06291b]/10
+              pb-14
+              lg:grid-cols-[1fr_0.65fr]
+              lg:items-end
+              lg:gap-20
+            "
+          >
+            <div>
+              <div className="mb-7 flex items-center gap-4">
+                <span className="h-px w-10 bg-[#b7813f]" />
 
-            <h2
-              className="
-                text-[42px]
-                font-black
-                leading-[1.05]
-                tracking-[-0.06em]
-                text-[#06291b]
-                md:text-[64px]
-              "
-            >
-              Un groupe pensé pour
-              <br />
-              l’avenir agroalimentaire
-            </h2>
+                <p
+                  className="
+                    text-[10px]
+                    font-black
+                    uppercase
+                    tracking-[0.3em]
+                    text-[#a87538]
+                    sm:text-[11px]
+                  "
+                >
+                  Nos piliers
+                </p>
+              </div>
 
-            <p
-              className="
-                mt-7
-                max-w-[680px]
-                text-[18px]
-                leading-8
-                text-[#335c4c]
-              "
-            >
-              AlMahdi AgriGroup présente une image sérieuse,
-              familiale, moderne et capable de développer
-              plusieurs sociétés, produits et marchés.
-            </p>
+              <h2
+                className="
+                  max-w-[850px]
+                  text-[42px]
+                  font-light
+                  leading-[0.98]
+                  tracking-[-0.05em]
+                  text-[#06291b]
+                  sm:text-[50px]
+                  md:text-[62px]
+                  lg:text-[72px]
+                "
+              >
+                Un groupe pensé pour
+                <span
+                  className="
+                    mt-2
+                    block
+                    font-semibold
+                    italic
+                    text-[#b7813f]
+                  "
+                >
+                  l’avenir agroalimentaire.
+                </span>
+              </h2>
+            </div>
+
+            <div className="max-w-[500px] lg:justify-self-end">
+              <p
+                className="
+                  text-[15px]
+                  leading-7
+                  text-[#335c4c]
+                  md:text-[16px]
+                  md:leading-8
+                "
+              >
+                AlMahdi AgriGroup construit une vision familiale,
+                moderne et structurée, capable d&apos;accompagner
+                plusieurs sociétés, produits et marchés.
+              </p>
+
+              <div
+                className="
+                  mt-7
+                  flex
+                  items-center
+                  gap-3
+                  text-[9px]
+                  font-black
+                  uppercase
+                  tracking-[0.22em]
+                  text-[#a87538]
+                "
+              >
+                <Sprout size={15} />
+                Terre · Savoir-faire · Avenir
+              </div>
+            </div>
           </div>
 
           {/* =================================================
               CARDS
           ================================================= */}
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {values.map((item) => {
+          <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden border border-[#06291b]/10 bg-[#06291b]/10 md:grid-cols-3">
+            {values.map((item, index) => {
               const Icon = item.icon;
 
               return (
-                <div
+                <article
                   key={item.title}
                   className="
-                    rounded-[28px]
-                    border
-                    border-[#06291b]/10
-                    bg-white
+                    group
+                    relative
+                    min-h-[390px]
+                    overflow-hidden
+                    bg-[#fffdf7]
                     p-8
-                    shadow-[0_8px_24px_rgba(0,0,0,0.08)]
-                    transition
-                    duration-300
-
-                    hover:-translate-y-2
-                    hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)]
+                    transition-all
+                    duration-500
+                    md:p-9
+                    lg:p-10
                   "
                 >
+                  {/* Hover background */}
+
                   <div
+                    aria-hidden="true"
                     className="
-                      mb-8
-                      flex
-                      h-14
-                      w-14
-                      items-center
-                      justify-center
-                      rounded-2xl
-                      bg-[#e6f1ec]
-                      text-[#007a3d]
+                      absolute
+                      inset-0
+                      translate-y-full
+                      bg-[linear-gradient(180deg,transparent,rgba(6,41,27,0.055))]
+                      transition-transform
+                      duration-700
+                      ease-out
+                      group-hover:translate-y-0
                     "
-                  >
-                    <Icon size={27} />
+                  />
+
+                  {/* Numéro */}
+
+                  <div className="relative z-10 flex items-start justify-between">
+                    <span
+                      className="
+                        text-[10px]
+                        font-black
+                        tracking-[0.22em]
+                        text-[#06291b]/30
+                      "
+                    >
+                      0{index + 1}
+                    </span>
+
+                    <span
+                      className="
+                        h-1.5
+                        w-1.5
+                        rounded-full
+                        bg-[#b7813f]
+                        shadow-[0_0_14px_rgba(183,129,63,0.45)]
+                      "
+                    />
                   </div>
 
-                  <h3
-                    className="
-                      text-[25px]
-                      font-black
-                      tracking-[-0.04em]
-                      text-[#06291b]
-                    "
-                  >
-                    {item.title}
-                  </h3>
+                  {/* Icône */}
 
-                  <p
+                  <div
                     className="
-                      mt-5
-                      text-[16px]
-                      leading-8
-                      text-[#335c4c]
+                      relative
+                      z-10
+                      mt-14
+                      flex
+                      h-[70px]
+                      w-[70px]
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-[#b7813f]/35
+                      text-[#a87538]
+                      transition-all
+                      duration-500
+
+                      group-hover:rotate-6
+                      group-hover:scale-110
+                      group-hover:border-[#b7813f]
+                      group-hover:bg-[#b7813f]
+                      group-hover:text-white
                     "
                   >
-                    {item.text}
-                  </p>
-                </div>
+                    <Icon size={28} strokeWidth={1.5} />
+
+                    <span
+                      aria-hidden="true"
+                      className="
+                        absolute
+                        -inset-2
+                        rounded-full
+                        border
+                        border-transparent
+                        transition-all
+                        duration-500
+
+                        group-hover:-inset-4
+                        group-hover:border-[#b7813f]/15
+                      "
+                    />
+                  </div>
+
+                  {/* Texte */}
+
+                  <div className="relative z-10 mt-10">
+                    <h3
+                      className="
+                        max-w-[270px]
+                        text-[25px]
+                        font-semibold
+                        leading-[1.08]
+                        tracking-[-0.035em]
+                        text-[#06291b]
+                        transition-colors
+                        duration-300
+
+                        group-hover:text-[#9d6b32]
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                    <div
+                      className="
+                        mt-6
+                        h-px
+                        w-9
+                        bg-[#b7813f]
+                        transition-all
+                        duration-500
+                        group-hover:w-20
+                      "
+                    />
+
+                    <p
+                      className="
+                        mt-6
+                        max-w-[330px]
+                        text-[14px]
+                        leading-7
+                        text-[#456558]
+                      "
+                    >
+                      {item.text}
+                    </p>
+                  </div>
+
+                  {/* Grand numéro décoratif */}
+
+                  <span
+                    aria-hidden="true"
+                    className="
+                      pointer-events-none
+                      absolute
+                      -bottom-7
+                      right-1
+                      text-[120px]
+                      font-black
+                      leading-none
+                      tracking-[-0.09em]
+                      text-[#06291b]/[0.025]
+                      transition-all
+                      duration-700
+
+                      group-hover:-translate-y-3
+                      group-hover:text-[#b7813f]/[0.06]
+                    "
+                  >
+                    0{index + 1}
+                  </span>
+                </article>
               );
             })}
+          </div>
+
+          {/* =================================================
+              SIGNATURE
+          ================================================= */}
+
+          <div
+            className="
+              mt-10
+              flex
+              flex-col
+              gap-5
+              border-t
+              border-[#06291b]/10
+              pt-8
+              sm:flex-row
+              sm:items-center
+              sm:justify-between
+            "
+          >
+            <p
+              className="
+                text-[9px]
+                font-black
+                uppercase
+                tracking-[0.25em]
+                text-[#06291b]/35
+              "
+            >
+              Agriculture · Transformation · Qualité · Export
+            </p>
+
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-[#b7813f]" />
+
+              <span
+                className="
+                  text-[10px]
+                  font-black
+                  uppercase
+                  tracking-[0.2em]
+                  text-[#a87538]
+                "
+              >
+                AlMahdi AgriGroup
+              </span>
+            </div>
           </div>
         </div>
       </section>
