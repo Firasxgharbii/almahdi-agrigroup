@@ -6,7 +6,6 @@ import {
 } from "lucide-react";
 
 import GroupPage from "../components/GroupPage";
-import CinematicStorySection from "../components/CinematicStorySection";
 import HeritagePillarsSection from "../components/HeritagePillarsSection";
 import GroupCompaniesSection from "../components/GroupCompaniesSection";
 
@@ -48,7 +47,6 @@ export default function NotreGroupePage() {
           HISTOIRE CINÉMATIQUE
       ===================================================== */}
 
-      <CinematicStorySection />
 
       {/* =====================================================
           5 GÉNÉRATIONS / HÉRITAGE ALMAHDI
