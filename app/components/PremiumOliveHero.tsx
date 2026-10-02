@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +22,10 @@ import {
   Plus_Jakarta_Sans,
 } from "next/font/google";
 
+// =====================================================
+// FONTS
+// =====================================================
+
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
@@ -25,6 +35,260 @@ const bodyFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
+
+// =====================================================
+// ANIMATED STAT
+// =====================================================
+
+function AnimatedStat({
+  value,
+  prefix = "",
+  suffix = "",
+  label,
+  delay = 0,
+}: {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+  delay?: number;
+}) {
+  const [count, setCount] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+
+    let animationFrame = 0;
+    let startTime: number | null = null;
+
+    const duration = 1600;
+
+    const timeout = window.setTimeout(() => {
+      const animate = (time: number) => {
+        if (startTime === null) {
+          startTime = time;
+        }
+
+        const progress = Math.min(
+          (time - startTime) / duration,
+          1
+        );
+
+        const eased =
+          1 - Math.pow(1 - progress, 4);
+
+        setCount(
+          Math.round(value * eased)
+        );
+
+        if (progress < 1) {
+          animationFrame =
+            requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrame =
+        requestAnimationFrame(animate);
+    }, delay);
+
+    return () => {
+      window.clearTimeout(timeout);
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [visible, value, delay]);
+
+  const formattedValue =
+    value >= 1000
+      ? count.toLocaleString("fr-FR")
+      : count.toString();
+
+  return (
+    <div
+      ref={ref}
+      className={`
+        group/stat
+        relative
+        flex
+        min-h-[116px]
+        flex-col
+        justify-center
+        overflow-hidden
+        px-3
+        py-5
+        transition-all
+        duration-700
+
+        sm:min-h-[125px]
+        sm:px-5
+
+        ${
+          visible
+            ? "translate-y-0 opacity-100"
+            : "translate-y-5 opacity-0"
+        }
+      `}
+    >
+      {/* GOLD TOP DETAIL */}
+
+      <span
+        className="
+          absolute
+          left-3
+          top-0
+          h-[2px]
+          w-7
+          bg-[#d7ad6a]
+          transition-all
+          duration-700
+          group-hover/stat:w-14
+
+          sm:left-5
+        "
+      />
+
+      {/* NUMBER */}
+
+      <div className="relative z-10 flex items-baseline">
+        {prefix && (
+          <span
+            className={`
+              ${displayFont.className}
+              mr-0.5
+              text-[26px]
+              font-semibold
+              leading-none
+              text-[#d7ad6a]
+
+              sm:text-[31px]
+              md:text-[34px]
+            `}
+          >
+            {prefix}
+          </span>
+        )}
+
+        <span
+          className={`
+            ${displayFont.className}
+            whitespace-nowrap
+            text-[34px]
+            font-semibold
+            leading-none
+            tracking-[-0.035em]
+            text-[#fff8ea]
+            drop-shadow-[0_4px_22px_rgba(215,173,106,0.20)]
+            transition-colors
+            duration-500
+
+            group-hover/stat:text-[#e7c47f]
+
+            sm:text-[40px]
+            md:text-[46px]
+          `}
+        >
+          {formattedValue}
+        </span>
+
+        {suffix && (
+          <span
+            className={`
+              ${displayFont.className}
+              ml-1
+              text-[20px]
+              font-semibold
+              leading-none
+              text-[#d7ad6a]
+
+              sm:text-[24px]
+              md:text-[28px]
+            `}
+          >
+            {suffix}
+          </span>
+        )}
+      </div>
+
+      {/* LABEL */}
+
+      <div className="relative z-10 mt-3 flex items-center gap-2">
+        <span
+          className="
+            h-1
+            w-1
+            shrink-0
+            rounded-full
+            bg-[#d7ad6a]
+            shadow-[0_0_10px_rgba(215,173,106,0.8)]
+          "
+        />
+
+        <p
+          className="
+            text-[8px]
+            font-bold
+            uppercase
+            tracking-[0.12em]
+            text-white/65
+
+            sm:text-[9px]
+            sm:tracking-[0.16em]
+
+            md:text-[10px]
+          "
+        >
+          {label}
+        </p>
+      </div>
+
+      {/* HOVER GLOW */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_25%_50%,rgba(215,173,106,0.12),transparent_68%)]
+          opacity-0
+          transition-opacity
+          duration-500
+          group-hover/stat:opacity-100
+        "
+      />
+    </div>
+  );
+}
+
+// =====================================================
+// PREMIUM OLIVE HERO
+// =====================================================
 
 export default function PremiumOliveHero() {
   return (
@@ -58,6 +322,7 @@ export default function PremiumOliveHero() {
         />
 
         {/* Overlay gauche */}
+
         <div
           className="
             absolute
@@ -67,6 +332,7 @@ export default function PremiumOliveHero() {
         />
 
         {/* Overlay vertical */}
+
         <div
           className="
             absolute
@@ -219,6 +485,7 @@ export default function PremiumOliveHero() {
               text-white/75
 
               sm:text-base
+
               md:text-[17px]
               md:leading-8
             "
@@ -351,72 +618,92 @@ export default function PremiumOliveHero() {
           </div>
 
           {/* =====================================================
-              STATS
+              PREMIUM ANIMATED STATS
           ===================================================== */}
 
           <div
             className="
               hero-fade-up
+              relative
               mt-12
-              grid
               w-full
-              max-w-[620px]
-              grid-cols-3
-              border-t
-              border-[#d7ad6a]/30
-              pt-6
+              max-w-[650px]
+              overflow-hidden
+              border-y
+              border-[#d7ad6a]/35
+              bg-[#031f15]/30
+              shadow-[0_18px_60px_rgba(0,0,0,0.12)]
+              backdrop-blur-[3px]
             "
           >
-            <div className="border-r border-white/10 pr-4">
-              <p
-                className={`
-                  ${displayFont.className}
-                  text-3xl
-                  text-[#f4ead9]
-                  md:text-4xl
-                `}
-              >
-                +1 500 t
-              </p>
+            {/* TOP LIGHT */}
 
-              <p className="mt-1 text-[11px] text-white/50">
-                par saison
-              </p>
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                left-1/2
+                top-0
+                h-24
+                w-3/4
+                -translate-x-1/2
+                bg-[#d7ad6a]/5
+                blur-[60px]
+              "
+            />
+
+            <div className="relative grid grid-cols-3">
+              {/* PRODUCTION */}
+
+              <div className="border-r border-[#d7ad6a]/20">
+                <AnimatedStat
+                  value={1500}
+                  prefix="+"
+                  suffix="t"
+                  label="par saison"
+                  delay={0}
+                />
+              </div>
+
+              {/* GENERATIONS */}
+
+              <div className="border-r border-[#d7ad6a]/20">
+                <AnimatedStat
+                  value={5}
+                  label="générations"
+                  delay={150}
+                />
+              </div>
+
+              {/* AWARDS */}
+
+              <div>
+                <AnimatedStat
+                  value={8}
+                  label="médailles"
+                  delay={300}
+                />
+              </div>
             </div>
 
-            <div className="border-r border-white/10 px-5">
-              <p
-                className={`
-                  ${displayFont.className}
-                  text-3xl
-                  text-[#f4ead9]
-                  md:text-4xl
-                `}
-              >
-                5
-              </p>
+            {/* BOTTOM GOLD LIGHT */}
 
-              <p className="mt-1 text-[11px] text-white/50">
-                générations
-              </p>
-            </div>
-
-            <div className="pl-5">
-              <p
-                className={`
-                  ${displayFont.className}
-                  text-3xl
-                  text-[#f4ead9]
-                  md:text-4xl
-                `}
-              >
-                8
-              </p>
-
-              <p className="mt-1 text-[11px] text-white/50">
-                médailles
-              </p>
-            </div>
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                bottom-0
+                left-0
+                h-px
+                w-full
+                bg-gradient-to-r
+                from-transparent
+                via-[#d7ad6a]/70
+                to-transparent
+              "
+            />
           </div>
 
           {/* =====================================================
@@ -588,21 +875,21 @@ export default function PremiumOliveHero() {
               backdrop-blur-[2px]
             "
           >
-            {/* Quand la vidéo sera prête :
+            {/*
+              Quand la vidéo sera prête :
 
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 h-full w-full object-cover"
-            >
-              <source
-                src="/videos/almahdi.mp4"
-                type="video/mp4"
-              />
-            </video>
-
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                <source
+                  src="/videos/almahdi.mp4"
+                  type="video/mp4"
+                />
+              </video>
             */}
 
             <div
@@ -632,6 +919,7 @@ export default function PremiumOliveHero() {
               "
             >
               <span className="h-px w-8 bg-[#d7ad6a]" />
+
               AlMahdi Olive
             </div>
 
@@ -744,7 +1032,11 @@ export default function PremiumOliveHero() {
         "
       >
         <span className="flex items-center gap-2">
-          <Leaf size={13} className="text-[#d7ad6a]" />
+          <Leaf
+            size={13}
+            className="text-[#d7ad6a]"
+          />
+
           Agriculture
         </span>
 
@@ -753,6 +1045,7 @@ export default function PremiumOliveHero() {
             size={13}
             className="text-[#d7ad6a]"
           />
+
           Traçabilité
         </span>
 
@@ -761,6 +1054,7 @@ export default function PremiumOliveHero() {
             size={13}
             className="text-[#d7ad6a]"
           />
+
           Export
         </span>
       </div>
