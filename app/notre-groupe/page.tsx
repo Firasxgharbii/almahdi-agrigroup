@@ -8,7 +8,7 @@ import {
 import GroupPage from "../components/GroupPage";
 import HeritagePillarsSection from "../components/HeritagePillarsSection";
 import MaisonAlMahdiSection from "../components/MaisonAlMahdiSection";
-import GroupCompaniesSection from "../components/GroupCompaniesSection";
+
 
 const values = [
   {
