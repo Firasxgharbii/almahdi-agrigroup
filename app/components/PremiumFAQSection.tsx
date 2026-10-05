@@ -37,7 +37,7 @@ const faqItems: FAQItem[] = [
     number: "01",
     question: "Quelle capacité d’huile d’olive pouvez-vous fournir ?",
     answer:
-      "Notre capacité de production dépasse 1 500 tonnes par saison. Grâce à notre infrastructure de stockage et à notre organisation logistique, nous pouvons accompagner aussi bien des commandes ponctuelles que des programmes d’approvisionnement réguliers destinés aux marchés internationaux.",
+      "Notre capacité de production dépasse 2000 tonnes par saison. Grâce à notre infrastructure de stockage et à notre organisation logistique, nous pouvons accompagner aussi bien des commandes ponctuelles que des programmes d’approvisionnement réguliers destinés aux marchés internationaux.",
   },
   {
     number: "02",

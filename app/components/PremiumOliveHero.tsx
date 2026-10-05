@@ -658,7 +658,7 @@ export default function PremiumOliveHero() {
 
               <div className="border-r border-[#d7ad6a]/20">
                 <AnimatedStat
-                  value={1500}
+                  value={2000}
                   prefix="+"
                   suffix="t"
                   label="par saison"

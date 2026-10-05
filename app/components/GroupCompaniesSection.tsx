@@ -26,9 +26,9 @@ const companies = [
     extra: null,
     phones: ["+216 58 868 000"],
     email: "huilerie.almehdi@gmail.com",
-    signature: "Fournisseur de Sovena Group · +1 500 t par saison",
+    signature: "Fournisseur de Sovena Group · + 2000 t par saison",
     tags: ["BIO", "CONVENTIONNEL", "VRAC", "EXPORT"],
-    metric: "+1 500 t",
+    metric: "+2 000 t",
     metricLabel: "par saison",
   },
   {
@@ -237,7 +237,7 @@ export default function GroupCompaniesSection() {
 
                 <div className="pl-5 py-6">
                   <strong className="block text-[28px] font-light tracking-[-0.04em] text-[#f8f3e7]">
-                    +1 500 t
+                    +2000 t
                   </strong>
                   <span className="mt-2 block text-[8px] font-bold uppercase tracking-[0.2em] text-white/35">
                     par saison

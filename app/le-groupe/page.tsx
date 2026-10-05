@@ -34,7 +34,7 @@ const companies = [
       "Une activité tournée vers les professionnels et les marchés internationaux, avec Mediliva comme marque en bouteille.",
     phones: ["+216 58 868 000"],
     email: "huilerie.almehdi@gmail.com",
-    signature: "Fournisseur de Sovena Group · +1 500 t par saison",
+    signature: "Fournisseur de Sovena Group · +2000 t par saison",
   },
   {
     number: "02",
