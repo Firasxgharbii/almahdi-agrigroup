@@ -40,7 +40,7 @@ export default function GlobalTestimonialsSection() {
           </div>
 
           <p className="mx-auto mt-7 max-w-[620px] text-xl font-bold leading-9 text-[#061b11]/90">
-            “AlMahdi AgriGroup représente un savoir-faire fiable, une qualité
+            “AlMahdi Olive Oil représente un savoir-faire fiable, une qualité
             constante et une vision moderne tournée vers l’export.”
           </p>
 

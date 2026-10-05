@@ -222,7 +222,7 @@ export async function POST(
 
     await transporter.sendMail({
       from: {
-        name: "AlMahdi AgriGroup",
+        name: "AlMahdi Olive Oil",
         address: emailUser,
       },
 
@@ -236,7 +236,7 @@ export async function POST(
       subject: `Nouvelle demande de contact — ${name}`,
 
       text: `
-Nouvelle demande depuis AlMahdi AgriGroup
+Nouvelle demande depuis AlMahdi Olive Oil
 
 Nom :
 ${name}
@@ -312,7 +312,7 @@ ${message}
             text-transform:uppercase;
           "
         >
-          ALMAHDI AGRIGROUP
+          ALMAHDI OLIVE OIL
         </div>
 
         <h1
@@ -519,7 +519,7 @@ ${message}
         "
       >
         Message reçu depuis le formulaire de contact
-        AlMahdi AgriGroup.
+        AlMahdi Olive Oil.
       </div>
 
     </div>

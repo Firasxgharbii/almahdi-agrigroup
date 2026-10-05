@@ -172,7 +172,7 @@ export default function GroupCompaniesSection() {
             <div className="flex items-center gap-4">
               <span className="h-px w-12 bg-[#d7ad6a]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#d7ad6a]">
-                AlMahdi AgriGroup
+                AlMahdi Olive Oil
               </span>
             </div>
 
@@ -489,7 +489,7 @@ export default function GroupCompaniesSection() {
               <div className="flex items-center gap-3">
                 <span className="h-px w-9 bg-[#a9773e]" />
                 <span className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#a9773e]">
-                  AlMahdi AgriGroup
+                  AlMahdi Olive Oil
                 </span>
               </div>
             </div>

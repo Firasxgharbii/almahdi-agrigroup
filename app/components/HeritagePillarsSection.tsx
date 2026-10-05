@@ -207,7 +207,7 @@ export default function HeritagePillarsSection() {
               "
             >
               De la terre jusqu&apos;aux marchés internationaux,
-              AlMahdi AgriGroup construit son développement autour
+              AlMahdi Olive Oil construit son développement autour
               d&apos;un héritage familial, d&apos;une maîtrise agricole
               et d&apos;une vision tournée vers l&apos;avenir.
             </p>
@@ -492,7 +492,7 @@ export default function HeritagePillarsSection() {
                 text-[#d7ad6a]
               "
             >
-              AlMahdi AgriGroup
+              AlMahdi Olive Oil
             </span>
           </div>
         </div>

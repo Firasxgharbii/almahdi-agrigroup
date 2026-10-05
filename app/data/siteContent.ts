@@ -19,7 +19,7 @@ import {
 
 export const siteContent = {
   company: {
-    name: "AlMahdi AgriGroup",
+    name: "AlMahdi Olive Oil",
     monogram: "AM",
     tagline: "Groupe Agroalimentaire Tunisien · 5ème Génération",
     shortTagline: "Tunisie — Tradition & Excellence depuis 5 Générations",
@@ -200,7 +200,7 @@ export const siteContent = {
       eyebrow: "Nos Trois Piliers",
       title: "Un Groupe, Trois Sociétés d’Excellence",
       description:
-        "Du champ à l’assiette, de la terre à l’export — AlMahdi AgriGroup maîtrise toute la chaîne de valeur agroalimentaire tunisienne.",
+        "Du champ à l’assiette, de la terre à l’export — AlMahdi Olive Oil maîtrise toute la chaîne de valeur agroalimentaire tunisienne.",
     },
   },
 
@@ -389,7 +389,7 @@ export const siteContent = {
       eyebrow: "Preuve d’Excellence",
       title: "Cinq Générations de Maîtrise Agricole",
       description:
-        "AlMahdi AgriGroup n’est pas né d’une idée d’entreprise. Il est le résultat de cinq générations de labeur, de passion et de transmission. Chaque produit livré porte l’empreinte d’un savoir-faire centenaire, enrichi par la technologie moderne et les certifications internationales.",
+        "AlMahdi Olive Oil n’est pas né d’une idée d’entreprise. Il est le résultat de cinq générations de labeur, de passion et de transmission. Chaque produit livré porte l’empreinte d’un savoir-faire centenaire, enrichi par la technologie moderne et les certifications internationales.",
     },
 
     timeline: [
@@ -686,7 +686,7 @@ export const siteContent = {
         ],
       },
     ],
-    copyright: "© 2024 AlMahdi AgriGroup. Tous droits réservés.",
+    copyright: "© 2024 AlMahdi Olive Oil. Tous droits réservés.",
   },
 } as const;
 

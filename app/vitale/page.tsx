@@ -5,7 +5,7 @@ export default function VitalePage() {
     <CompanyPage
       title="Vitale"
       image="/images/olivehero.png"
-      description="Vitale représente une société du groupe AlMahdi AgriGroup, avec une vision orientée qualité, production et développement durable."
+      description="Vitale représente une société du groupe AlMahdi Olive Oil, avec une vision orientée qualité, production et développement durable."
     />
   );
 }

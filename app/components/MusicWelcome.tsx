@@ -78,7 +78,7 @@ export default function MusicWelcome() {
             </div>
 
             <p className="mb-6 text-[10px] font-bold uppercase tracking-[0.42em] text-[#d7ad6a] sm:text-xs">
-              AlMahdi AgriGroup · Tunisie
+              AlMahdi Olive Oil · Tunisie
             </p>
 
             <h1 className="font-serif text-[clamp(3rem,8vw,7.5rem)] leading-[0.87] tracking-[-0.045em]">
@@ -91,7 +91,7 @@ export default function MusicWelcome() {
             <div className="mx-auto my-8 h-px w-20 bg-[#d7ad6a]/60" />
 
             <p className="mx-auto max-w-[620px] text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
-              Entrez dans l’univers AlMahdi AgriGroup et découvrez un héritage
+              Entrez dans l’univers AlMahdi Olive Oil et découvrez un héritage
               agricole tunisien transmis de génération en génération.
             </p>
 

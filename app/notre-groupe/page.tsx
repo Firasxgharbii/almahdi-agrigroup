@@ -166,7 +166,7 @@ export default function NotreGroupePage() {
                   md:leading-8
                 "
               >
-                AlMahdi AgriGroup construit une vision familiale,
+                AlMahdi Olive Oil construit une vision familiale,
                 moderne et structurée, capable d&apos;accompagner
                 plusieurs sociétés, produits et marchés.
               </p>
@@ -415,7 +415,7 @@ export default function NotreGroupePage() {
                   text-[#a87538]
                 "
               >
-                AlMahdi AgriGroup
+                AlMahdi Olive Oil
               </span>
             </div>
           </div>

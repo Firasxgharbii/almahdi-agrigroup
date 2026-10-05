@@ -28,7 +28,7 @@ const mediaTabs = ["Actualités", "Médailles IOOC", "Foires & Salons"];
 const articles = [
   {
     id: 1,
-    title: "AlMahdi AgriGroup renforce sa vision agroalimentaire tunisienne",
+    title: "AlMahdi Olive Oil renforce sa vision agroalimentaire tunisienne",
     category: "Groupe",
     date: "12 Juin 2025",
     description:
@@ -59,7 +59,7 @@ const articles = [
     category: "Export",
     date: "28 Mai 2025",
     description:
-      "AlMahdi AgriGroup prépare une présence plus structurée pour répondre aux opportunités à l’international.",
+      "AlMahdi Olive Oil prépare une présence plus structurée pour répondre aux opportunités à l’international.",
     image: "/images/olivehero6.jpg",
   },
 ];
@@ -90,7 +90,7 @@ export default function ActualitesPage() {
         <section className="relative overflow-hidden">
           <Image
             src="/images/olivehero3.jpg"
-            alt="Actualités AlMahdi AgriGroup"
+            alt="Actualités AlMahdi Olive Oil"
             fill
             priority
             sizes="100vw"
@@ -105,7 +105,7 @@ export default function ActualitesPage() {
               style={futuraLight}
               className="mb-8 text-[13px] uppercase tracking-[0.55em] text-[#a09087]"
             >
-              ALMAHDI AGRIGROUP
+              ALMAHDI OLIVE OIL
             </p>
 
             <h1

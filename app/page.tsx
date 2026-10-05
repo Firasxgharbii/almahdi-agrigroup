@@ -149,7 +149,7 @@ export default function Home() {
                 md:text-lg
               "
             >
-              AlMahdi AgriGroup présente une image sérieuse, familiale et
+              AlMahdi Olive Oil présente une image sérieuse, familiale et
               moderne, capable de développer plusieurs sociétés, produits et
               marchés en Tunisie et à l’international.
             </p>

@@ -67,7 +67,7 @@ const faqItems: FAQItem[] = [
     number: "06",
     question: "Travaillez-vous avec des importateurs et distributeurs ?",
     answer:
-      "Oui. AlMahdi AgriGroup développe une approche B2B destinée aux importateurs, distributeurs, industriels et partenaires internationaux recherchant une origine tunisienne fiable, une capacité d’approvisionnement structurée et une relation commerciale durable.",
+      "Oui. AlMahdi Olive Oil développe une approche B2B destinée aux importateurs, distributeurs, industriels et partenaires internationaux recherchant une origine tunisienne fiable, une capacité d’approvisionnement structurée et une relation commerciale durable.",
   },
 ];
 

@@ -44,7 +44,7 @@ export default function ContactMapHero() {
 
       <div className="absolute inset-0 -z-30 overflow-hidden">
         <iframe
-          title="Localisation AlMahdi AgriGroup"
+          title="Localisation AlMahdi Olive Oil"
           src={`https://www.google.com/maps?q=${encodeURIComponent(
             ADDRESS
           )}&t=k&z=14&output=embed`}
@@ -180,7 +180,7 @@ export default function ContactMapHero() {
                   text-[#e4bd78]
                 "
               >
-                AlMahdi AgriGroup
+                AlMahdi Olive Oil
               </span>
             </div>
 
@@ -291,7 +291,7 @@ export default function ContactMapHero() {
             href={MAP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Voir AlMahdi AgriGroup sur Google Maps"
+            aria-label="Voir AlMahdi Olive Oil sur Google Maps"
             className="
               group
               relative

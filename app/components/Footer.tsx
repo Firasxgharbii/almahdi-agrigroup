@@ -478,7 +478,7 @@ export default function Footer() {
               text-[#555]
             "
           >
-            <p>© 2026, ALMAHDI AGRIGROUP</p>
+            <p>© 2026, ALMAHDI OLIVE OIL</p>
 
             <p>
               Made by{" "}

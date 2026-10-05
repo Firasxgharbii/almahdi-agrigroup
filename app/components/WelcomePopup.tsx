@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 // ============================================
-// ALMAHDI AGRIGROUP
+// ALMAHDI OLIVE OIL
 // WELCOME POPUP
 // ============================================
 
@@ -634,7 +634,7 @@ export default function WelcomePopup() {
             >
               <Image
                 src={CONFIG.logo}
-                alt="AlMahdi AgriGroup"
+                alt="AlMahdi Olive Oil"
                 fill
                 sizes="185px"
                 priority
@@ -777,7 +777,7 @@ export default function WelcomePopup() {
                 animationDelay: "400ms",
               }}
             >
-              AlMahdi AgriGroup
+              AlMahdi Olive Oil
             </p>
 
             {/* DESCRIPTION */}
@@ -1062,7 +1062,7 @@ export default function WelcomePopup() {
                 text-[#8D917F]
               "
             >
-              AlMahdi AgriGroup · Tunisie
+              AlMahdi Olive Oil · Tunisie
             </p>
           </div>
         </div>

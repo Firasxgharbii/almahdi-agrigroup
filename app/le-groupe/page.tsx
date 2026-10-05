@@ -18,7 +18,7 @@ import {
 import { motion, useReducedMotion } from "motion/react";
 
 /* =========================================================
-   ALMAHDI AGRIGROUP — LE GROUPE
+   ALMAHDI OLIVE OIL — LE GROUPE
 ========================================================= */
 
 const companies = [
@@ -207,7 +207,7 @@ export default function LeGroupePage() {
                 <span className="h-px w-9 bg-[#d7ad6a]" />
 
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d7ad6a]">
-                  AlMahdi AgriGroup
+                  AlMahdi Olive Oil
                 </p>
               </div>
 
@@ -245,7 +245,7 @@ export default function LeGroupePage() {
 
             <div className="mt-10 grid max-w-[950px] gap-8 border-l border-[#d7ad6a]/30 pl-6 md:grid-cols-[1fr_auto] md:items-end md:pl-8">
               <p className="max-w-[720px] text-[16px] leading-8 text-white/60 md:text-[18px]">
-                AlMahdi AgriGroup réunit des activités complémentaires
+                AlMahdi Olive Oil réunit des activités complémentaires
                 autour de l'agriculture, de la transformation, de la
                 nutrition animale, de la conservation et de l'export.
               </p>
@@ -331,7 +331,7 @@ export default function LeGroupePage() {
 
           <motion.div {...reveal} className="lg:pt-14">
             <p className="max-w-[720px] text-[19px] leading-9 text-[#36594c]">
-              Implanté à Sidi Bouzid, AlMahdi AgriGroup s'appuie sur
+              Implanté à Sidi Bouzid, AlMahdi Olive Oil s'appuie sur
               un héritage familial transmis depuis cinq générations et
               sur des sociétés aux métiers complémentaires.
             </p>
@@ -834,7 +834,7 @@ export default function LeGroupePage() {
               </p>
 
               <p className="mt-3 text-[10px] uppercase tracking-[0.18em] text-white/35">
-                AlMahdi AgriGroup
+                AlMahdi Olive Oil
               </p>
             </motion.div>
           </motion.div>
@@ -905,7 +905,7 @@ export default function LeGroupePage() {
         >
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.25em]">
-              AlMahdi AgriGroup
+              AlMahdi Olive Oil
             </p>
 
             <h2 className="mt-4 max-w-[850px] text-[42px] font-semibold leading-[1] tracking-[-0.04em] md:text-[58px]">

@@ -197,7 +197,7 @@ export default function Navbar() {
               shrink-0
               items-center
             "
-            aria-label="AlMahdi AgriGroup - Accueil"
+            aria-label="AlMahdi Olive Oil - Accueil"
           >
             <div
               className="
@@ -219,7 +219,7 @@ export default function Navbar() {
 
             <Image
               src="/logoalmahdi.png"
-              alt="AlMahdi AgriGroup"
+              alt="AlMahdi Olive Oil"
               width={180}
               height={65}
               priority
@@ -570,7 +570,7 @@ export default function Navbar() {
                   text-[#a47b21]
                 "
               >
-                AlMahdi AgriGroup
+                AlMahdi Olive Oil
               </p>
             </div>
 

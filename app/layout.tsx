@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AlMahdi AgriGroup",
+  title: "AlMahdi Olive Oil",
   description:
-    "AlMahdi AgriGroup - Groupe agroalimentaire tunisien de 5ème génération.",
+    "AlMahdi Olive Oil - Groupe agroalimentaire tunisien de 5ème génération.",
 };
 
 export default function RootLayout({

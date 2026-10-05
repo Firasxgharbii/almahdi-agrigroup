@@ -3,7 +3,7 @@
 import { Leaf, Quote } from "lucide-react";
 
 const paragraphs = [
-  "AlMahdi AgriGroup est une entreprise familiale tunisienne portée par plusieurs générations de savoir-faire agricole.",
+  "AlMahdi Olive Oil est une entreprise familiale tunisienne portée par plusieurs générations de savoir-faire agricole.",
   "Nous développons une vision moderne de l’agroalimentaire tunisien, tournée vers la qualité, la traçabilité et l’export.",
   "De la terre au produit fini, chaque étape reflète notre exigence : produire, transformer et valoriser avec sérieux.",
   "Nos activités couvrent l’huile d’olive, la nutrition animale, le stockage frigorifique et les marchés internationaux.",
