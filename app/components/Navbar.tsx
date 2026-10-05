@@ -8,6 +8,10 @@ import { useEffect, useState } from "react";
 
 const navItems = [
   {
+    label: "Accueil",
+    href: "/",
+  },
+  {
     label: "Notre histoire",
     href: "/notre-groupe",
   },
@@ -82,7 +86,7 @@ export default function Navbar() {
   }, []);
 
   /* ======================================================
-     BODY LOCK
+     BODY LOCK MOBILE
   ====================================================== */
 
   useEffect(() => {
@@ -119,10 +123,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ==================================================
-          NAVBAR
-      =================================================== */}
-
       <header
         className={`
           sticky
@@ -171,15 +171,15 @@ export default function Navbar() {
             mx-auto
             flex
             w-full
-            max-w-[1380px]
+            max-w-[1420px]
             items-center
             justify-between
-            px-5
+            px-4
             transition-all
             duration-300
 
-            sm:px-7
-            lg:px-8
+            sm:px-6
+            lg:px-7
 
             ${
               scrolled
@@ -205,8 +205,6 @@ export default function Navbar() {
               justify-center
             "
           >
-            {/* subtle glow */}
-
             <div
               aria-hidden="true"
               className="
@@ -285,7 +283,7 @@ export default function Navbar() {
 
               return (
                 <Link
-                  key={item.label}
+                  key={`${item.label}-${item.href}`}
                   href={item.href}
                   className="
                     group
@@ -294,7 +292,7 @@ export default function Navbar() {
                     h-full
                     items-center
                     justify-center
-                    px-[11px]
+                    px-[9px]
                   "
                 >
                   <span
@@ -302,10 +300,10 @@ export default function Navbar() {
                       relative
                       z-10
                       whitespace-nowrap
-                      text-[10.5px]
+                      text-[10px]
                       font-semibold
                       uppercase
-                      tracking-[0.09em]
+                      tracking-[0.075em]
                       transition-colors
                       duration-300
 
@@ -328,7 +326,7 @@ export default function Navbar() {
                       left-1/2
                       top-1/2
                       h-[34px]
-                      w-[calc(100%-6px)]
+                      w-[calc(100%-4px)]
                       -translate-x-1/2
                       -translate-y-1/2
                       scale-95
@@ -371,7 +369,7 @@ export default function Navbar() {
 
             {/* SEPARATOR */}
 
-            <div className="mx-3 h-[22px] w-px bg-[#073d2b]/15" />
+            <div className="mx-2 h-[22px] w-px bg-[#073d2b]/15" />
 
             {/* ==================================================
                 LANGUAGE
@@ -420,7 +418,7 @@ export default function Navbar() {
               className="
                 group
                 relative
-                ml-5
+                ml-4
                 flex
                 h-[45px]
                 shrink-0
@@ -549,7 +547,7 @@ export default function Navbar() {
 
             ${
               menuOpen
-                ? "visible max-h-[750px] translate-y-0 opacity-100"
+                ? "visible max-h-[850px] translate-y-0 opacity-100"
                 : "invisible max-h-0 -translate-y-3 opacity-0"
             }
           `}
@@ -589,13 +587,13 @@ export default function Navbar() {
 
                 return (
                   <Link
-                    key={item.label}
+                    key={`${item.label}-${item.href}`}
                     href={item.href}
                     onClick={closeMenu}
                     className="
                       group
                       flex
-                      min-h-[58px]
+                      min-h-[56px]
                       items-center
                       justify-between
                       border-b
