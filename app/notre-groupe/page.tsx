@@ -38,9 +38,9 @@ export default function NotreGroupePage() {
       ===================================================== */}
 
       <GroupPage
-        title="Notre histoire"
+        title="Notre Histoire"
         image="/images/olivehero3.jpg"
-        subtitle="Découvrez l’histoire du groupe."
+        subtitle="Découvrez l’Histoire du groupe."
       />
 
       {/* =====================================================
