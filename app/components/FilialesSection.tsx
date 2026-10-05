@@ -12,62 +12,7 @@ const filiales = [
     phone: "+216 79 350 170",
     fax: "+216 79 350 171",
   },
-  {
-    flag: "🇨🇦",
-    title: "ALMAHDI CANADA",
-    address: ["Montréal, Québec", "Canada"],
-    phone: "+1 514 000 0000",
-    fax: "+1 514 000 0000",
-  },
-  {
-    flag: "🇲🇦",
-    title: "ALMAHDI MAROC",
-    address: ["Casablanca", "Maroc"],
-    phone: "+212 000 000 000",
-    fax: "+212 000 000 000",
-  },
-  {
-    flag: "🇨🇳",
-    title: "ALMAHDI CHINE",
-    address: ["Shanghai", "Chine"],
-    phone: "+86 000 000 000",
-    fax: "+86 000 000 000",
-  },
-  {
-    flag: "🇫🇷",
-    title: "ALMAHDI FRANCE",
-    address: ["Paris", "France"],
-    phone: "+33 000 000 000",
-    fax: "+33 000 000 000",
-  },
-  {
-    flag: "🇨🇮",
-    title: "ALMAHDI AFRIQUE",
-    address: ["Abidjan", "Côte d’Ivoire"],
-    phone: "+225 00 00 00 00",
-    fax: "+225 00 00 00 00",
-  },
-  {
-    flag: "🇺🇸",
-    title: "ALMAHDI USA",
-    address: ["Houston, Texas", "USA"],
-    phone: "+1 000 000 0000",
-    fax: "+1 000 000 0000",
-  },
-  {
-    flag: "🇷🇺",
-    title: "ALMAHDI RUSSIE",
-    address: ["Moscou", "Russie"],
-    phone: "+7 000 000 0000",
-    fax: "+7 000 000 0000",
-  },
-  {
-    flag: "🇬🇧",
-    title: "ALMAHDI ROYAUME-UNI",
-    address: ["Londres", "Royaume-Uni"],
-    phone: "+44 000 000 000",
-    fax: "+44 000 000 000",
-  },
+ 
 ];
 
 export default function FilialesSection() {
