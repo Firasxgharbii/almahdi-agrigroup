@@ -1,64 +1,75 @@
-
 "use client";
 
 import Image from "next/image";
-
 import {
   motion,
   useReducedMotion,
   type Variants,
 } from "motion/react";
 
-// ==========================================
-// ALMAHDI AGRIGROUP
-// AWARDS & CERTIFICATIONS
-// ==========================================
+/* =========================================================
+   ALMAHDI AGRIGROUP
+   AWARDS & CERTIFICATIONS
+========================================================= */
 
 const awards = [
   {
     id: 1,
-    name: "Distinction AlMahdi 01",
+    name: "Gold Award",
     src: "/awards/awards1.png",
   },
   {
     id: 2,
-    name: "Distinction AlMahdi 02",
-    src: "/awards/awards3.svg",
+    name: "Athena Bronze Award",
+    src: "/awards/awards2.png",
   },
   {
     id: 3,
-    name: "Distinction AlMahdi 03",
-    src: "/awards/awards4.png",
-  },
-  {
-    id: 4,
-    name: "Distinction AlMahdi 04",
+    name: "International Olive Oil Competition",
     src: "/awards/awards8.png",
   },
   {
-    id: 5,
-    name: "Distinction AlMahdi 05",
+    id: 4,
+    name: "London International Olive Oil Competition",
     src: "/awards/awards9.png",
   },
   {
-    id: 6,
-    name: "Distinction AlMahdi 06",
+    id: 5,
+    name: "Premium Gold Award",
     src: "/awards/awards10.png",
   },
   {
-    id: 7,
-    name: "Distinction AlMahdi 07",
+    id: 6,
+    name: "International Distinction",
     src: "/awards/awards11.png",
+  },
+  {
+    id: 7,
+    name: "Carthage International Olive Oil Competition",
+    src: "/awards/awards12.jpeg",
+  },
+  {
+    id: 8,
+    name: "International Olive Oil Award",
+    src: "/awards/awards13.jpeg",
+  },
+  {
+    id: 9,
+    name: "Athena Bronze Award",
+    src: "/awards/awards18.jpeg",
+  },
+  {
+    id: 10,
+    name: "Carthage Award",
+    src: "/awards/awards16.jpeg",
   },
 ];
 
-// ==========================================
-// ANIMATION SETTINGS
-// ==========================================
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
-
-// Header animation
 
 const headerVariants: Variants = {
   hidden: {
@@ -77,8 +88,6 @@ const headerVariants: Variants = {
   },
 };
 
-// Awards container animation
-
 const containerVariants: Variants = {
   hidden: {},
 
@@ -89,8 +98,6 @@ const containerVariants: Variants = {
     },
   },
 };
-
-// Individual award animation
 
 const itemVariants: Variants = {
   hidden: {
@@ -111,9 +118,9 @@ const itemVariants: Variants = {
   },
 };
 
-// ==========================================
-// AWARDS SECTION
-// ==========================================
+/* =========================================================
+   COMPONENT
+========================================================= */
 
 export default function AwardsSection() {
   const reduceMotion = useReducedMotion();
@@ -134,9 +141,9 @@ export default function AwardsSection() {
         lg:px-20
       "
     >
-      {/* ================================= */}
-      {/* BACKGROUND DECORATION */}
-      {/* ================================= */}
+      {/* ===================================================
+          BACKGROUND DECORATION
+      =================================================== */}
 
       <div
         aria-hidden="true"
@@ -155,20 +162,45 @@ export default function AwardsSection() {
         "
       />
 
-      {/* ================================= */}
-      {/* MAIN CONTAINER */}
-      {/* ================================= */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          bottom-10
+          h-[400px]
+          w-[400px]
+          rounded-full
+          bg-[#0b4935]/[0.035]
+          blur-[120px]
+        "
+      />
 
       <div
+        aria-hidden="true"
         className="
-          relative
-          mx-auto
-          max-w-[1500px]
+          pointer-events-none
+          absolute
+          -right-40
+          top-1/3
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-[#d9c18a]/[0.055]
+          blur-[130px]
         "
-      >
-        {/* ================================= */}
-        {/* SECTION HEADER */}
-        {/* ================================= */}
+      />
+
+      {/* ===================================================
+          MAIN CONTAINER
+      =================================================== */}
+
+      <div className="relative mx-auto max-w-[1500px]">
+
+        {/* =================================================
+            HEADER
+        ================================================= */}
 
         <motion.div
           variants={
@@ -194,8 +226,6 @@ export default function AwardsSection() {
             md:mb-20
           "
         >
-          {/* SMALL HEADING */}
-
           <p
             className="
               mb-5
@@ -208,8 +238,6 @@ export default function AwardsSection() {
           >
             Certifications & Distinctions
           </p>
-
-          {/* MAIN TITLE */}
 
           <h2
             id="awards-title"
@@ -258,9 +286,7 @@ export default function AwardsSection() {
             "
           />
 
-          {/* ================================= */}
-          {/* PROFESSIONAL DESCRIPTION */}
-          {/* ================================= */}
+          {/* DESCRIPTION */}
 
           <div
             className="
@@ -276,23 +302,21 @@ export default function AwardsSection() {
             "
           >
             <p>
-              Our dedication to quality has been
-              recognized through international
-              awards and distinctions.
+              Our dedication to quality has been recognized
+              through international awards and distinctions.
             </p>
 
             <p>
-              Each recognition reflects the care
-              we bring to our olive groves,
-              our production methods, and the
-              olive oil we share with the world.
+              Each recognition reflects the care we bring to
+              our olive groves, our production methods, and
+              the olive oil we share with the world.
             </p>
           </div>
         </motion.div>
 
-        {/* ================================= */}
-        {/* AWARDS GRID */}
-        {/* ================================= */}
+        {/* =================================================
+            AWARDS GRID
+        ================================================= */}
 
         <motion.div
           variants={
@@ -311,15 +335,22 @@ export default function AwardsSection() {
             amount: 0.1,
           }}
           className="
-            flex
-            flex-wrap
+            grid
+            grid-cols-2
             items-center
-            justify-center
-            gap-x-8
+            justify-items-center
+            gap-x-6
             gap-y-12
-            md:gap-x-12
+
+            sm:grid-cols-3
+            sm:gap-x-8
+
+            md:grid-cols-4
+            md:gap-x-10
             md:gap-y-16
-            lg:gap-x-14
+
+            lg:grid-cols-5
+            lg:gap-x-12
           "
         >
           {awards.map((award) => (
@@ -334,8 +365,8 @@ export default function AwardsSection() {
                 reduceMotion
                   ? undefined
                   : {
-                      y: -8,
-                      scale: 1.035,
+                      y: -10,
+                      scale: 1.04,
                     }
               }
               transition={{
@@ -348,34 +379,67 @@ export default function AwardsSection() {
                 group
                 relative
                 flex
-                h-[140px]
-                w-[calc(50%-16px)]
+                h-[145px]
+                w-full
                 max-w-[180px]
                 items-center
                 justify-center
+
                 sm:h-[155px]
-                sm:w-[155px]
+
                 md:h-[170px]
-                md:w-[170px]
+
+                lg:h-[185px]
               "
             >
-              {/* SOFT GOLD HOVER */}
+              {/* GOLD LIGHT */}
 
               <div
                 aria-hidden="true"
                 className="
                   absolute
-                  inset-2
+                  inset-3
+                  scale-75
                   rounded-full
                   bg-[#d9c18a]/0
+                  opacity-0
                   blur-2xl
                   transition-all
                   duration-500
-                  group-hover:bg-[#d9c18a]/20
+
+                  group-hover:scale-100
+                  group-hover:bg-[#d9c18a]/25
+                  group-hover:opacity-100
                 "
               />
 
-              {/* AWARD IMAGE */}
+              {/* SUBTLE CIRCLE */}
+
+              <div
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  h-[130px]
+                  w-[130px]
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  scale-75
+                  rounded-full
+                  border
+                  border-[#b99138]/0
+                  opacity-0
+                  transition-all
+                  duration-500
+
+                  group-hover:scale-100
+                  group-hover:border-[#b99138]/10
+                  group-hover:opacity-100
+                "
+              />
+
+              {/* IMAGE */}
 
               <div
                 className="
@@ -384,7 +448,8 @@ export default function AwardsSection() {
                   w-full
                   transition-all
                   duration-500
-                  group-hover:drop-shadow-[0_12px_16px_rgba(0,0,0,0.12)]
+
+                  group-hover:drop-shadow-[0_14px_18px_rgba(0,0,0,0.14)]
                 "
               >
                 <Image
@@ -393,14 +458,16 @@ export default function AwardsSection() {
                   fill
                   sizes="
                     (max-width: 640px) 45vw,
-                    (max-width: 1024px) 170px,
+                    (max-width: 768px) 30vw,
+                    (max-width: 1024px) 23vw,
                     180px
                   "
                   className="
                     object-contain
+                    p-1
                     transition-transform
                     duration-500
-                    group-hover:scale-[1.07]
+                    group-hover:scale-[1.08]
                   "
                 />
               </div>
@@ -408,9 +475,9 @@ export default function AwardsSection() {
           ))}
         </motion.div>
 
-        {/* ================================= */}
-        {/* BOTTOM DECORATION */}
-        {/* ================================= */}
+        {/* =================================================
+            BOTTOM DECORATION
+        ================================================= */}
 
         <motion.div
           initial={
