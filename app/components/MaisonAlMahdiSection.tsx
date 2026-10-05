@@ -255,22 +255,11 @@ export default function MaisonAlMahdiSection() {
                   text-[#d8ba89]
                 "
               >
-                Sidi Bouzid · Tunisie
+                Le Grand père Al Mahdi
               </p>
             </div>
 
-            <p
-              className="
-                mt-4
-                max-w-[300px]
-                text-[13px]
-                leading-6
-                text-white/65
-              "
-            >
-              Une histoire construite autour de la terre,
-              de la famille et de l&apos;olivier tunisien.
-            </p>
+           
           </div>
         </div>
 
