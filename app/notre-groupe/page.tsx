@@ -7,6 +7,7 @@ import {
 
 import GroupPage from "../components/GroupPage";
 import HeritagePillarsSection from "../components/HeritagePillarsSection";
+import MaisonAlMahdiSection from "../components/MaisonAlMahdiSection";
 import GroupCompaniesSection from "../components/GroupCompaniesSection";
 
 const values = [
@@ -50,6 +51,13 @@ export default function NotreGroupePage() {
       <HeritagePillarsSection />
 
       {/* =====================================================
+          LA MAISON AL MAHDI
+          Nouvelle section avec olivehero4.jpg
+      ===================================================== */}
+
+      <MaisonAlMahdiSection />
+
+      {/* =====================================================
           SOCIÉTÉS DU GROUPE
       ===================================================== */}
 
@@ -60,7 +68,9 @@ export default function NotreGroupePage() {
       ===================================================== */}
 
       <section className="relative overflow-hidden bg-[#fbf8e8] px-6 py-24 text-[#06291b] md:px-10 md:py-28 lg:px-20 lg:py-32">
-        {/* Décoration arrière-plan */}
+        {/* =================================================
+            DÉCORATION ARRIÈRE-PLAN
+        ================================================= */}
 
         <div
           aria-hidden="true"
@@ -142,6 +152,7 @@ export default function NotreGroupePage() {
                 "
               >
                 Un groupe pensé pour
+
                 <span
                   className="
                     mt-2
@@ -185,13 +196,14 @@ export default function NotreGroupePage() {
                 "
               >
                 <Sprout size={15} />
+
                 Terre · Savoir-faire · Avenir
               </div>
             </div>
           </div>
 
           {/* =================================================
-              CARDS
+              CARTES
           ================================================= */}
 
           <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden border border-[#06291b]/10 bg-[#06291b]/10 md:grid-cols-3">
@@ -214,7 +226,7 @@ export default function NotreGroupePage() {
                     lg:p-10
                   "
                 >
-                  {/* Hover background */}
+                  {/* HOVER BACKGROUND */}
 
                   <div
                     aria-hidden="true"
@@ -230,7 +242,7 @@ export default function NotreGroupePage() {
                     "
                   />
 
-                  {/* Numéro */}
+                  {/* NUMÉRO */}
 
                   <div className="relative z-10 flex items-start justify-between">
                     <span
@@ -255,7 +267,7 @@ export default function NotreGroupePage() {
                     />
                   </div>
 
-                  {/* Icône */}
+                  {/* ICÔNE */}
 
                   <div
                     className="
@@ -273,7 +285,6 @@ export default function NotreGroupePage() {
                       text-[#a87538]
                       transition-all
                       duration-500
-
                       group-hover:rotate-6
                       group-hover:scale-110
                       group-hover:border-[#b7813f]
@@ -293,14 +304,13 @@ export default function NotreGroupePage() {
                         border-transparent
                         transition-all
                         duration-500
-
                         group-hover:-inset-4
                         group-hover:border-[#b7813f]/15
                       "
                     />
                   </div>
 
-                  {/* Texte */}
+                  {/* TEXTE */}
 
                   <div className="relative z-10 mt-10">
                     <h3
@@ -313,7 +323,6 @@ export default function NotreGroupePage() {
                         text-[#06291b]
                         transition-colors
                         duration-300
-
                         group-hover:text-[#9d6b32]
                       "
                     >
@@ -345,7 +354,7 @@ export default function NotreGroupePage() {
                     </p>
                   </div>
 
-                  {/* Grand numéro décoratif */}
+                  {/* GRAND NUMÉRO DÉCORATIF */}
 
                   <span
                     aria-hidden="true"
@@ -361,7 +370,6 @@ export default function NotreGroupePage() {
                       text-[#06291b]/[0.025]
                       transition-all
                       duration-700
-
                       group-hover:-translate-y-3
                       group-hover:text-[#b7813f]/[0.06]
                     "
