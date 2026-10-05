@@ -45,17 +45,19 @@ export default function NotreGroupePage() {
       />
 
       {/* =====================================================
-          5 GÉNÉRATIONS / HÉRITAGE ALMAHDI
-      ===================================================== */}
-
-      <HeritagePillarsSection />
-
-      {/* =====================================================
           LA MAISON AL MAHDI
           Nouvelle section avec olivehero4.jpg
       ===================================================== */}
 
       <MaisonAlMahdiSection />
+
+
+      {/* =====================================================
+          5 GÉNÉRATIONS / HÉRITAGE ALMAHDI
+      ===================================================== */}
+
+      <HeritagePillarsSection />
+
 
       {/* =====================================================
           SOCIÉTÉS DU GROUPE
