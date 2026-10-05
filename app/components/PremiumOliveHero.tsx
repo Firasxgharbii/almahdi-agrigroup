@@ -680,7 +680,7 @@ export default function PremiumOliveHero() {
 
               <div>
                 <AnimatedStat
-                  value={8}
+                  value={9}
                   label="médailles"
                   delay={300}
                 />
