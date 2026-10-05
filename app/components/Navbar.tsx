@@ -29,7 +29,7 @@ const navItems = [
   },
   {
     label: "Le Groupe",
-    href: "/nos-societes",
+    href: "/le-groupe",
   },
   {
     label: "FAQ",
@@ -270,8 +270,6 @@ export default function Navbar() {
                     px-[11px]
                   "
                 >
-                  {/* TEXT */}
-
                   <span
                     className={`
                       relative
@@ -294,8 +292,6 @@ export default function Navbar() {
                     {item.label}
                   </span>
 
-                  {/* HOVER BACKGROUND */}
-
                   <span
                     className="
                       absolute
@@ -311,13 +307,10 @@ export default function Navbar() {
                       opacity-0
                       transition-all
                       duration-300
-
                       group-hover:scale-100
                       group-hover:opacity-100
                     "
                   />
-
-                  {/* ACTIVE LINE */}
 
                   <span
                     className={`
@@ -342,9 +335,7 @@ export default function Navbar() {
               );
             })}
 
-            {/* =================================================
-                SEPARATOR
-            ================================================== */}
+            {/* SEPARATOR */}
 
             <div
               className="
@@ -355,9 +346,7 @@ export default function Navbar() {
               "
             />
 
-            {/* =================================================
-                LANGUAGES
-            ================================================== */}
+            {/* LANGUAGES */}
 
             <div
               className="
@@ -399,7 +388,6 @@ export default function Navbar() {
                   text-[#073d2b]/45
                   transition-colors
                   duration-300
-
                   hover:text-[#a47b21]
                 "
               >
@@ -407,9 +395,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* =================================================
-                CTA
-            ================================================== */}
+            {/* CTA */}
 
             <Link
               href="/contact"
@@ -428,13 +414,10 @@ export default function Navbar() {
                 shadow-[0_8px_22px_rgba(7,61,43,0.14)]
                 transition-all
                 duration-300
-
                 hover:-translate-y-[1px]
                 hover:shadow-[0_12px_28px_rgba(7,61,43,0.22)]
               "
             >
-              {/* GOLD ANIMATION */}
-
               <span
                 className="
                   absolute
@@ -444,7 +427,6 @@ export default function Navbar() {
                   transition-transform
                   duration-300
                   ease-out
-
                   group-hover:translate-y-0
                 "
               />
@@ -472,7 +454,6 @@ export default function Navbar() {
                   className="
                     transition-transform
                     duration-300
-
                     group-hover:translate-x-[2px]
                     group-hover:-translate-y-[2px]
                   "
@@ -507,11 +488,9 @@ export default function Navbar() {
               text-[#073d2b]
               transition-all
               duration-300
-
               hover:border-[#073d2b]
               hover:bg-[#073d2b]
               hover:text-white
-
               xl:hidden
             "
           >
@@ -661,7 +640,6 @@ export default function Navbar() {
                         text-[#073d2b]/30
                         transition-all
                         duration-300
-
                         group-hover:-translate-y-[2px]
                         group-hover:translate-x-[2px]
                         group-hover:text-[#a47b21]
@@ -750,7 +728,6 @@ export default function Navbar() {
                 text-white
                 transition-colors
                 duration-300
-
                 hover:bg-[#0b5139]
               "
             >
@@ -771,7 +748,6 @@ export default function Navbar() {
                   text-[#e0c15b]
                   transition-transform
                   duration-300
-
                   group-hover:translate-x-1
                   group-hover:-translate-y-1
                 "

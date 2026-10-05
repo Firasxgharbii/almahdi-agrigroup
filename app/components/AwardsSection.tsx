@@ -21,33 +21,33 @@ const awards = [
     src: "/awards/awards1.png",
   },
   {
+    id: 2,
+    name: "Distinction AlMahdi 02",
+    src: "/awards/awards3.svg",
+  },
+  {
     id: 3,
     name: "Distinction AlMahdi 03",
-    src: "/awards/awards3.svg",
+    src: "/awards/awards4.png",
   },
   {
     id: 4,
     name: "Distinction AlMahdi 04",
-    src: "/awards/awards4.png",
-  },
-  {
-    id: 8,
-    name: "Distinction AlMahdi 08",
     src: "/awards/awards8.png",
   },
   {
-    id: 9,
-    name: "Distinction AlMahdi 09",
+    id: 5,
+    name: "Distinction AlMahdi 05",
     src: "/awards/awards9.png",
   },
   {
-    id: 10,
-    name: "Distinction AlMahdi 10",
+    id: 6,
+    name: "Distinction AlMahdi 06",
     src: "/awards/awards10.png",
   },
   {
-    id: 11,
-    name: "Distinction AlMahdi 11",
+    id: 7,
+    name: "Distinction AlMahdi 07",
     src: "/awards/awards11.png",
   },
 ];
