@@ -178,8 +178,8 @@ export default function Navbar() {
 
             ${
               scrolled
-                ? "h-[70px]"
-                : "h-[82px]"
+                ? "h-[76px]"
+                : "h-[92px]"
             }
           `}
         >
@@ -196,16 +196,20 @@ export default function Navbar() {
               flex
               shrink-0
               items-center
+              justify-center
             "
             aria-label="AlMahdi Olive Oil - Accueil"
           >
+            {/* lumière très légère derrière le logo */}
+
             <div
               className="
+                pointer-events-none
                 absolute
                 left-1/2
                 top-1/2
-                h-[55px]
-                w-[130px]
+                h-[60px]
+                w-[135px]
                 -translate-x-1/2
                 -translate-y-1/2
                 rounded-full
@@ -217,26 +221,44 @@ export default function Navbar() {
               "
             />
 
-            <Image
-              src="/logoalmahdi.png"
-              alt="AlMahdi Olive Oil"
-              width={180}
-              height={65}
-              priority
+            {/* Nouveau logo */}
+
+            <div
               className={`
                 relative
-                h-auto
-                object-contain
+                z-10
+                flex
+                shrink-0
+                items-center
+                justify-center
+                overflow-hidden
                 transition-all
                 duration-300
 
                 ${
                   scrolled
-                    ? "w-[138px]"
-                    : "w-[150px]"
+                    ? "h-[60px] w-[145px]"
+                    : "h-[72px] w-[155px]"
                 }
               `}
-            />
+            >
+              <Image
+                src="/logoalmahdi.png"
+                alt="AlMahdi Olive Oil"
+                width={500}
+                height={500}
+                priority
+                className="
+                  h-full
+                  w-full
+                  object-contain
+                  object-center
+                  transition-transform
+                  duration-300
+                  group-hover:scale-[1.02]
+                "
+              />
+            </div>
           </Link>
 
           {/* ==================================================
@@ -292,6 +314,8 @@ export default function Navbar() {
                     {item.label}
                   </span>
 
+                  {/* Hover background */}
+
                   <span
                     className="
                       absolute
@@ -311,6 +335,8 @@ export default function Navbar() {
                       group-hover:opacity-100
                     "
                   />
+
+                  {/* Active underline */}
 
                   <span
                     className={`
