@@ -33,7 +33,7 @@ const navItems = [
   },
   {
     label: "FAQ",
-    href: "/contact",
+    href: "/#faq",
   },
 ];
 
@@ -102,6 +102,10 @@ export default function Navbar() {
   ====================================================== */
 
   const isActive = (href: string) => {
+    if (href.includes("#")) {
+      return false;
+    }
+
     if (href === "/") {
       return pathname === "/";
     }
@@ -140,9 +144,10 @@ export default function Navbar() {
           }
         `}
       >
-        {/* GOLD DETAIL */}
+        {/* GOLD LINE */}
 
         <div
+          aria-hidden="true"
           className="
             pointer-events-none
             absolute
@@ -158,7 +163,7 @@ export default function Navbar() {
         />
 
         {/* ==================================================
-            CONTAINER
+            MAIN CONTAINER
         =================================================== */}
 
         <div
@@ -190,6 +195,7 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={closeMenu}
+            aria-label="AlMahdi Olive Oil - Accueil"
             className="
               group
               relative
@@ -198,18 +204,18 @@ export default function Navbar() {
               items-center
               justify-center
             "
-            aria-label="AlMahdi Olive Oil - Accueil"
           >
-            {/* lumière très légère derrière le logo */}
+            {/* subtle glow */}
 
             <div
+              aria-hidden="true"
               className="
                 pointer-events-none
                 absolute
                 left-1/2
                 top-1/2
-                h-[60px]
-                w-[135px]
+                h-[70px]
+                w-[170px]
                 -translate-x-1/2
                 -translate-y-1/2
                 rounded-full
@@ -217,11 +223,10 @@ export default function Navbar() {
                 blur-2xl
                 transition-all
                 duration-500
+
                 group-hover:bg-[#c9a53d]/10
               "
             />
-
-            {/* Nouveau logo */}
 
             <div
               className={`
@@ -231,22 +236,21 @@ export default function Navbar() {
                 shrink-0
                 items-center
                 justify-center
-                overflow-hidden
                 transition-all
                 duration-300
 
                 ${
                   scrolled
-                    ? "h-[60px] w-[145px]"
-                    : "h-[72px] w-[155px]"
+                    ? "h-[68px] w-[175px]"
+                    : "h-[82px] w-[190px]"
                 }
               `}
             >
               <Image
                 src="/logoalmahdi.png"
                 alt="AlMahdi Olive Oil"
-                width={500}
-                height={500}
+                width={600}
+                height={600}
                 priority
                 className="
                   h-full
@@ -255,7 +259,8 @@ export default function Navbar() {
                   object-center
                   transition-transform
                   duration-300
-                  group-hover:scale-[1.02]
+
+                  group-hover:scale-[1.04]
                 "
               />
             </div>
@@ -314,9 +319,10 @@ export default function Navbar() {
                     {item.label}
                   </span>
 
-                  {/* Hover background */}
+                  {/* HOVER BACKGROUND */}
 
                   <span
+                    aria-hidden="true"
                     className="
                       absolute
                       left-1/2
@@ -331,14 +337,16 @@ export default function Navbar() {
                       opacity-0
                       transition-all
                       duration-300
+
                       group-hover:scale-100
                       group-hover:opacity-100
                     "
                   />
 
-                  {/* Active underline */}
+                  {/* ACTIVE LINE */}
 
                   <span
+                    aria-hidden="true"
                     className={`
                       absolute
                       bottom-[15px]
@@ -363,25 +371,13 @@ export default function Navbar() {
 
             {/* SEPARATOR */}
 
-            <div
-              className="
-                mx-3
-                h-[22px]
-                w-px
-                bg-[#073d2b]/15
-              "
-            />
+            <div className="mx-3 h-[22px] w-px bg-[#073d2b]/15" />
 
-            {/* LANGUAGES */}
+            {/* ==================================================
+                LANGUAGE
+            =================================================== */}
 
-            <div
-              className="
-                flex
-                shrink-0
-                items-center
-                gap-2
-              "
-            >
+            <div className="flex shrink-0 items-center gap-2">
               <button
                 type="button"
                 className="
@@ -395,14 +391,7 @@ export default function Navbar() {
                 FR
               </button>
 
-              <span
-                className="
-                  h-[3px]
-                  w-[3px]
-                  rounded-full
-                  bg-[#073d2b]/25
-                "
-              />
+              <span className="h-[3px] w-[3px] rounded-full bg-[#073d2b]/25" />
 
               <button
                 type="button"
@@ -414,6 +403,7 @@ export default function Navbar() {
                   text-[#073d2b]/45
                   transition-colors
                   duration-300
+
                   hover:text-[#a47b21]
                 "
               >
@@ -421,7 +411,9 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* CTA */}
+            {/* ==================================================
+                CTA
+            =================================================== */}
 
             <Link
               href="/contact"
@@ -440,11 +432,13 @@ export default function Navbar() {
                 shadow-[0_8px_22px_rgba(7,61,43,0.14)]
                 transition-all
                 duration-300
+
                 hover:-translate-y-[1px]
                 hover:shadow-[0_12px_28px_rgba(7,61,43,0.22)]
               "
             >
               <span
+                aria-hidden="true"
                 className="
                   absolute
                   inset-0
@@ -453,6 +447,7 @@ export default function Navbar() {
                   transition-transform
                   duration-300
                   ease-out
+
                   group-hover:translate-y-0
                 "
               />
@@ -480,6 +475,7 @@ export default function Navbar() {
                   className="
                     transition-transform
                     duration-300
+
                     group-hover:translate-x-[2px]
                     group-hover:-translate-y-[2px]
                   "
@@ -506,6 +502,7 @@ export default function Navbar() {
               flex
               h-[44px]
               w-[44px]
+              shrink-0
               items-center
               justify-center
               rounded-full
@@ -514,22 +511,18 @@ export default function Navbar() {
               text-[#073d2b]
               transition-all
               duration-300
+
               hover:border-[#073d2b]
               hover:bg-[#073d2b]
               hover:text-white
+
               xl:hidden
             "
           >
             {menuOpen ? (
-              <X
-                size={21}
-                strokeWidth={1.7}
-              />
+              <X size={21} strokeWidth={1.7} />
             ) : (
-              <Menu
-                size={21}
-                strokeWidth={1.7}
-              />
+              <Menu size={21} strokeWidth={1.7} />
             )}
           </button>
         </div>
@@ -551,6 +544,7 @@ export default function Navbar() {
             shadow-[0_25px_50px_rgba(3,35,23,0.15)]
             transition-all
             duration-500
+
             xl:hidden
 
             ${
@@ -569,23 +563,10 @@ export default function Navbar() {
               pt-6
             "
           >
-            {/* MOBILE HEADER */}
+            {/* MOBILE TITLE */}
 
-            <div
-              className="
-                mb-4
-                flex
-                items-center
-                gap-3
-              "
-            >
-              <span
-                className="
-                  h-px
-                  w-7
-                  bg-[#c49a35]
-                "
-              />
+            <div className="mb-4 flex items-center gap-3">
+              <span className="h-px w-7 bg-[#c49a35]" />
 
               <p
                 className="
@@ -602,7 +583,7 @@ export default function Navbar() {
 
             {/* MOBILE LINKS */}
 
-            <nav>
+            <nav aria-label="Navigation mobile">
               {navItems.map((item, index) => {
                 const active = isActive(item.href);
 
@@ -621,13 +602,7 @@ export default function Navbar() {
                       border-[#073d2b]/10
                     "
                   >
-                    <div
-                      className="
-                        flex
-                        items-center
-                        gap-4
-                      "
-                    >
+                    <div className="flex items-center gap-4">
                       <span
                         className="
                           w-[20px]
@@ -666,6 +641,7 @@ export default function Navbar() {
                         text-[#073d2b]/30
                         transition-all
                         duration-300
+
                         group-hover:-translate-y-[2px]
                         group-hover:translate-x-[2px]
                         group-hover:text-[#a47b21]
@@ -676,7 +652,9 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* LANGUAGE */}
+            {/* ==================================================
+                MOBILE LANGUAGES
+            =================================================== */}
 
             <div
               className="
@@ -736,7 +714,9 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* CTA MOBILE */}
+            {/* ==================================================
+                MOBILE CTA
+            =================================================== */}
 
             <Link
               href="/contact"
@@ -754,6 +734,7 @@ export default function Navbar() {
                 text-white
                 transition-colors
                 duration-300
+
                 hover:bg-[#0b5139]
               "
             >
@@ -774,6 +755,7 @@ export default function Navbar() {
                   text-[#e0c15b]
                   transition-transform
                   duration-300
+
                   group-hover:translate-x-1
                   group-hover:-translate-y-1
                 "
@@ -798,6 +780,7 @@ export default function Navbar() {
             z-[90]
             bg-[#02150e]/40
             backdrop-blur-[2px]
+
             xl:hidden
           "
         />
