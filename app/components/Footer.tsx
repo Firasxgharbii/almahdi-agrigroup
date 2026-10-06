@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {
-  ArrowUpRight,
+  ArrowRight,
   Mail,
   MapPin,
   Music2,
@@ -53,7 +53,7 @@ const groupLinks = [
   },
   {
     label: "Vitale",
-    href: "/le-groupe",
+    href: "/vitale",
   },
   {
     label: "Bio & USDA Organic",
@@ -78,31 +78,35 @@ function FooterLink({
       className="
         group
         flex
-        w-fit
+        w-full
+        max-w-[245px]
         items-center
-        gap-1.5
+        justify-between
+        gap-5
+        border-b
+        border-white/[0.08]
+        py-3
         text-[14px]
-        font-normal
-        leading-6
-        text-white/60
+        font-light
+        tracking-[-0.01em]
+        text-[#f5f0e6]/75
         transition-all
         duration-300
-        hover:translate-x-1
-        hover:text-[#d6b66f]
+        hover:border-[#d6b66f]/35
+        hover:text-white
       "
     >
       <span>{label}</span>
 
-      <ArrowUpRight
-        size={12}
-        strokeWidth={1.6}
+      <ArrowRight
+        size={14}
+        strokeWidth={1.4}
         className="
-          -translate-x-1
-          opacity-0
-          transition-all
+          shrink-0
+          text-[#d6b66f]
+          transition-transform
           duration-300
-          group-hover:translate-x-0
-          group-hover:opacity-100
+          group-hover:translate-x-1
         "
       />
     </Link>
@@ -130,20 +134,21 @@ function SocialButton({
       rel="noopener noreferrer"
       className="
         flex
-        h-10
-        w-10
+        h-[44px]
+        w-[44px]
         items-center
         justify-center
         rounded-full
         border
-        border-white/20
-        text-white/70
+        border-[#d6b66f]/45
+        text-[#f8f4e9]/85
         transition-all
         duration-300
         hover:-translate-y-1
         hover:border-[#d6b66f]
         hover:bg-[#d6b66f]
-        hover:text-[#06291d]
+        hover:text-[#052d20]
+        hover:shadow-[0_10px_30px_rgba(214,182,111,0.12)]
       "
     >
       {children}
@@ -161,20 +166,81 @@ function ColumnTitle({
   children: ReactNode;
 }) {
   return (
-    <div className="mb-6">
+    <div className="mb-5">
       <p
         className="
-          text-[10px]
-          font-bold
+          text-[11px]
+          font-semibold
           uppercase
-          tracking-[0.3em]
+          tracking-[0.28em]
           text-[#d6b66f]
         "
       >
         {children}
       </p>
 
-      <div className="mt-3 h-px w-7 bg-[#d6b66f]/60" />
+      <div className="mt-4 h-px w-10 bg-[#d6b66f]/80" />
+    </div>
+  );
+}
+
+// =====================================================
+// CONTACT ITEM
+// =====================================================
+
+function ContactItem({
+  icon,
+  title,
+  children,
+}: {
+  icon: ReactNode;
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="flex min-w-0 items-center gap-4">
+      <div
+        className="
+          flex
+          h-[48px]
+          w-[48px]
+          shrink-0
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-[#d6b66f]/45
+          text-[#d6b66f]
+        "
+      >
+        {icon}
+      </div>
+
+      <div className="min-w-0">
+        <p
+          className="
+            text-[9px]
+            font-semibold
+            uppercase
+            tracking-[0.25em]
+            text-[#d6b66f]
+          "
+        >
+          {title}
+        </p>
+
+        <div
+          className="
+            mt-1.5
+            text-[13px]
+            font-light
+            leading-6
+            text-[#f5f0e6]/70
+          "
+        >
+          {children}
+        </div>
+      </div>
     </div>
   );
 }
@@ -185,9 +251,18 @@ function ColumnTitle({
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#06291d] text-white">
+    <footer
+      className="
+        relative
+        overflow-hidden
+        border-t
+        border-[#d6b66f]/40
+        bg-[#032f22]
+        text-white
+      "
+    >
       {/* =====================================================
-          PREMIUM BACKGROUND
+          BACKGROUND EFFECTS
       ===================================================== */}
 
       <div
@@ -195,13 +270,13 @@ export default function Footer() {
         className="
           pointer-events-none
           absolute
-          -left-32
-          top-10
-          h-[380px]
-          w-[380px]
+          -left-[220px]
+          top-[80px]
+          h-[520px]
+          w-[520px]
           rounded-full
           bg-[#d6b66f]/[0.035]
-          blur-[100px]
+          blur-[130px]
         "
       />
 
@@ -210,27 +285,29 @@ export default function Footer() {
         className="
           pointer-events-none
           absolute
-          -right-40
-          bottom-0
-          h-[400px]
-          w-[400px]
+          -right-[240px]
+          bottom-[-160px]
+          h-[560px]
+          w-[560px]
           rounded-full
-          bg-[#d6b66f]/[0.025]
-          blur-[110px]
+          bg-[#d6b66f]/[0.035]
+          blur-[140px]
         "
       />
-
-      {/* GOLD TOP LINE */}
 
       <div
         aria-hidden="true"
         className="
-          h-px
-          w-full
-          bg-gradient-to-r
-          from-transparent
-          via-[#d6b66f]/60
-          to-transparent
+          pointer-events-none
+          absolute
+          left-1/2
+          top-0
+          h-[300px]
+          w-[600px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#0a4a35]/20
+          blur-[130px]
         "
       />
 
@@ -244,18 +321,18 @@ export default function Footer() {
           z-10
           mx-auto
           w-full
-          max-w-[1280px]
+          max-w-[1320px]
           px-6
-          pb-7
-          pt-14
+          py-14
           sm:px-8
           md:px-10
           lg:px-12
+          lg:pb-8
           lg:pt-16
         "
       >
         {/* ===================================================
-            MAIN FOOTER
+            MAIN GRID
         =================================================== */}
 
         <div
@@ -264,11 +341,10 @@ export default function Footer() {
             grid-cols-1
             gap-y-12
             md:grid-cols-2
-            md:gap-x-12
-            lg:grid-cols-[1.45fr_0.85fr_0.75fr_1fr]
+            md:gap-x-14
+            lg:grid-cols-[1.4fr_0.9fr_0.9fr_1.05fr]
             lg:items-start
-            lg:gap-x-14
-            xl:gap-x-16
+            lg:gap-x-16
           "
         >
           {/* =================================================
@@ -279,13 +355,18 @@ export default function Footer() {
             <Link
               href="/"
               aria-label="AlMahdi Olive Oil - Accueil"
-              className="block"
+              className="
+                inline-flex
+                transition-opacity
+                duration-300
+                hover:opacity-90
+              "
             >
               <div
                 className="
                   relative
-                  h-[90px]
-                  w-[190px]
+                  h-[105px]
+                  w-[180px]
                 "
               >
                 <Image
@@ -293,7 +374,7 @@ export default function Footer() {
                   alt="AlMahdi Olive Oil"
                   fill
                   priority
-                  sizes="190px"
+                  sizes="180px"
                   className="object-contain object-left"
                 />
               </div>
@@ -302,11 +383,13 @@ export default function Footer() {
             <p
               className="
                 mt-5
-                max-w-[340px]
+                max-w-[345px]
                 text-[14px]
                 font-light
-                leading-[1.8]
-                text-white/60
+                leading-[1.85]
+                tracking-[-0.01em]
+                text-[#f5f0e6]/70
+                md:text-[15px]
               "
             >
               Huile d&apos;olive extra vierge en vrac, bio et
@@ -316,41 +399,41 @@ export default function Footer() {
 
             {/* SOCIAL */}
 
-            <div className="mt-7 flex items-center gap-2.5">
+            <div className="mt-7 flex items-center gap-3">
               <SocialButton href="#" label="Facebook">
-                <span className="text-[17px] font-semibold leading-none">
+                <span className="text-[18px] font-medium leading-none">
                   f
                 </span>
               </SocialButton>
 
               <SocialButton href="#" label="LinkedIn">
-                <span className="text-[12px] font-bold leading-none">
+                <span className="text-[12px] font-semibold leading-none">
                   in
                 </span>
               </SocialButton>
 
               <SocialButton href="#" label="Instagram">
-                <span className="text-[17px] font-semibold leading-none">
+                <span className="text-[18px] font-medium leading-none">
                   ◎
                 </span>
               </SocialButton>
 
               <SocialButton href="#" label="TikTok">
-                <Music2 size={16} strokeWidth={1.7} />
+                <Music2 size={17} strokeWidth={1.5} />
               </SocialButton>
             </div>
           </div>
 
           {/* =================================================
-              HUILERIE
+              L'HUILERIE
           ================================================= */}
 
-          <div className="flex flex-col items-start lg:pt-4">
+          <div className="flex flex-col items-start lg:pt-3">
             <ColumnTitle>L&apos;huilerie</ColumnTitle>
 
             <nav
               aria-label="Liens de l'huilerie"
-              className="flex flex-col items-start gap-2.5"
+              className="flex w-full flex-col items-start"
             >
               {huilerieLinks.map((item) => (
                 <FooterLink
@@ -366,12 +449,12 @@ export default function Footer() {
               EXPORT
           ================================================= */}
 
-          <div className="flex flex-col items-start lg:pt-4">
+          <div className="flex flex-col items-start lg:pt-3">
             <ColumnTitle>Export</ColumnTitle>
 
             <nav
               aria-label="Liens export"
-              className="flex flex-col items-start gap-2.5"
+              className="flex w-full flex-col items-start"
             >
               {exportLinks.map((item) => (
                 <FooterLink
@@ -384,15 +467,15 @@ export default function Footer() {
           </div>
 
           {/* =================================================
-              GROUPE
+              LE GROUPE
           ================================================= */}
 
-          <div className="flex flex-col items-start lg:pt-4">
+          <div className="flex flex-col items-start lg:pt-3">
             <ColumnTitle>Le groupe</ColumnTitle>
 
             <nav
               aria-label="Liens du groupe"
-              className="flex flex-col items-start gap-2.5"
+              className="flex w-full flex-col items-start"
             >
               {groupLinks.map((item) => (
                 <FooterLink
@@ -406,43 +489,57 @@ export default function Footer() {
                 href="/contact"
                 className="
                   group
-                  mt-2
+                  mt-4
                   flex
-                  w-fit
+                  w-full
+                  max-w-[245px]
                   items-center
-                  gap-2
+                  justify-between
+                  gap-4
                   text-[14px]
-                  font-normal
-                  leading-6
-                  text-white/60
-                  transition-all
+                  font-light
+                  text-[#f5f0e6]/75
+                  transition-colors
                   duration-300
-                  hover:translate-x-1
-                  hover:text-[#d6b66f]
+                  hover:text-white
                 "
               >
-                <MapPin
-                  size={14}
-                  strokeWidth={1.6}
-                  className="shrink-0 text-[#d6b66f]"
-                />
+                <span className="flex items-center gap-2.5">
+                  <MapPin
+                    size={17}
+                    strokeWidth={1.5}
+                    className="shrink-0 text-[#d6b66f]"
+                  />
 
-                <span>Nous trouver sur Google</span>
+                  <span>Nous trouver sur Google</span>
+                </span>
+
+                <ArrowRight
+                  size={14}
+                  strokeWidth={1.4}
+                  className="
+                    shrink-0
+                    text-[#d6b66f]
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                  "
+                />
               </Link>
             </nav>
           </div>
         </div>
 
         {/* ===================================================
-            CONTACT INFORMATION
+            CONTACT + BOTTOM AREA
         =================================================== */}
 
         <div
           className="
             mt-14
-            border-y
-            border-white/10
-            py-5
+            border-t
+            border-[#d6b66f]/25
+            pt-6
             lg:mt-16
           "
         >
@@ -450,215 +547,177 @@ export default function Footer() {
             className="
               grid
               grid-cols-1
-              gap-5
-              md:grid-cols-2
-              md:items-center
+              gap-8
+              lg:grid-cols-[1fr_1fr_auto]
+              lg:items-center
+              lg:gap-10
             "
           >
-            {/* LOCATION */}
+            {/* ADDRESS */}
 
-            <div className="flex items-center gap-3">
-              <div
-                className="
-                  flex
-                  h-9
-                  w-9
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-[#d6b66f]/25
-                  bg-[#d6b66f]/[0.05]
-                "
-              >
+            <ContactItem
+              title="Notre adresse"
+              icon={
                 <MapPin
-                  size={15}
-                  strokeWidth={1.6}
-                  className="text-[#d6b66f]"
+                  size={19}
+                  strokeWidth={1.5}
                 />
-              </div>
-
-              <div>
-                <p
-                  className="
-                    text-[9px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.2em]
-                    text-[#d6b66f]/70
-                  "
-                >
-                  Notre adresse
-                </p>
-
-                <p className="mt-1 text-[13px] text-white/55">
-                  Sidi Bouzid Ouest · El Hichria · Tunisie
-                </p>
-              </div>
-            </div>
+              }
+            >
+              Sidi Bouzid Ouest · El Hichria · Tunisie
+            </ContactItem>
 
             {/* EMAIL */}
 
-            <div className="md:flex md:justify-end">
+            <ContactItem
+              title="Contact export"
+              icon={
+                <Mail
+                  size={19}
+                  strokeWidth={1.5}
+                />
+              }
+            >
               <a
                 href="mailto:export.almahdicompany@gmail.com"
                 className="
-                  group
-                  flex
-                  w-fit
-                  items-center
-                  gap-3
+                  break-all
                   transition-colors
                   duration-300
+                  hover:text-[#d6b66f]
                 "
               >
-                <div
-                  className="
-                    flex
-                    h-9
-                    w-9
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#d6b66f]/25
-                    bg-[#d6b66f]/[0.05]
-                    transition-all
-                    duration-300
-                    group-hover:border-[#d6b66f]/60
-                  "
-                >
-                  <Mail
-                    size={15}
-                    strokeWidth={1.6}
-                    className="text-[#d6b66f]"
-                  />
-                </div>
-
-                <div>
-                  <p
-                    className="
-                      text-[9px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.2em]
-                      text-[#d6b66f]/70
-                    "
-                  >
-                    Contact export
-                  </p>
-
-                  <p
-                    className="
-                      mt-1
-                      text-[13px]
-                      text-white/55
-                      transition-colors
-                      duration-300
-                      group-hover:text-[#d6b66f]
-                    "
-                  >
-                    export.almahdicompany@gmail.com
-                  </p>
-                </div>
+                export.almahdicompany@gmail.com
               </a>
-            </div>
+            </ContactItem>
+
+            {/* SECONDARY LINKS */}
+
+            <nav
+              aria-label="Navigation secondaire"
+              className="
+                flex
+                flex-wrap
+                items-center
+                gap-x-4
+                gap-y-2
+                text-[11px]
+                font-light
+                text-[#f5f0e6]/55
+                lg:justify-end
+              "
+            >
+              <Link
+                href="/contact"
+                className="
+                  transition-colors
+                  duration-300
+                  hover:text-[#d6b66f]
+                "
+              >
+                Contact
+              </Link>
+
+              <span className="h-1 w-1 rounded-full bg-[#d6b66f]" />
+
+              <Link
+                href="/#faq"
+                className="
+                  transition-colors
+                  duration-300
+                  hover:text-[#d6b66f]
+                "
+              >
+                FAQ
+              </Link>
+
+              <span className="h-1 w-1 rounded-full bg-[#d6b66f]" />
+
+              <Link
+                href="/qualite"
+                className="
+                  transition-colors
+                  duration-300
+                  hover:text-[#d6b66f]
+                "
+              >
+                Qualité
+              </Link>
+            </nav>
           </div>
-        </div>
 
-        {/* ===================================================
-            BOTTOM
-        =================================================== */}
-
-        <div
-          className="
-            flex
-            flex-col
-            gap-5
-            pt-6
-            md:flex-row
-            md:items-center
-            md:justify-between
-          "
-        >
-          {/* COPYRIGHT */}
+          {/* =================================================
+              COPYRIGHT
+          ================================================= */}
 
           <div
             className="
+              mt-6
               flex
               flex-col
-              gap-2
-              text-[10px]
-              uppercase
-              tracking-[0.09em]
-              text-white/35
+              gap-3
+              border-t
+              border-white/[0.07]
+              pt-5
               sm:flex-row
+              sm:flex-wrap
               sm:items-center
-              sm:gap-4
+              sm:justify-between
             "
           >
-            <p>© 2026 AlMahdi Olive Oil</p>
+            <div
+              className="
+                flex
+                flex-col
+                gap-2
+                text-[10px]
+                uppercase
+                tracking-[0.08em]
+                text-[#f5f0e6]/35
+                sm:flex-row
+                sm:items-center
+                sm:gap-4
+              "
+            >
+              <p>© 2026 AlMahdi Olive Oil</p>
 
-            <span
-              aria-hidden="true"
-              className="hidden h-3 w-px bg-white/15 sm:block"
-            />
-
-            <p>
-              Made by{" "}
               <span
+                aria-hidden="true"
                 className="
-                  font-medium
-                  normal-case
-                  tracking-normal
-                  text-white/55
+                  hidden
+                  h-3
+                  w-px
+                  bg-[#d6b66f]/30
+                  sm:block
                 "
-              >
-                OffClassic Studio Inc.
-              </span>
+              />
+
+              <p>
+                Made by{" "}
+                <span
+                  className="
+                    font-normal
+                    normal-case
+                    tracking-normal
+                    text-[#f5f0e6]/55
+                  "
+                >
+                  OffClassic Studio Inc.
+                </span>
+              </p>
+            </div>
+
+            <p
+              className="
+                text-[9px]
+                uppercase
+                tracking-[0.2em]
+                text-[#d6b66f]/45
+              "
+            >
+              Producteur · Exportateur · Tunisie
             </p>
           </div>
-
-          {/* BOTTOM NAVIGATION */}
-
-          <nav
-            aria-label="Navigation secondaire"
-            className="
-              flex
-              flex-wrap
-              items-center
-              gap-4
-              text-[10px]
-              text-white/40
-            "
-          >
-            <Link
-              href="/contact"
-              className="transition-colors duration-300 hover:text-[#d6b66f]"
-            >
-              Contact
-            </Link>
-
-            <span className="h-1 w-1 rounded-full bg-[#d6b66f]/50" />
-
-            <Link
-              href="/#faq"
-              className="transition-colors duration-300 hover:text-[#d6b66f]"
-            >
-              FAQ
-            </Link>
-
-            <span className="h-1 w-1 rounded-full bg-[#d6b66f]/50" />
-
-            <Link
-              href="/qualite"
-              className="transition-colors duration-300 hover:text-[#d6b66f]"
-            >
-              Qualité
-            </Link>
-          </nav>
         </div>
       </div>
     </footer>
