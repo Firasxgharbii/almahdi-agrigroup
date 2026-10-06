@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+
 import {
   ArrowRight,
   Building2,
@@ -15,6 +17,7 @@ import {
   Sprout,
   Wheat,
 } from "lucide-react";
+
 import { motion, useReducedMotion } from "motion/react";
 
 /* =========================================================
@@ -27,7 +30,7 @@ const companies = [
     name: "Société Almahdi Huile d'Olive",
     shortName: "Al Mahdi",
     activity: "Huilerie & Export",
-    icon: Factory,
+    logo: "/logoalmahdi.png",
     description:
       "Extraction, stockage, contrôle qualité et export d'huile d'olive vierge extra en vrac, biologique et conventionnelle.",
     extra:
@@ -41,7 +44,7 @@ const companies = [
     name: "STPAC – Vitale",
     shortName: "Vitale",
     activity: "Nutrition animale",
-    icon: Wheat,
+    logo: "/logovitale.png",
     description:
       "La Société Tunisienne de Production des Aliments Composés est spécialisée dans la nutrition animale et la fabrication d'aliments composés.",
     extra:
@@ -55,7 +58,7 @@ const companies = [
     name: "Fruits Almahdi",
     shortName: "Fruits Almahdi",
     activity: "Entrepôts frigorifiques",
-    icon: Snowflake,
+    logo: "/logofruits.png",
     description:
       "Des infrastructures frigorifiques dédiées à la conservation et à la gestion des produits agricoles.",
     extra:
@@ -71,31 +74,36 @@ const ecosystem = [
     number: "01",
     icon: Sprout,
     title: "Agriculture",
-    text: "Un ancrage agricole historique au cœur du terroir tunisien et de la région de Sidi Bouzid.",
+    text:
+      "Un ancrage agricole historique au cœur du terroir tunisien et de la région de Sidi Bouzid.",
   },
   {
     number: "02",
     icon: Factory,
     title: "Transformation",
-    text: "Des activités de transformation structurées pour valoriser les productions agricoles.",
+    text:
+      "Des activités de transformation structurées pour valoriser les productions agricoles.",
   },
   {
     number: "03",
     icon: Wheat,
     title: "Nutrition",
-    text: "Une expertise dédiée à la nutrition animale et à la fabrication d'aliments composés.",
+    text:
+      "Une expertise dédiée à la nutrition animale et à la fabrication d'aliments composés.",
   },
   {
     number: "04",
     icon: Snowflake,
     title: "Conservation",
-    text: "Des infrastructures frigorifiques destinées à préserver et gérer les produits agricoles.",
+    text:
+      "Des infrastructures frigorifiques destinées à préserver et gérer les produits agricoles.",
   },
   {
     number: "05",
     icon: Globe2,
     title: "Export",
-    text: "Une ouverture vers les partenaires et marchés internationaux, notamment dans l'huile d'olive.",
+    text:
+      "Une ouverture vers les partenaires et marchés internationaux, notamment dans l'huile d'olive.",
   },
 ];
 
@@ -108,17 +116,20 @@ const values = [
   {
     icon: ShieldCheck,
     title: "Qualité",
-    text: "Une attention constante portée à la maîtrise, à la confiance et à la traçabilité.",
+    text:
+      "Une attention constante portée à la maîtrise, à la confiance et à la traçabilité.",
   },
   {
     icon: Building2,
     title: "Structure",
-    text: "Des sociétés complémentaires réunies dans une vision commune de développement.",
+    text:
+      "Des sociétés complémentaires réunies dans une vision commune de développement.",
   },
   {
     icon: Globe2,
     title: "International",
-    text: "Une ambition tournée vers les partenaires professionnels et les marchés internationaux.",
+    text:
+      "Une ambition tournée vers les partenaires professionnels et les marchés internationaux.",
   },
 ];
 
@@ -177,8 +188,6 @@ export default function LeGroupePage() {
       ===================================================== */}
 
       <section className="relative min-h-[760px] overflow-hidden bg-[#061f17] text-white">
-        {/* BACKGROUND */}
-
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-48 -top-48 h-[700px] w-[700px] rounded-full bg-[#b98a4a]/10 blur-[160px]" />
 
@@ -199,8 +208,6 @@ export default function LeGroupePage() {
         </div>
 
         <div className="relative mx-auto flex min-h-[760px] max-w-[1500px] flex-col justify-between px-6 pb-12 pt-24 md:px-10 md:pt-28 lg:px-16 xl:px-20">
-          {/* HERO TOP */}
-
           <motion.div {...reveal}>
             <div className="flex flex-wrap items-center justify-between gap-5 border-b border-white/10 pb-6">
               <div className="flex items-center gap-4">
@@ -213,13 +220,10 @@ export default function LeGroupePage() {
 
               <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/45">
                 <MapPin size={13} />
-
                 <span>Sidi Bouzid · Tunisie</span>
               </div>
             </div>
           </motion.div>
-
-          {/* HERO CONTENT */}
 
           <motion.div
             {...reveal}
@@ -245,9 +249,9 @@ export default function LeGroupePage() {
 
             <div className="mt-10 grid max-w-[950px] gap-8 border-l border-[#d7ad6a]/30 pl-6 md:grid-cols-[1fr_auto] md:items-end md:pl-8">
               <p className="max-w-[720px] text-[16px] leading-8 text-white/60 md:text-[18px]">
-                AlMahdi Olive Oil réunit des activités complémentaires
-                autour de l'agriculture, de la transformation, de la
-                nutrition animale, de la conservation et de l'export.
+                AlMahdi Olive Oil réunit des activités complémentaires autour
+                de l'agriculture, de la transformation, de la nutrition
+                animale, de la conservation et de l'export.
               </p>
 
               <div className="hidden h-14 w-14 items-center justify-center rounded-full border border-white/15 md:flex">
@@ -258,8 +262,6 @@ export default function LeGroupePage() {
               </div>
             </div>
           </motion.div>
-
-          {/* HERO STATS */}
 
           <div className="grid border-t border-white/10 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, index) => (
@@ -285,16 +287,7 @@ export default function LeGroupePage() {
                   delay: reduceMotion ? 0 : index * 0.08,
                   ease,
                 }}
-                className="
-                  border-b
-                  border-white/10
-                  py-7
-
-                  sm:border-r
-                  sm:px-6
-
-                  lg:border-b-0
-                "
+                className="border-b border-white/10 py-7 sm:border-r sm:px-6 lg:border-b-0"
               >
                 <p className="font-serif text-[38px] leading-none text-[#f2e8d7]">
                   {stat.value}
@@ -331,15 +324,15 @@ export default function LeGroupePage() {
 
           <motion.div {...reveal} className="lg:pt-14">
             <p className="max-w-[720px] text-[19px] leading-9 text-[#36594c]">
-              Implanté à Sidi Bouzid, AlMahdi Olive Oil s'appuie sur
-              un héritage familial transmis depuis cinq générations et
-              sur des sociétés aux métiers complémentaires.
+              Implanté à Sidi Bouzid, AlMahdi Olive Oil s'appuie sur un héritage
+              familial transmis depuis cinq générations et sur des sociétés aux
+              métiers complémentaires.
             </p>
 
             <p className="mt-6 max-w-[720px] text-[15px] leading-8 text-[#567065]">
-              Cette complémentarité permet au groupe de créer des liens
-              entre production agricole, transformation, nutrition,
-              conservation, logistique et développement international.
+              Cette complémentarité permet au groupe de créer des liens entre
+              production agricole, transformation, nutrition, conservation,
+              logistique et développement international.
             </p>
 
             <div className="mt-10 flex items-center gap-4 border-t border-[#082c1f]/15 pt-7">
@@ -420,9 +413,7 @@ export default function LeGroupePage() {
                   </div>
 
                   <div className="mt-24">
-                    <h3 className="text-[23px] font-semibold">
-                      {item.title}
-                    </h3>
+                    <h3 className="text-[23px] font-semibold">{item.title}</h3>
 
                     <p className="mt-5 max-w-[270px] text-[13px] leading-7 text-[#587166] transition-colors duration-500 group-hover:text-white/55">
                       {item.text}
@@ -460,9 +451,8 @@ export default function LeGroupePage() {
             </div>
 
             <p className="max-w-[520px] text-[14px] leading-7 text-[#587166] lg:justify-self-end">
-              Des activités complémentaires organisées autour de la
-              production, de la transformation et de la valorisation
-              des produits agricoles.
+              Des activités complémentaires organisées autour de la production,
+              de la transformation et de la valorisation des produits agricoles.
             </p>
           </motion.div>
 
@@ -511,9 +501,7 @@ export default function LeGroupePage() {
                   </div>
 
                   <div className="mt-24">
-                    <h3 className="text-[22px] font-semibold">
-                      {item.title}
-                    </h3>
+                    <h3 className="text-[22px] font-semibold">{item.title}</h3>
 
                     <p className="mt-5 text-[13px] leading-6 text-[#577065] transition-colors duration-500 group-hover:text-white/55">
                       {item.text}
@@ -527,7 +515,7 @@ export default function LeGroupePage() {
       </section>
 
       {/* =====================================================
-          COMPANIES
+          COMPANIES — LOGOS ANIMÉS
       ===================================================== */}
 
       <section className="bg-[#f6f1e5] px-6 py-24 md:px-10 md:py-32 lg:px-20">
@@ -552,144 +540,211 @@ export default function LeGroupePage() {
 
             <p className="max-w-[600px] text-[15px] leading-8 text-[#567065] lg:justify-self-end">
               Trois entreprises, trois expertises et une même ambition :
-              développer un groupe agroalimentaire tunisien structuré,
-              fiable et ouvert sur l'international.
+              développer un groupe agroalimentaire tunisien structuré, fiable et
+              ouvert sur l'international.
             </p>
           </motion.div>
 
           <div className="mt-14 space-y-8">
-            {companies.map((company, index) => {
-              const Icon = company.icon;
+            {companies.map((company, index) => (
+              <motion.article
+                key={company.number}
+                initial={
+                  reduceMotion
+                    ? false
+                    : {
+                        opacity: 0,
+                        y: 45,
+                        scale: 0.985,
+                      }
+                }
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.15,
+                }}
+                transition={{
+                  duration: reduceMotion ? 0 : 0.8,
+                  delay: reduceMotion ? 0 : index * 0.08,
+                  ease,
+                }}
+                className="group overflow-hidden border border-[#082c1f]/15 bg-white shadow-[0_18px_55px_rgba(6,41,27,0.06)] transition-shadow duration-500 hover:shadow-[0_30px_80px_rgba(6,41,27,0.13)] lg:grid lg:grid-cols-[0.48fr_1.52fr]"
+              >
+                {/* =========================
+                    LOGO COMPANY
+                ========================= */}
 
-              return (
-                <motion.article
-                  key={company.number}
-                  initial={
-                    reduceMotion
-                      ? false
-                      : {
-                          opacity: 0,
-                          y: 40,
-                          scale: 0.985,
-                        }
-                  }
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.15,
-                  }}
-                  transition={{
-                    duration: reduceMotion ? 0 : 0.75,
-                    delay: reduceMotion ? 0 : index * 0.05,
-                    ease,
-                  }}
-                  className="group overflow-hidden border border-[#082c1f]/15 bg-white shadow-[0_15px_45px_rgba(6,41,27,0.04)] lg:grid lg:grid-cols-[0.45fr_1.55fr]"
-                >
-                  {/* COMPANY LEFT */}
+                <div className="relative flex min-h-[330px] items-center justify-center overflow-hidden bg-[#073525] p-8 md:p-10">
+                  {/* Lumières */}
+                  <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#d7ad6a]/10 blur-[75px]" />
 
-                  <div className="relative flex min-h-[290px] flex-col justify-between overflow-hidden bg-[#073525] p-8 text-white md:p-10">
-                    <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-white/10" />
+                  <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#0f5b40]/40 blur-[75px]" />
 
-                    <div className="absolute -right-6 -top-6 h-36 w-36 rounded-full border border-white/[0.06]" />
+                  {/* Cercles */}
+                  <motion.div
+                    animate={
+                      reduceMotion
+                        ? undefined
+                        : {
+                            rotate: 360,
+                          }
+                    }
+                    transition={{
+                      duration: 30,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border border-[#d7ad6a]/15"
+                  />
 
-                    <div className="relative flex items-start justify-between">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#d7ad6a]/30 text-[#d7ad6a]">
-                        <Icon
-                          size={23}
-                          strokeWidth={1.5}
+                  <motion.div
+                    animate={
+                      reduceMotion
+                        ? undefined
+                        : {
+                            rotate: -360,
+                          }
+                    }
+                    transition={{
+                      duration: 38,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="pointer-events-none absolute -right-6 -top-6 h-44 w-44 rounded-full border border-white/[0.07]"
+                  />
+
+                  {/* numéro */}
+                  <span className="absolute right-7 top-7 z-20 font-serif text-[14px] tracking-[0.12em] text-white/35">
+                    {company.number} / 03
+                  </span>
+
+                  {/* logo */}
+                  <motion.div
+                    initial={
+                      reduceMotion
+                        ? false
+                        : {
+                            opacity: 0,
+                            scale: 0.7,
+                            y: 20,
+                          }
+                    }
+                    whileInView={{
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                    }}
+                    whileHover={
+                      reduceMotion
+                        ? undefined
+                        : {
+                            scale: 1.08,
+                            y: -5,
+                          }
+                    }
+                    viewport={{
+                      once: true,
+                      amount: 0.4,
+                    }}
+                    transition={{
+                      duration: reduceMotion ? 0 : 0.85,
+                      ease,
+                    }}
+                    className="relative z-10 h-[190px] w-full max-w-[270px]"
+                  >
+                    {/* glow */}
+                    <div className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ad6a]/10 blur-[50px] transition-all duration-700 group-hover:bg-[#d7ad6a]/20" />
+
+                    <Image
+                      src={company.logo}
+                      alt={`Logo ${company.name}`}
+                      fill
+                      sizes="270px"
+                      className="relative z-10 object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.25)]"
+                    />
+                  </motion.div>
+
+                  {/* activité */}
+                  <div className="absolute bottom-7 left-7 right-7 z-20 border-t border-white/10 pt-4">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-[#d7ad6a]">
+                      {company.activity}
+                    </p>
+                  </div>
+                </div>
+
+                {/* =========================
+                    COMPANY INFORMATION
+                ========================= */}
+
+                <div className="p-8 md:p-10 lg:p-12">
+                  <div className="grid gap-10 xl:grid-cols-[1fr_0.65fr]">
+                    <div>
+                      <h3 className="text-[30px] font-semibold tracking-[-0.035em] md:text-[38px]">
+                        {company.name}
+                      </h3>
+
+                      <p className="mt-6 max-w-[720px] text-[14px] leading-7 text-[#49675c]">
+                        {company.description}
+                      </p>
+
+                      <p className="mt-4 max-w-[720px] text-[13px] leading-7 text-[#6a7e76]">
+                        {company.extra}
+                      </p>
+
+                      <div className="mt-8 border-l-2 border-[#b98a4a] pl-5">
+                        <p className="font-serif italic text-[#7d5c33]">
+                          {company.signature}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* CONTACT */}
+
+                    <div className="border-t border-[#082c1f]/10 pt-7 xl:border-l xl:border-t-0 xl:pl-9 xl:pt-0">
+                      <p className="mb-5 text-[9px] font-bold uppercase tracking-[0.2em] text-[#9a6a35]">
+                        Coordonnées
+                      </p>
+
+                      <div className="space-y-4">
+                        {company.phones.map((phone) => (
+                          <a
+                            key={phone}
+                            href={`tel:${phone.replace(/\s/g, "")}`}
+                            className="flex items-center gap-3 text-[13px] transition-colors hover:text-[#a9773e]"
+                          >
+                            <Phone size={15} strokeWidth={1.5} />
+                            {phone}
+                          </a>
+                        ))}
+
+                        <a
+                          href={`mailto:${company.email}`}
+                          className="flex items-start gap-3 break-all text-[13px] transition-colors hover:text-[#a9773e]"
+                        >
+                          <Mail
+                            size={15}
+                            strokeWidth={1.5}
+                            className="mt-0.5 shrink-0"
+                          />
+                          {company.email}
+                        </a>
+                      </div>
+
+                      <div className="mt-8 flex h-11 w-11 items-center justify-center rounded-full border border-[#082c1f]/15 text-[#082c1f] transition-all duration-300 group-hover:border-[#a9773e] group-hover:bg-[#a9773e] group-hover:text-white">
+                        <ArrowRight
+                          size={16}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
                         />
                       </div>
-
-                      <span className="font-serif text-[15px] text-white/30">
-                        {company.number} / 03
-                      </span>
-                    </div>
-
-                    <div className="relative mt-16">
-                      <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#d7ad6a]">
-                        {company.activity}
-                      </p>
-
-                      <p className="mt-3 font-serif text-[31px] leading-none">
-                        {company.shortName}
-                      </p>
                     </div>
                   </div>
-
-                  {/* COMPANY RIGHT */}
-
-                  <div className="p-8 md:p-10 lg:p-12">
-                    <div className="grid gap-10 xl:grid-cols-[1fr_0.65fr]">
-                      <div>
-                        <h3 className="text-[30px] font-semibold tracking-[-0.035em] md:text-[38px]">
-                          {company.name}
-                        </h3>
-
-                        <p className="mt-6 max-w-[720px] text-[14px] leading-7 text-[#49675c]">
-                          {company.description}
-                        </p>
-
-                        <p className="mt-4 max-w-[720px] text-[13px] leading-7 text-[#6a7e76]">
-                          {company.extra}
-                        </p>
-
-                        <div className="mt-8 border-l-2 border-[#b98a4a] pl-5">
-                          <p className="font-serif italic text-[#7d5c33]">
-                            {company.signature}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* CONTACT */}
-
-                      <div className="border-t border-[#082c1f]/10 pt-7 xl:border-l xl:border-t-0 xl:pl-9 xl:pt-0">
-                        <p className="mb-5 text-[9px] font-bold uppercase tracking-[0.2em] text-[#9a6a35]">
-                          Coordonnées
-                        </p>
-
-                        <div className="space-y-4">
-                          {company.phones.map((phone) => (
-                            <a
-                              key={phone}
-                              href={`tel:${phone.replace(/\s/g, "")}`}
-                              className="flex items-center gap-3 text-[13px] transition-colors hover:text-[#a9773e]"
-                            >
-                              <Phone
-                                size={15}
-                                strokeWidth={1.5}
-                              />
-
-                              {phone}
-                            </a>
-                          ))}
-
-                          <a
-                            href={`mailto:${company.email}`}
-                            className="flex items-start gap-3 break-all text-[13px] transition-colors hover:text-[#a9773e]"
-                          >
-                            <Mail
-                              size={15}
-                              strokeWidth={1.5}
-                              className="mt-0.5 shrink-0"
-                            />
-
-                            {company.email}
-                          </a>
-                        </div>
-
-                        <div className="mt-8 flex h-11 w-11 items-center justify-center rounded-full border border-[#082c1f]/15 text-[#082c1f] transition-all duration-300 group-hover:border-[#a9773e] group-hover:text-[#a9773e]">
-                          <ArrowRight size={16} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
+                </div>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>
@@ -700,8 +755,6 @@ export default function LeGroupePage() {
 
       <section className="bg-white px-6 py-24 md:px-10 md:py-32 lg:px-20">
         <div className="mx-auto grid max-w-[1450px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          {/* LOCATION INFO */}
-
           <motion.div {...reveal}>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#a9773e]">
               Implantation
@@ -716,9 +769,9 @@ export default function LeGroupePage() {
             </h2>
 
             <p className="mt-7 max-w-[540px] text-[15px] leading-8 text-[#567065]">
-              L'ancrage territorial du groupe permet de rester proche
-              de la production agricole, des producteurs et des
-              différents acteurs de la filière.
+              L'ancrage territorial du groupe permet de rester proche de la
+              production agricole, des producteurs et des différents acteurs
+              de la filière.
             </p>
 
             <div className="mt-10 space-y-6 border-t border-[#082c1f]/15 pt-8">
@@ -775,8 +828,6 @@ export default function LeGroupePage() {
               </div>
             </div>
           </motion.div>
-
-          {/* LOCATION VISUAL */}
 
           <motion.div
             {...reveal}
@@ -876,9 +927,9 @@ export default function LeGroupePage() {
 
           <div className="lg:pb-2">
             <p className="max-w-[540px] text-[15px] leading-8 text-white/55">
-              Le groupe développe des relations professionnelles
-              durables avec ses clients, fournisseurs et partenaires,
-              en Tunisie comme sur les marchés internationaux.
+              Le groupe développe des relations professionnelles durables avec
+              ses clients, fournisseurs et partenaires, en Tunisie comme sur les
+              marchés internationaux.
             </p>
 
             <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-7 text-[10px] font-bold uppercase tracking-[0.18em] text-white/70">
@@ -919,28 +970,7 @@ export default function LeGroupePage() {
 
           <Link
             href="/contact"
-            className="
-              group
-              inline-flex
-              min-h-[64px]
-              shrink-0
-              items-center
-              justify-center
-              gap-6
-              bg-[#06291b]
-              px-8
-              text-[10px]
-              font-bold
-              uppercase
-              tracking-[0.2em]
-              text-white
-              shadow-[0_15px_30px_rgba(6,41,27,0.15)]
-              transition-all
-              duration-300
-
-              hover:-translate-y-1
-              hover:bg-[#0b4935]
-            "
+            className="group inline-flex min-h-[64px] shrink-0 items-center justify-center gap-6 bg-[#06291b] px-8 text-[10px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_15px_30px_rgba(6,41,27,0.15)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#0b4935]"
           >
             Nous contacter
 
