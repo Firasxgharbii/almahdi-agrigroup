@@ -132,7 +132,7 @@ const stats = [
     label: "Générations",
   },
   {
-    value: "+1 500 t",
+    value: "+2 000t",
     label: "Huilerie / saison",
   },
   {
