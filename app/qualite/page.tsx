@@ -9,6 +9,7 @@ import {
 
 import SoftPaintingHero from "../components/SoftPaintingHero";
 import OrganicCertificationSection from "../components/OrganicCertificationSection";
+import IndustrialProcessSection from "../components/IndustrialProcessSection";
 
 const sections = [
   {
@@ -141,7 +142,12 @@ export default function QualiteCertificatsPage() {
 
       <OrganicCertificationSection />
 
-     
+      {/* =====================================================
+          DU VERGER À LA CUVE
+          7 ÉTAPES MAÎTRISÉES
+      ===================================================== */}
+
+      <IndustrialProcessSection />
     </main>
   );
 }
