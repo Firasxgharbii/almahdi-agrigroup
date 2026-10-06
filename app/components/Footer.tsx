@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 // =====================================================
-// L'HUILERIE
+// LINKS
 // =====================================================
 
 const huilerieLinks = [
@@ -31,10 +31,6 @@ const huilerieLinks = [
   },
 ];
 
-// =====================================================
-// EXPORT
-// =====================================================
-
 const exportLinks = [
   {
     label: "Offre vrac",
@@ -49,10 +45,6 @@ const exportLinks = [
     href: "/contact",
   },
 ];
-
-// =====================================================
-// LE GROUPE
-// =====================================================
 
 const groupLinks = [
   {
@@ -88,11 +80,11 @@ function FooterLink({
         flex
         w-fit
         items-center
-        gap-2
-        text-[15px]
-        font-light
-        leading-7
-        text-white/55
+        gap-1.5
+        text-[14px]
+        font-normal
+        leading-6
+        text-white/60
         transition-all
         duration-300
         hover:translate-x-1
@@ -102,8 +94,8 @@ function FooterLink({
       <span>{label}</span>
 
       <ArrowUpRight
-        size={13}
-        strokeWidth={1.5}
+        size={12}
+        strokeWidth={1.6}
         className="
           -translate-x-1
           opacity-0
@@ -137,27 +129,53 @@ function SocialButton({
       target="_blank"
       rel="noopener noreferrer"
       className="
-        group
         flex
-        h-[46px]
-        w-[46px]
+        h-10
+        w-10
         items-center
         justify-center
         rounded-full
         border
-        border-white/30
-        text-white/75
+        border-white/20
+        text-white/70
         transition-all
-        duration-500
+        duration-300
         hover:-translate-y-1
         hover:border-[#d6b66f]
         hover:bg-[#d6b66f]
         hover:text-[#06291d]
-        hover:shadow-[0_12px_30px_rgba(214,182,111,0.18)]
       "
     >
       {children}
     </a>
+  );
+}
+
+// =====================================================
+// COLUMN TITLE
+// =====================================================
+
+function ColumnTitle({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <div className="mb-6">
+      <p
+        className="
+          text-[10px]
+          font-bold
+          uppercase
+          tracking-[0.3em]
+          text-[#d6b66f]
+        "
+      >
+        {children}
+      </p>
+
+      <div className="mt-3 h-px w-7 bg-[#d6b66f]/60" />
+    </div>
   );
 }
 
@@ -167,16 +185,9 @@ function SocialButton({
 
 export default function Footer() {
   return (
-    <footer
-      className="
-        relative
-        overflow-hidden
-        bg-[#06291d]
-        text-white
-      "
-    >
+    <footer className="relative overflow-hidden bg-[#06291d] text-white">
       {/* =====================================================
-          BACKGROUND DECORATION
+          PREMIUM BACKGROUND
       ===================================================== */}
 
       <div
@@ -184,34 +195,32 @@ export default function Footer() {
         className="
           pointer-events-none
           absolute
-          -left-[180px]
-          top-[80px]
-          h-[420px]
-          w-[420px]
+          -left-32
+          top-10
+          h-[380px]
+          w-[380px]
           rounded-full
           bg-[#d6b66f]/[0.035]
+          blur-[100px]
+        "
+      />
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -right-40
+          bottom-0
+          h-[400px]
+          w-[400px]
+          rounded-full
+          bg-[#d6b66f]/[0.025]
           blur-[110px]
         "
       />
 
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-[160px]
-          bottom-0
-          h-[450px]
-          w-[450px]
-          rounded-full
-          bg-[#d6b66f]/[0.035]
-          blur-[120px]
-        "
-      />
-
-      {/* =====================================================
-          TOP GOLD LINE
-      ===================================================== */}
+      {/* GOLD TOP LINE */}
 
       <div
         aria-hidden="true"
@@ -226,7 +235,7 @@ export default function Footer() {
       />
 
       {/* =====================================================
-          CONTENT
+          MAIN CONTAINER
       ===================================================== */}
 
       <div
@@ -235,54 +244,48 @@ export default function Footer() {
           z-10
           mx-auto
           w-full
-          max-w-[1500px]
+          max-w-[1280px]
           px-6
-          pb-8
-          pt-16
+          pb-7
+          pt-14
           sm:px-8
-          md:px-12
-          md:pb-10
-          md:pt-20
-          lg:px-16
-          xl:px-20
+          md:px-10
+          lg:px-12
+          lg:pt-16
         "
       >
-        {/* =====================================================
-            MAIN GRID
-        ===================================================== */}
+        {/* ===================================================
+            MAIN FOOTER
+        =================================================== */}
 
         <div
           className="
             grid
             grid-cols-1
-            gap-x-10
-            gap-y-14
+            gap-y-12
             md:grid-cols-2
-            lg:grid-cols-[1.45fr_0.9fr_0.9fr_1fr]
+            md:gap-x-12
+            lg:grid-cols-[1.45fr_0.85fr_0.75fr_1fr]
+            lg:items-start
             lg:gap-x-14
-            xl:grid-cols-[1.55fr_0.85fr_0.85fr_1fr]
-            xl:gap-x-20
+            xl:gap-x-16
           "
         >
           {/* =================================================
               BRAND
           ================================================= */}
 
-          <div className="max-w-[390px]">
-            {/* LOGO */}
-
+          <div className="flex flex-col items-start">
             <Link
               href="/"
               aria-label="AlMahdi Olive Oil - Accueil"
-              className="inline-flex"
+              className="block"
             >
               <div
                 className="
                   relative
-                  h-[105px]
-                  w-[290px]
-                  sm:h-[115px]
-                  sm:w-[320px]
+                  h-[90px]
+                  w-[190px]
                 "
               >
                 <Image
@@ -290,108 +293,64 @@ export default function Footer() {
                   alt="AlMahdi Olive Oil"
                   fill
                   priority
-                  sizes="320px"
-                  className="
-                    object-contain
-                    object-left
-                  "
+                  sizes="190px"
+                  className="object-contain object-left"
                 />
               </div>
             </Link>
 
-            {/* DESCRIPTION */}
-
             <p
               className="
                 mt-5
-                max-w-[370px]
-                text-[15px]
+                max-w-[340px]
+                text-[14px]
                 font-light
-                leading-[1.9]
-                text-white/55
-                sm:text-[16px]
+                leading-[1.8]
+                text-white/60
               "
             >
-              Huile d&apos;olive extra vierge en vrac, bio et conventionnelle.
-              Producteur et exportateur à Sidi Bouzid, Tunisie.
+              Huile d&apos;olive extra vierge en vrac, bio et
+              conventionnelle. Producteur et exportateur à Sidi Bouzid,
+              Tunisie.
             </p>
 
-            {/* ===============================================
-                SOCIAL MEDIA
-            =============================================== */}
+            {/* SOCIAL */}
 
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              {/* FACEBOOK */}
-
+            <div className="mt-7 flex items-center gap-2.5">
               <SocialButton href="#" label="Facebook">
-                <span
-                  className="
-                    text-[20px]
-                    font-semibold
-                    leading-none
-                  "
-                >
+                <span className="text-[17px] font-semibold leading-none">
                   f
                 </span>
               </SocialButton>
 
-              {/* LINKEDIN */}
-
               <SocialButton href="#" label="LinkedIn">
-                <span
-                  className="
-                    text-[13px]
-                    font-bold
-                    leading-none
-                  "
-                >
+                <span className="text-[12px] font-bold leading-none">
                   in
                 </span>
               </SocialButton>
 
-              {/* INSTAGRAM */}
-
               <SocialButton href="#" label="Instagram">
-                <span
-                  className="
-                    text-[19px]
-                    font-semibold
-                    leading-none
-                  "
-                >
+                <span className="text-[17px] font-semibold leading-none">
                   ◎
                 </span>
               </SocialButton>
 
-              {/* TIKTOK */}
-
               <SocialButton href="#" label="TikTok">
-                <Music2 size={18} strokeWidth={1.7} />
+                <Music2 size={16} strokeWidth={1.7} />
               </SocialButton>
             </div>
           </div>
 
           {/* =================================================
-              L'HUILERIE
+              HUILERIE
           ================================================= */}
 
-          <div>
-            <p
-              className="
-                mb-7
-                text-[11px]
-                font-semibold
-                uppercase
-                tracking-[0.32em]
-                text-[#d6b66f]
-              "
-            >
-              L&apos;huilerie
-            </p>
+          <div className="flex flex-col items-start lg:pt-4">
+            <ColumnTitle>L&apos;huilerie</ColumnTitle>
 
             <nav
               aria-label="Liens de l'huilerie"
-              className="flex flex-col gap-2"
+              className="flex flex-col items-start gap-2.5"
             >
               {huilerieLinks.map((item) => (
                 <FooterLink
@@ -407,23 +366,12 @@ export default function Footer() {
               EXPORT
           ================================================= */}
 
-          <div>
-            <p
-              className="
-                mb-7
-                text-[11px]
-                font-semibold
-                uppercase
-                tracking-[0.32em]
-                text-[#d6b66f]
-              "
-            >
-              Export
-            </p>
+          <div className="flex flex-col items-start lg:pt-4">
+            <ColumnTitle>Export</ColumnTitle>
 
             <nav
               aria-label="Liens export"
-              className="flex flex-col gap-2"
+              className="flex flex-col items-start gap-2.5"
             >
               {exportLinks.map((item) => (
                 <FooterLink
@@ -436,26 +384,15 @@ export default function Footer() {
           </div>
 
           {/* =================================================
-              LE GROUPE
+              GROUPE
           ================================================= */}
 
-          <div>
-            <p
-              className="
-                mb-7
-                text-[11px]
-                font-semibold
-                uppercase
-                tracking-[0.32em]
-                text-[#d6b66f]
-              "
-            >
-              Le groupe
-            </p>
+          <div className="flex flex-col items-start lg:pt-4">
+            <ColumnTitle>Le groupe</ColumnTitle>
 
             <nav
               aria-label="Liens du groupe"
-              className="flex flex-col gap-2"
+              className="flex flex-col items-start gap-2.5"
             >
               {groupLinks.map((item) => (
                 <FooterLink
@@ -465,21 +402,19 @@ export default function Footer() {
                 />
               ))}
 
-              {/* LOCATION */}
-
               <Link
                 href="/contact"
                 className="
                   group
-                  mt-1
+                  mt-2
                   flex
                   w-fit
                   items-center
                   gap-2
-                  text-[15px]
-                  font-light
-                  leading-7
-                  text-white/55
+                  text-[14px]
+                  font-normal
+                  leading-6
+                  text-white/60
                   transition-all
                   duration-300
                   hover:translate-x-1
@@ -488,14 +423,8 @@ export default function Footer() {
               >
                 <MapPin
                   size={14}
-                  strokeWidth={1.5}
-                  className="
-                    shrink-0
-                    text-[#d6b66f]
-                    transition-transform
-                    duration-300
-                    group-hover:scale-110
-                  "
+                  strokeWidth={1.6}
+                  className="shrink-0 text-[#d6b66f]"
                 />
 
                 <span>Nous trouver sur Google</span>
@@ -504,103 +433,151 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* =====================================================
-            CONTACT BAR
-        ===================================================== */}
+        {/* ===================================================
+            CONTACT INFORMATION
+        =================================================== */}
 
         <div
           className="
-            mt-16
-            grid
-            grid-cols-1
-            gap-5
-            border-t
+            mt-14
+            border-y
             border-white/10
-            py-7
-            md:grid-cols-2
-            md:items-center
-            lg:mt-20
+            py-5
+            lg:mt-16
           "
         >
-          {/* ADDRESS */}
-
           <div
             className="
-              flex
-              items-start
-              gap-3
-              text-[13px]
-              font-light
-              leading-6
-              text-white/45
+              grid
+              grid-cols-1
+              gap-5
+              md:grid-cols-2
+              md:items-center
             "
           >
-            <MapPin
-              size={16}
-              strokeWidth={1.5}
-              className="
-                mt-1
-                shrink-0
-                text-[#d6b66f]
-              "
-            />
+            {/* LOCATION */}
 
-            <p>
-              Sidi Bouzid Ouest · El Hichria
-              <br />
-              Tunisie
-            </p>
-          </div>
-
-          {/* EMAIL */}
-
-          <div className="md:flex md:justify-end">
-            <a
-              href="mailto:export.almahdicompany@gmail.com"
-              className="
-                group
-                inline-flex
-                items-center
-                gap-3
-                text-[13px]
-                font-light
-                text-white/45
-                transition-colors
-                duration-300
-                hover:text-[#d6b66f]
-              "
-            >
-              <Mail
-                size={16}
-                strokeWidth={1.5}
+            <div className="flex items-center gap-3">
+              <div
                 className="
+                  flex
+                  h-9
+                  w-9
                   shrink-0
-                  text-[#d6b66f]
-                  transition-transform
-                  duration-300
-                  group-hover:-translate-y-0.5
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#d6b66f]/25
+                  bg-[#d6b66f]/[0.05]
                 "
-              />
+              >
+                <MapPin
+                  size={15}
+                  strokeWidth={1.6}
+                  className="text-[#d6b66f]"
+                />
+              </div>
 
-              <span className="break-all">
-                export.almahdicompany@gmail.com
-              </span>
-            </a>
+              <div>
+                <p
+                  className="
+                    text-[9px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.2em]
+                    text-[#d6b66f]/70
+                  "
+                >
+                  Notre adresse
+                </p>
+
+                <p className="mt-1 text-[13px] text-white/55">
+                  Sidi Bouzid Ouest · El Hichria · Tunisie
+                </p>
+              </div>
+            </div>
+
+            {/* EMAIL */}
+
+            <div className="md:flex md:justify-end">
+              <a
+                href="mailto:export.almahdicompany@gmail.com"
+                className="
+                  group
+                  flex
+                  w-fit
+                  items-center
+                  gap-3
+                  transition-colors
+                  duration-300
+                "
+              >
+                <div
+                  className="
+                    flex
+                    h-9
+                    w-9
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-[#d6b66f]/25
+                    bg-[#d6b66f]/[0.05]
+                    transition-all
+                    duration-300
+                    group-hover:border-[#d6b66f]/60
+                  "
+                >
+                  <Mail
+                    size={15}
+                    strokeWidth={1.6}
+                    className="text-[#d6b66f]"
+                  />
+                </div>
+
+                <div>
+                  <p
+                    className="
+                      text-[9px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.2em]
+                      text-[#d6b66f]/70
+                    "
+                  >
+                    Contact export
+                  </p>
+
+                  <p
+                    className="
+                      mt-1
+                      text-[13px]
+                      text-white/55
+                      transition-colors
+                      duration-300
+                      group-hover:text-[#d6b66f]
+                    "
+                  >
+                    export.almahdicompany@gmail.com
+                  </p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* =====================================================
-            FOOTER BOTTOM
-        ===================================================== */}
+        {/* ===================================================
+            BOTTOM
+        =================================================== */}
 
         <div
           className="
             flex
             flex-col
             gap-5
-            border-t
-            border-white/10
-            pt-7
+            pt-6
             md:flex-row
             md:items-center
             md:justify-between
@@ -613,27 +590,20 @@ export default function Footer() {
               flex
               flex-col
               gap-2
-              text-[11px]
+              text-[10px]
               uppercase
-              tracking-[0.08em]
+              tracking-[0.09em]
               text-white/35
               sm:flex-row
-              sm:flex-wrap
               sm:items-center
-              sm:gap-x-5
+              sm:gap-4
             "
           >
             <p>© 2026 AlMahdi Olive Oil</p>
 
             <span
               aria-hidden="true"
-              className="
-                hidden
-                h-3
-                w-px
-                bg-white/15
-                sm:block
-              "
+              className="hidden h-3 w-px bg-white/15 sm:block"
             />
 
             <p>
@@ -644,9 +614,6 @@ export default function Footer() {
                   normal-case
                   tracking-normal
                   text-white/55
-                  transition-colors
-                  duration-300
-                  hover:text-[#d6b66f]
                 "
               >
                 OffClassic Studio Inc.
@@ -654,72 +621,44 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* BOTTOM LINKS */}
+          {/* BOTTOM NAVIGATION */}
 
-          <div
+          <nav
+            aria-label="Navigation secondaire"
             className="
               flex
               flex-wrap
               items-center
-              gap-x-5
-              gap-y-2
-              text-[11px]
-              text-white/35
+              gap-4
+              text-[10px]
+              text-white/40
             "
           >
             <Link
               href="/contact"
-              className="
-                transition-colors
-                duration-300
-                hover:text-[#d6b66f]
-              "
+              className="transition-colors duration-300 hover:text-[#d6b66f]"
             >
               Contact
             </Link>
 
-            <span
-              aria-hidden="true"
-              className="
-                h-1
-                w-1
-                rounded-full
-                bg-[#d6b66f]/50
-              "
-            />
+            <span className="h-1 w-1 rounded-full bg-[#d6b66f]/50" />
 
             <Link
               href="/#faq"
-              className="
-                transition-colors
-                duration-300
-                hover:text-[#d6b66f]
-              "
+              className="transition-colors duration-300 hover:text-[#d6b66f]"
             >
               FAQ
             </Link>
 
-            <span
-              aria-hidden="true"
-              className="
-                h-1
-                w-1
-                rounded-full
-                bg-[#d6b66f]/50
-              "
-            />
+            <span className="h-1 w-1 rounded-full bg-[#d6b66f]/50" />
 
             <Link
               href="/qualite"
-              className="
-                transition-colors
-                duration-300
-                hover:text-[#d6b66f]
-              "
+              className="transition-colors duration-300 hover:text-[#d6b66f]"
             >
               Qualité
             </Link>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
