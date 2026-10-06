@@ -415,22 +415,7 @@ export default function PremiumOliveHero() {
         >
           {/* EYEBROW */}
 
-          <div className="hero-fade-up mb-7 flex items-center gap-4">
-            <span className="h-px w-8 bg-[#d7b06a]" />
-
-            <p
-              className="
-                text-[11px]
-                font-bold
-                uppercase
-                tracking-[0.32em]
-                text-[#dfbd7b]
-                sm:text-xs
-              "
-            >
-              Producteur & exportateur · Tunisie
-            </p>
-          </div>
+         
 
           {/* =====================================================
               TITLE
