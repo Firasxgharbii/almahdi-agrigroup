@@ -84,15 +84,15 @@ function FooterLink({
         justify-between
         gap-5
         border-b
-        border-white/[0.08]
+        border-[#d6b66f]/15
         py-3
         text-[14px]
         font-light
         tracking-[-0.01em]
-        text-[#f5f0e6]/75
+        text-[#f8f4ea]/80
         transition-all
         duration-300
-        hover:border-[#d6b66f]/35
+        hover:border-[#d6b66f]/50
         hover:text-white
       "
     >
@@ -103,10 +103,10 @@ function FooterLink({
         strokeWidth={1.4}
         className="
           shrink-0
-          text-[#d6b66f]
+          text-[#e0bd63]
           transition-transform
           duration-300
-          group-hover:translate-x-1
+          group-hover:translate-x-1.5
         "
       />
     </Link>
@@ -140,15 +140,17 @@ function SocialButton({
         justify-center
         rounded-full
         border
-        border-[#d6b66f]/45
-        text-[#f8f4e9]/85
+        border-[#d6b66f]/50
+        bg-[#032f22]/30
+        text-[#f8f4e9]/90
+        backdrop-blur-sm
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-[#d6b66f]
+        hover:border-[#e0bd63]
         hover:bg-[#d6b66f]
-        hover:text-[#052d20]
-        hover:shadow-[0_10px_30px_rgba(214,182,111,0.12)]
+        hover:text-[#032f22]
+        hover:shadow-[0_10px_35px_rgba(214,182,111,0.18)]
       "
     >
       {children}
@@ -172,14 +174,22 @@ function ColumnTitle({
           text-[11px]
           font-semibold
           uppercase
-          tracking-[0.28em]
-          text-[#d6b66f]
+          tracking-[0.3em]
+          text-[#e0bd63]
         "
       >
         {children}
       </p>
 
-      <div className="mt-4 h-px w-10 bg-[#d6b66f]/80" />
+      <div
+        className="
+          mt-4
+          h-[2px]
+          w-10
+          rounded-full
+          bg-[#d6b66f]
+        "
+      />
     </div>
   );
 }
@@ -209,8 +219,10 @@ function ContactItem({
           justify-center
           rounded-full
           border
-          border-[#d6b66f]/45
-          text-[#d6b66f]
+          border-[#d6b66f]/55
+          bg-[#032f22]/30
+          text-[#e0bd63]
+          backdrop-blur-sm
         "
       >
         {icon}
@@ -222,8 +234,8 @@ function ContactItem({
             text-[9px]
             font-semibold
             uppercase
-            tracking-[0.25em]
-            text-[#d6b66f]
+            tracking-[0.26em]
+            text-[#e0bd63]
           "
         >
           {title}
@@ -235,7 +247,7 @@ function ContactItem({
             text-[13px]
             font-light
             leading-6
-            text-[#f5f0e6]/70
+            text-[#f8f4ea]/80
           "
         >
           {children}
@@ -254,15 +266,16 @@ export default function Footer() {
     <footer
       className="
         relative
+        isolate
         overflow-hidden
         border-t
-        border-[#d6b66f]/40
-        bg-[#032f22]
+        border-[#d6b66f]/45
+        bg-[#023424]
         text-white
       "
     >
       {/* =====================================================
-          BACKGROUND EFFECTS
+          BOTANICAL BACKGROUND
       ===================================================== */}
 
       <div
@@ -270,12 +283,74 @@ export default function Footer() {
         className="
           pointer-events-none
           absolute
-          -left-[220px]
-          top-[80px]
-          h-[520px]
-          w-[520px]
+          inset-0
+          z-0
+        "
+      >
+        <Image
+          src="/images/Cadre botanique aux branches d’olivier.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="
+            object-cover
+            object-center
+            opacity-[0.58]
+          "
+        />
+      </div>
+
+      {/* =====================================================
+          DARK OVERLAY
+          Keeps the center clean and readable
+      ===================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          z-[1]
+          bg-[#023424]/50
+        "
+      />
+
+      {/* CENTER READING AREA */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-y-0
+          left-1/2
+          z-[2]
+          w-[72%]
+          -translate-x-1/2
+          bg-gradient-to-r
+          from-transparent
+          via-[#023424]/60
+          to-transparent
+        "
+      />
+
+      {/* =====================================================
+          LIGHT EFFECTS
+      ===================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -left-[200px]
+          bottom-[-220px]
+          z-[2]
+          h-[500px]
+          w-[500px]
           rounded-full
-          bg-[#d6b66f]/[0.035]
+          bg-[#d6b66f]/[0.07]
           blur-[130px]
         "
       />
@@ -285,13 +360,14 @@ export default function Footer() {
         className="
           pointer-events-none
           absolute
-          -right-[240px]
-          bottom-[-160px]
-          h-[560px]
-          w-[560px]
+          -right-[180px]
+          top-[-220px]
+          z-[2]
+          h-[480px]
+          w-[480px]
           rounded-full
-          bg-[#d6b66f]/[0.035]
-          blur-[140px]
+          bg-[#d6b66f]/[0.06]
+          blur-[130px]
         "
       />
 
@@ -301,18 +377,37 @@ export default function Footer() {
           pointer-events-none
           absolute
           left-1/2
-          top-0
-          h-[300px]
-          w-[600px]
+          top-[-200px]
+          z-[2]
+          h-[400px]
+          w-[800px]
           -translate-x-1/2
           rounded-full
-          bg-[#0a4a35]/20
-          blur-[130px]
+          bg-[#0b6245]/25
+          blur-[140px]
+        "
+      />
+
+      {/* TOP GOLD LINE */}
+
+      <div
+        aria-hidden="true"
+        className="
+          absolute
+          left-0
+          right-0
+          top-[38px]
+          z-[3]
+          h-px
+          bg-gradient-to-r
+          from-transparent
+          via-[#d6b66f]/55
+          to-transparent
         "
       />
 
       {/* =====================================================
-          MAIN CONTAINER
+          MAIN CONTENT
       ===================================================== */}
 
       <div
@@ -323,12 +418,13 @@ export default function Footer() {
           w-full
           max-w-[1320px]
           px-6
-          py-14
+          pb-8
+          pt-20
           sm:px-8
           md:px-10
           lg:px-12
           lg:pb-8
-          lg:pt-16
+          lg:pt-20
         "
       >
         {/* ===================================================
@@ -357,16 +453,16 @@ export default function Footer() {
               aria-label="AlMahdi Olive Oil - Accueil"
               className="
                 inline-flex
-                transition-opacity
+                transition-all
                 duration-300
-                hover:opacity-90
+                hover:scale-[1.02]
               "
             >
               <div
                 className="
                   relative
-                  h-[105px]
-                  w-[180px]
+                  h-[110px]
+                  w-[190px]
                 "
               >
                 <Image
@@ -374,8 +470,12 @@ export default function Footer() {
                   alt="AlMahdi Olive Oil"
                   fill
                   priority
-                  sizes="180px"
-                  className="object-contain object-left"
+                  sizes="190px"
+                  className="
+                    object-contain
+                    object-left
+                    drop-shadow-[0_4px_20px_rgba(214,182,111,0.08)]
+                  "
                 />
               </div>
             </Link>
@@ -383,12 +483,12 @@ export default function Footer() {
             <p
               className="
                 mt-5
-                max-w-[345px]
+                max-w-[350px]
                 text-[14px]
                 font-light
                 leading-[1.85]
                 tracking-[-0.01em]
-                text-[#f5f0e6]/70
+                text-[#f8f4ea]/80
                 md:text-[15px]
               "
             >
@@ -498,7 +598,7 @@ export default function Footer() {
                   gap-4
                   text-[14px]
                   font-light
-                  text-[#f5f0e6]/75
+                  text-[#f8f4ea]/80
                   transition-colors
                   duration-300
                   hover:text-white
@@ -508,7 +608,7 @@ export default function Footer() {
                   <MapPin
                     size={17}
                     strokeWidth={1.5}
-                    className="shrink-0 text-[#d6b66f]"
+                    className="shrink-0 text-[#e0bd63]"
                   />
 
                   <span>Nous trouver sur Google</span>
@@ -519,10 +619,10 @@ export default function Footer() {
                   strokeWidth={1.4}
                   className="
                     shrink-0
-                    text-[#d6b66f]
+                    text-[#e0bd63]
                     transition-transform
                     duration-300
-                    group-hover:translate-x-1
+                    group-hover:translate-x-1.5
                   "
                 />
               </Link>
@@ -531,67 +631,119 @@ export default function Footer() {
         </div>
 
         {/* ===================================================
-            CONTACT + BOTTOM AREA
+            PREMIUM DIVIDER
         =================================================== */}
 
         <div
           className="
             mt-14
-            border-t
-            border-[#d6b66f]/25
-            pt-6
+            h-px
+            w-full
+            bg-gradient-to-r
+            from-transparent
+            via-[#d6b66f]/55
+            to-transparent
             lg:mt-16
           "
+        />
+
+        {/* ===================================================
+            CONTACT + COPYRIGHT
+        =================================================== */}
+
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-8
+            py-6
+            lg:grid-cols-[1.15fr_1.15fr_1fr]
+            lg:items-center
+            lg:gap-12
+          "
         >
+          {/* ADDRESS */}
+
+          <ContactItem
+            title="Notre adresse"
+            icon={
+              <MapPin
+                size={19}
+                strokeWidth={1.5}
+              />
+            }
+          >
+            Sidi Bouzid Ouest · El Hichria · Tunisie
+          </ContactItem>
+
+          {/* EMAIL */}
+
+          <ContactItem
+            title="Contact export"
+            icon={
+              <Mail
+                size={19}
+                strokeWidth={1.5}
+              />
+            }
+          >
+            <a
+              href="mailto:export.almahdicompany@gmail.com"
+              className="
+                break-all
+                transition-colors
+                duration-300
+                hover:text-[#e0bd63]
+              "
+            >
+              export.almahdicompany@gmail.com
+            </a>
+          </ContactItem>
+
+          {/* COPYRIGHT + NAV */}
+
           <div
             className="
-              grid
-              grid-cols-1
-              gap-8
-              lg:grid-cols-[1fr_1fr_auto]
-              lg:items-center
-              lg:gap-10
+              flex
+              flex-col
+              gap-4
+              lg:items-end
             "
           >
-            {/* ADDRESS */}
-
-            <ContactItem
-              title="Notre adresse"
-              icon={
-                <MapPin
-                  size={19}
-                  strokeWidth={1.5}
-                />
-              }
+            <div
+              className="
+                flex
+                flex-wrap
+                items-center
+                gap-x-3
+                gap-y-2
+                text-[10px]
+                uppercase
+                tracking-[0.06em]
+                text-[#f8f4ea]/50
+                lg:justify-end
+              "
             >
-              Sidi Bouzid Ouest · El Hichria · Tunisie
-            </ContactItem>
+              <span>© 2026 AlMahdi Olive Oil</span>
 
-            {/* EMAIL */}
+              <span
+                aria-hidden="true"
+                className="h-3 w-px bg-[#d6b66f]/30"
+              />
 
-            <ContactItem
-              title="Contact export"
-              icon={
-                <Mail
-                  size={19}
-                  strokeWidth={1.5}
-                />
-              }
-            >
-              <a
-                href="mailto:export.almahdicompany@gmail.com"
-                className="
-                  break-all
-                  transition-colors
-                  duration-300
-                  hover:text-[#d6b66f]
-                "
-              >
-                export.almahdicompany@gmail.com
-              </a>
-            </ContactItem>
-
-            {/* SECONDARY LINKS */}
+              <span>
+                Made by{" "}
+                <span
+                  className="
+                    normal-case
+                    tracking-normal
+                    text-[#f8f4ea]/70
+                  "
+                >
+                  OffClassic Studio Inc.
+                </span>
+              </span>
+            </div>
 
             <nav
               aria-label="Navigation secondaire"
@@ -599,11 +751,10 @@ export default function Footer() {
                 flex
                 flex-wrap
                 items-center
-                gap-x-4
-                gap-y-2
+                gap-4
                 text-[11px]
                 font-light
-                text-[#f5f0e6]/55
+                text-[#f8f4ea]/65
                 lg:justify-end
               "
             >
@@ -612,7 +763,7 @@ export default function Footer() {
                 className="
                   transition-colors
                   duration-300
-                  hover:text-[#d6b66f]
+                  hover:text-[#e0bd63]
                 "
               >
                 Contact
@@ -625,7 +776,7 @@ export default function Footer() {
                 className="
                   transition-colors
                   duration-300
-                  hover:text-[#d6b66f]
+                  hover:text-[#e0bd63]
                 "
               >
                 FAQ
@@ -638,88 +789,47 @@ export default function Footer() {
                 className="
                   transition-colors
                   duration-300
-                  hover:text-[#d6b66f]
+                  hover:text-[#e0bd63]
                 "
               >
                 Qualité
               </Link>
             </nav>
           </div>
-
-          {/* =================================================
-              COPYRIGHT
-          ================================================= */}
-
-          <div
-            className="
-              mt-6
-              flex
-              flex-col
-              gap-3
-              border-t
-              border-white/[0.07]
-              pt-5
-              sm:flex-row
-              sm:flex-wrap
-              sm:items-center
-              sm:justify-between
-            "
-          >
-            <div
-              className="
-                flex
-                flex-col
-                gap-2
-                text-[10px]
-                uppercase
-                tracking-[0.08em]
-                text-[#f5f0e6]/35
-                sm:flex-row
-                sm:items-center
-                sm:gap-4
-              "
-            >
-              <p>© 2026 AlMahdi Olive Oil</p>
-
-              <span
-                aria-hidden="true"
-                className="
-                  hidden
-                  h-3
-                  w-px
-                  bg-[#d6b66f]/30
-                  sm:block
-                "
-              />
-
-              <p>
-                Made by{" "}
-                <span
-                  className="
-                    font-normal
-                    normal-case
-                    tracking-normal
-                    text-[#f5f0e6]/55
-                  "
-                >
-                  OffClassic Studio Inc.
-                </span>
-              </p>
-            </div>
-
-            <p
-              className="
-                text-[9px]
-                uppercase
-                tracking-[0.2em]
-                text-[#d6b66f]/45
-              "
-            >
-              Producteur · Exportateur · Tunisie
-            </p>
-          </div>
         </div>
+
+        {/* BOTTOM LINE */}
+
+        <div
+          className="
+            h-px
+            w-full
+            bg-gradient-to-r
+            from-transparent
+            via-white/10
+            to-transparent
+          "
+        />
       </div>
+
+      {/* =====================================================
+          MOBILE BOTANICAL FADE
+      ===================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-0
+          z-[3]
+          h-24
+          bg-gradient-to-t
+          from-[#023424]/40
+          to-transparent
+        "
+      />
     </footer>
   );
-}
+} 
