@@ -1,471 +1,660 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import {
-  Mail,
-  Music2,
-  Camera,
   ArrowUpRight,
-  ArrowRight,
+  Mail,
+  MapPin,
+  Music2,
 } from "lucide-react";
 
-// ==========================================
-// COMPANY LINKS
-// ==========================================
+// =====================================================
+// L'HUILERIE
+// =====================================================
 
-const companyLinks = [
+const huilerieLinks = [
   {
     label: "Notre histoire",
     href: "/notre-groupe",
   },
   {
-    label: "Nouvelles",
-    href: "/actualites",
+    label: "Savoir-faire & qualité",
+    href: "/qualite",
   },
   {
-    label: "Blog",
-    href: "/actualites",
-  },
-  {
-    label: "Stratégies",
-    href: "/developpement-durable",
-  },
-  {
-    label: "FAQ",
-    href: "/contact",
-  },
-  {
-    label: "Faites équipe avec nous",
-    href: "/contact",
-  },
-  {
-    label: "VRAC par AlMahdi",
-    href: "/",
+    label: "Certifications",
+    href: "/qualite",
   },
 ];
 
-// ==========================================
-// SHOP LINKS
-// ==========================================
+// =====================================================
+// EXPORT
+// =====================================================
 
-const shopLinks = [
+const exportLinks = [
   {
-    label: "Magasin",
-    href: "/",
+    label: "Offre vrac",
+    href: "/export",
+  },
+  {
+    label: "Palmarès",
+    href: "/awards",
+  },
+  {
+    label: "Demander un devis",
+    href: "/contact",
+  },
+];
+
+// =====================================================
+// LE GROUPE
+// =====================================================
+
+const groupLinks = [
+  {
+    label: "AlMahdi AgriGroup",
+    href: "/le-groupe",
   },
   {
     label: "Vitale",
-    href: "/nos-societes",
+    href: "/le-groupe",
   },
   {
-    label: "Fruits AlMahdi",
-    href: "/nos-societes",
-  },
-  {
-    label: "AlMahdi Olive",
-    href: "/nos-societes",
-  },
-  {
-    label: "Wholesale",
-    href: "/contact",
-  },
-  {
-    label: "Localisateur de magasin",
-    href: "/contact",
+    label: "Bio & USDA Organic",
+    href: "/qualite",
   },
 ];
 
-// ==========================================
-// PAYMENT METHODS
-// ==========================================
+// =====================================================
+// FOOTER LINK
+// =====================================================
 
-const paymentItems = [
-  {
-    name: "Visa",
-    src: "/payments/visa.svg",
-  },
-  {
-    name: "Mastercard",
-    src: "/payments/mastercard.svg",
-  },
-  {
-    name: "American Express",
-    src: "/payments/amex.svg",
-  },
-  {
-    name: "PayPal",
-    src: "/payments/paypal.svg",
-  },
-  {
-    name: "Stripe",
-    src: "/payments/stripe.svg",
-  },
-  {
-    name: "Apple Pay",
-    src: "/payments/applepay.svg",
-  },
-  {
-    name: "Google Pay",
-    src: "/payments/gpay.svg",
-  },
-];
+function FooterLink({
+  label,
+  href,
+}: {
+  label: string;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="
+        group
+        flex
+        w-fit
+        items-center
+        gap-2
+        text-[15px]
+        font-light
+        leading-7
+        text-white/55
+        transition-all
+        duration-300
+        hover:translate-x-1
+        hover:text-[#d6b66f]
+      "
+    >
+      <span>{label}</span>
 
-// ==========================================
-// FOOTER COMPONENT
-// ==========================================
+      <ArrowUpRight
+        size={13}
+        strokeWidth={1.5}
+        className="
+          -translate-x-1
+          opacity-0
+          transition-all
+          duration-300
+          group-hover:translate-x-0
+          group-hover:opacity-100
+        "
+      />
+    </Link>
+  );
+}
+
+// =====================================================
+// SOCIAL BUTTON
+// =====================================================
+
+function SocialButton({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        group
+        flex
+        h-[46px]
+        w-[46px]
+        items-center
+        justify-center
+        rounded-full
+        border
+        border-white/30
+        text-white/75
+        transition-all
+        duration-500
+        hover:-translate-y-1
+        hover:border-[#d6b66f]
+        hover:bg-[#d6b66f]
+        hover:text-[#06291d]
+        hover:shadow-[0_12px_30px_rgba(214,182,111,0.18)]
+      "
+    >
+      {children}
+    </a>
+  );
+}
+
+// =====================================================
+// FOOTER
+// =====================================================
 
 export default function Footer() {
   return (
     <footer
       className="
-        border-t-[6px]
-        border-[#2b2b2b]
-        bg-[#f4f4f4]
-        text-[#333]
+        relative
+        overflow-hidden
+        bg-[#06291d]
+        text-white
       "
     >
+      {/* =====================================================
+          BACKGROUND DECORATION
+      ===================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -left-[180px]
+          top-[80px]
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-[#d6b66f]/[0.035]
+          blur-[110px]
+        "
+      />
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -right-[160px]
+          bottom-0
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[#d6b66f]/[0.035]
+          blur-[120px]
+        "
+      />
+
+      {/* =====================================================
+          TOP GOLD LINE
+      ===================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="
+          h-px
+          w-full
+          bg-gradient-to-r
+          from-transparent
+          via-[#d6b66f]/60
+          to-transparent
+        "
+      />
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
       <div
         className="
+          relative
+          z-10
+          mx-auto
           w-full
+          max-w-[1500px]
           px-6
           pb-8
-          pt-12
+          pt-16
           sm:px-8
-          md:px-16
-          lg:px-24
+          md:px-12
+          md:pb-10
+          md:pt-20
+          lg:px-16
+          xl:px-20
         "
       >
-        {/* ================================= */}
-        {/* FOOTER MAIN GRID */}
-        {/* ================================= */}
+        {/* =====================================================
+            MAIN GRID
+        ===================================================== */}
 
         <div
           className="
             grid
             grid-cols-1
-            gap-x-12
-            gap-y-12
+            gap-x-10
+            gap-y-14
             md:grid-cols-2
-            lg:grid-cols-4
+            lg:grid-cols-[1.45fr_0.9fr_0.9fr_1fr]
+            lg:gap-x-14
+            xl:grid-cols-[1.55fr_0.85fr_0.85fr_1fr]
+            xl:gap-x-20
           "
         >
-          {/* ============================== */}
-          {/* COMPANY */}
-          {/* ============================== */}
+          {/* =================================================
+              BRAND
+          ================================================= */}
 
-          <div>
-            <h3
-              className="
-                mb-5
-                text-2xl
-                font-bold
-                text-[#555]
-              "
+          <div className="max-w-[390px]">
+            {/* LOGO */}
+
+            <Link
+              href="/"
+              aria-label="AlMahdi Olive Oil - Accueil"
+              className="inline-flex"
             >
-              Company
-            </h3>
-
-            <div
-              className="
-                space-y-2.5
-                text-[15px]
-              "
-            >
-              {companyLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="
-                    group
-                    flex
-                    w-fit
-                    items-center
-                    gap-1
-                    text-[#444]
-                    transition-colors
-                    duration-200
-                    hover:text-black
-                  "
-                >
-                  <span>{item.label}</span>
-
-                  <ArrowUpRight
-                    size={12}
-                    className="
-                      opacity-0
-                      transition-all
-                      duration-200
-                      group-hover:-translate-y-0.5
-                      group-hover:translate-x-0.5
-                      group-hover:opacity-100
-                    "
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* ============================== */}
-          {/* SHOP */}
-          {/* ============================== */}
-
-          <div>
-            <h3
-              className="
-                mb-5
-                text-2xl
-                font-bold
-                text-[#555]
-              "
-            >
-              Shop
-            </h3>
-
-            <div
-              className="
-                space-y-2.5
-                text-[15px]
-              "
-            >
-              {shopLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="
-                    group
-                    flex
-                    w-fit
-                    items-center
-                    gap-1
-                    text-[#444]
-                    transition-colors
-                    duration-200
-                    hover:text-black
-                  "
-                >
-                  <span>{item.label}</span>
-
-                  <ArrowUpRight
-                    size={12}
-                    className="
-                      opacity-0
-                      transition-all
-                      duration-200
-                      group-hover:-translate-y-0.5
-                      group-hover:translate-x-0.5
-                      group-hover:opacity-100
-                    "
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* ============================== */}
-          {/* SOCIAL MEDIA */}
-          {/* ============================== */}
-
-          <div>
-            <h3
-              className="
-                mb-8
-                text-2xl
-                font-bold
-                text-[#555]
-              "
-            >
-              Connect with us
-            </h3>
-
-            <div
-              className="
-                flex
-                items-center
-                gap-7
-                text-[#4a4a4a]
-              "
-            >
-              {/* EMAIL */}
-
-              <a
-                href="mailto:contact@almahdiagrigroup.tn"
-                aria-label="Email"
+              <div
                 className="
-                  transition-all
-                  duration-200
-                  hover:-translate-y-1
-                  hover:text-black
+                  relative
+                  h-[105px]
+                  w-[290px]
+                  sm:h-[115px]
+                  sm:w-[320px]
                 "
               >
-                <Mail size={18} />
-              </a>
+                <Image
+                  src="/logoalmahdi.png"
+                  alt="AlMahdi Olive Oil"
+                  fill
+                  priority
+                  sizes="320px"
+                  className="
+                    object-contain
+                    object-left
+                  "
+                />
+              </div>
+            </Link>
 
+            {/* DESCRIPTION */}
+
+            <p
+              className="
+                mt-5
+                max-w-[370px]
+                text-[15px]
+                font-light
+                leading-[1.9]
+                text-white/55
+                sm:text-[16px]
+              "
+            >
+              Huile d&apos;olive extra vierge en vrac, bio et conventionnelle.
+              Producteur et exportateur à Sidi Bouzid, Tunisie.
+            </p>
+
+            {/* ===============================================
+                SOCIAL MEDIA
+            =============================================== */}
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               {/* FACEBOOK */}
 
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="
-                  transition-all
-                  duration-200
-                  hover:-translate-y-1
-                  hover:text-black
-                "
-              >
+              <SocialButton href="#" label="Facebook">
                 <span
                   className="
                     text-[20px]
-                    font-bold
+                    font-semibold
+                    leading-none
                   "
                 >
                   f
                 </span>
-              </a>
+              </SocialButton>
+
+              {/* LINKEDIN */}
+
+              <SocialButton href="#" label="LinkedIn">
+                <span
+                  className="
+                    text-[13px]
+                    font-bold
+                    leading-none
+                  "
+                >
+                  in
+                </span>
+              </SocialButton>
 
               {/* INSTAGRAM */}
 
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="
-                  transition-all
-                  duration-200
-                  hover:-translate-y-1
-                  hover:text-black
-                "
-              >
-                <Camera size={18} />
-              </a>
+              <SocialButton href="#" label="Instagram">
+                <span
+                  className="
+                    text-[19px]
+                    font-semibold
+                    leading-none
+                  "
+                >
+                  ◎
+                </span>
+              </SocialButton>
 
               {/* TIKTOK */}
 
-              <a
-                href="#"
-                aria-label="TikTok"
-                className="
-                  transition-all
-                  duration-200
-                  hover:-translate-y-1
-                  hover:text-black
-                "
-              >
-                <Music2 size={18} />
-              </a>
+              <SocialButton href="#" label="TikTok">
+                <Music2 size={18} strokeWidth={1.7} />
+              </SocialButton>
             </div>
           </div>
 
-          {/* ============================== */}
-          {/* NEWSLETTER */}
-          {/* ============================== */}
+          {/* =================================================
+              L'HUILERIE
+          ================================================= */}
 
           <div>
-            <h3
+            <p
               className="
-                mb-5
-                text-2xl
-                font-bold
-                text-[#555]
+                mb-7
+                text-[11px]
+                font-semibold
+                uppercase
+                tracking-[0.32em]
+                text-[#d6b66f]
               "
             >
-              Bulletin d&apos;information
-            </h3>
+              L&apos;huilerie
+            </p>
 
-            <form
-              className="
-                max-w-[340px]
-              "
-              onSubmit={(event) => {
-                event.preventDefault();
-
-                // Connect your newsletter API here.
-              }}
+            <nav
+              aria-label="Liens de l'huilerie"
+              className="flex flex-col gap-2"
             >
-              <label
-                htmlFor="footer-email"
-                className="
-                  sr-only
-                "
-              >
-                Adresse courriel
-              </label>
+              {huilerieLinks.map((item) => (
+                <FooterLink
+                  key={item.label}
+                  label={item.label}
+                  href={item.href}
+                />
+              ))}
+            </nav>
+          </div>
 
-              <input
-                id="footer-email"
-                type="email"
-                required
-                placeholder="courriel@exemple.com"
-                className="
-                  h-10
-                  w-full
-                  border-0
-                  border-b
-                  border-[#555]
-                  bg-transparent
-                  text-[15px]
-                  text-[#333]
-                  outline-none
-                  transition-colors
-                  placeholder:text-[#777]
-                  focus:border-black
-                "
-              />
+          {/* =================================================
+              EXPORT
+          ================================================= */}
 
-              <button
-                type="submit"
+          <div>
+            <p
+              className="
+                mb-7
+                text-[11px]
+                font-semibold
+                uppercase
+                tracking-[0.32em]
+                text-[#d6b66f]
+              "
+            >
+              Export
+            </p>
+
+            <nav
+              aria-label="Liens export"
+              className="flex flex-col gap-2"
+            >
+              {exportLinks.map((item) => (
+                <FooterLink
+                  key={item.label}
+                  label={item.label}
+                  href={item.href}
+                />
+              ))}
+            </nav>
+          </div>
+
+          {/* =================================================
+              LE GROUPE
+          ================================================= */}
+
+          <div>
+            <p
+              className="
+                mb-7
+                text-[11px]
+                font-semibold
+                uppercase
+                tracking-[0.32em]
+                text-[#d6b66f]
+              "
+            >
+              Le groupe
+            </p>
+
+            <nav
+              aria-label="Liens du groupe"
+              className="flex flex-col gap-2"
+            >
+              {groupLinks.map((item) => (
+                <FooterLink
+                  key={item.label}
+                  label={item.label}
+                  href={item.href}
+                />
+              ))}
+
+              {/* LOCATION */}
+
+              <Link
+                href="/contact"
                 className="
                   group
-                  mt-4
-                  inline-flex
+                  mt-1
+                  flex
+                  w-fit
                   items-center
-                  justify-center
-                  gap-3
-                  bg-[#2f2f2f]
-                  px-7
-                  py-3
-                  text-sm
-                  font-semibold
-                  text-white
+                  gap-2
+                  text-[15px]
+                  font-light
+                  leading-7
+                  text-white/55
                   transition-all
                   duration-300
-                  hover:bg-black
+                  hover:translate-x-1
+                  hover:text-[#d6b66f]
                 "
               >
-                S&apos;inscrire
-
-                <ArrowRight
-                  size={15}
+                <MapPin
+                  size={14}
+                  strokeWidth={1.5}
                   className="
+                    shrink-0
+                    text-[#d6b66f]
                     transition-transform
-                    group-hover:translate-x-1
+                    duration-300
+                    group-hover:scale-110
                   "
                 />
-              </button>
-            </form>
+
+                <span>Nous trouver sur Google</span>
+              </Link>
+            </nav>
           </div>
         </div>
 
-        {/* ================================= */}
-        {/* FOOTER BOTTOM */}
-        {/* ================================= */}
+        {/* =====================================================
+            CONTACT BAR
+        ===================================================== */}
 
         <div
           className="
-            mt-20
+            mt-16
             grid
             grid-cols-1
-            gap-8
+            gap-5
             border-t
-            border-[#dedede]
-            pt-7
-            lg:grid-cols-[1fr_auto]
-            lg:items-end
+            border-white/10
+            py-7
+            md:grid-cols-2
+            md:items-center
+            lg:mt-20
           "
         >
-          {/* ============================== */}
+          {/* ADDRESS */}
+
+          <div
+            className="
+              flex
+              items-start
+              gap-3
+              text-[13px]
+              font-light
+              leading-6
+              text-white/45
+            "
+          >
+            <MapPin
+              size={16}
+              strokeWidth={1.5}
+              className="
+                mt-1
+                shrink-0
+                text-[#d6b66f]
+              "
+            />
+
+            <p>
+              Sidi Bouzid Ouest · El Hichria
+              <br />
+              Tunisie
+            </p>
+          </div>
+
+          {/* EMAIL */}
+
+          <div className="md:flex md:justify-end">
+            <a
+              href="mailto:export.almahdicompany@gmail.com"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-3
+                text-[13px]
+                font-light
+                text-white/45
+                transition-colors
+                duration-300
+                hover:text-[#d6b66f]
+              "
+            >
+              <Mail
+                size={16}
+                strokeWidth={1.5}
+                className="
+                  shrink-0
+                  text-[#d6b66f]
+                  transition-transform
+                  duration-300
+                  group-hover:-translate-y-0.5
+                "
+              />
+
+              <span className="break-all">
+                export.almahdicompany@gmail.com
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* =====================================================
+            FOOTER BOTTOM
+        ===================================================== */}
+
+        <div
+          className="
+            flex
+            flex-col
+            gap-5
+            border-t
+            border-white/10
+            pt-7
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+        >
           {/* COPYRIGHT */}
-          {/* ============================== */}
+
+          <div
+            className="
+              flex
+              flex-col
+              gap-2
+              text-[11px]
+              uppercase
+              tracking-[0.08em]
+              text-white/35
+              sm:flex-row
+              sm:flex-wrap
+              sm:items-center
+              sm:gap-x-5
+            "
+          >
+            <p>© 2026 AlMahdi Olive Oil</p>
+
+            <span
+              aria-hidden="true"
+              className="
+                hidden
+                h-3
+                w-px
+                bg-white/15
+                sm:block
+              "
+            />
+
+            <p>
+              Made by{" "}
+              <span
+                className="
+                  font-medium
+                  normal-case
+                  tracking-normal
+                  text-white/55
+                  transition-colors
+                  duration-300
+                  hover:text-[#d6b66f]
+                "
+              >
+                OffClassic Studio Inc.
+              </span>
+            </p>
+          </div>
+
+          {/* BOTTOM LINKS */}
 
           <div
             className="
@@ -474,98 +663,62 @@ export default function Footer() {
               items-center
               gap-x-5
               gap-y-2
-              text-[13px]
-              text-[#555]
+              text-[11px]
+              text-white/35
             "
           >
-            <p>© 2026, ALMAHDI OLIVE OIL</p>
-
-            <p>
-              Made by{" "}
-              <span
-                className="
-                  font-semibold
-                  text-[#333]
-                "
-              >
-                OffClassic Studio Inc.
-              </span>
-            </p>
-          </div>
-
-          {/* ============================== */}
-          {/* PAYMENT METHODS */}
-          {/* ============================== */}
-
-          <div
-            className="
-              flex
-              flex-col
-              gap-3
-              lg:items-end
-            "
-          >
-            <p
+            <Link
+              href="/contact"
               className="
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.15em]
-                text-[#777]
+                transition-colors
+                duration-300
+                hover:text-[#d6b66f]
               "
             >
-              Paiements sécurisés
-            </p>
+              Contact
+            </Link>
 
-            <div
+            <span
+              aria-hidden="true"
               className="
-                flex
-                flex-wrap
-                items-center
-                gap-2
-                lg:justify-end
+                h-1
+                w-1
+                rounded-full
+                bg-[#d6b66f]/50
+              "
+            />
+
+            <Link
+              href="/#faq"
+              className="
+                transition-colors
+                duration-300
+                hover:text-[#d6b66f]
               "
             >
-              {paymentItems.map((item) => (
-                <div
-                  key={item.name}
-                  title={item.name}
-                  className="
-                    relative
-                    flex
-                    h-[35px]
-                    w-[58px]
-                    items-center
-                    justify-center
-                    overflow-hidden
-                    rounded-[5px]
-                    border
-                    border-[#dedede]
-                    bg-white
-                    px-1.5
-                    shadow-sm
-                    transition-all
-                    duration-300
-                    hover:-translate-y-0.5
-                    hover:border-[#aaa]
-                    hover:shadow-md
-                  "
-                >
-                  <Image
-                    src={item.src}
-                    alt={item.name}
-                    width={50}
-                    height={26}
-                    unoptimized
-                    className="
-                      h-[25px]
-                      w-full
-                      object-contain
-                    "
-                  />
-                </div>
-              ))}
-            </div>
+              FAQ
+            </Link>
+
+            <span
+              aria-hidden="true"
+              className="
+                h-1
+                w-1
+                rounded-full
+                bg-[#d6b66f]/50
+              "
+            />
+
+            <Link
+              href="/qualite"
+              className="
+                transition-colors
+                duration-300
+                hover:text-[#d6b66f]
+              "
+            >
+              Qualité
+            </Link>
           </div>
         </div>
       </div>
