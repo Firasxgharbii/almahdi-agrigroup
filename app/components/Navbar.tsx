@@ -28,7 +28,7 @@ const navItems = [
     href: "/export",
   },
   {
-    label: "Palmarès",
+    label: "médailles",
     href: "/awards",
   },
   {
