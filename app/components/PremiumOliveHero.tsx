@@ -313,7 +313,7 @@ export default function PremiumOliveHero() {
             absolute
             inset-0
             scale-[1.02]
-            bg-[url('/images/olivehero.png')]
+            bg-[url('/images/olivehero1.png')]
             bg-cover
             bg-center
             bg-no-repeat
