@@ -183,6 +183,7 @@ export default function LeGroupePage() {
 
   return (
     <main className="overflow-hidden bg-[#f6f1e5] text-[#082c1f]">
+
       {/* =====================================================
           HERO
       ===================================================== */}
@@ -208,6 +209,7 @@ export default function LeGroupePage() {
         </div>
 
         <div className="relative mx-auto flex min-h-[760px] max-w-[1500px] flex-col justify-between px-6 pb-12 pt-24 md:px-10 md:pt-28 lg:px-16 xl:px-20">
+
           <motion.div {...reveal}>
             <div className="flex flex-wrap items-center justify-between gap-5 border-b border-white/10 pb-6">
               <div className="flex items-center gap-4">
@@ -250,8 +252,8 @@ export default function LeGroupePage() {
             <div className="mt-10 grid max-w-[950px] gap-8 border-l border-[#d7ad6a]/30 pl-6 md:grid-cols-[1fr_auto] md:items-end md:pl-8">
               <p className="max-w-[720px] text-[16px] leading-8 text-white/60 md:text-[18px]">
                 AlMahdi Olive Oil réunit des activités complémentaires autour
-                de l'agriculture, de la transformation, de la nutrition
-                animale, de la conservation et de l'export.
+                de l&apos;agriculture, de la transformation, de la nutrition
+                animale, de la conservation et de l&apos;export.
               </p>
 
               <div className="hidden h-14 w-14 items-center justify-center rounded-full border border-white/15 md:flex">
@@ -308,6 +310,7 @@ export default function LeGroupePage() {
 
       <section className="px-6 py-24 md:px-10 md:py-32 lg:px-20">
         <div className="mx-auto grid max-w-[1450px] gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+
           <motion.div {...reveal}>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#a9773e]">
               Notre groupe
@@ -317,16 +320,16 @@ export default function LeGroupePage() {
               Un groupe construit autour
 
               <span className="block font-serif font-normal italic text-[#a9773e]">
-                d'un même territoire.
+                d&apos;un même territoire.
               </span>
             </h2>
           </motion.div>
 
           <motion.div {...reveal} className="lg:pt-14">
             <p className="max-w-[720px] text-[19px] leading-9 text-[#36594c]">
-              Implanté à Sidi Bouzid, AlMahdi Olive Oil s'appuie sur un héritage
-              familial transmis depuis cinq générations et sur des sociétés aux
-              métiers complémentaires.
+              Implanté à Sidi Bouzid, AlMahdi Olive Oil s&apos;appuie sur un
+              héritage familial transmis depuis cinq générations et sur des
+              sociétés aux métiers complémentaires.
             </p>
 
             <p className="mt-6 max-w-[720px] text-[15px] leading-8 text-[#567065]">
@@ -356,6 +359,7 @@ export default function LeGroupePage() {
 
       <section className="bg-[#ede6d7] px-6 py-24 md:px-10 lg:px-20">
         <div className="mx-auto max-w-[1450px]">
+
           <motion.div {...reveal}>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#a9773e]">
               Notre identité
@@ -413,7 +417,9 @@ export default function LeGroupePage() {
                   </div>
 
                   <div className="mt-24">
-                    <h3 className="text-[23px] font-semibold">{item.title}</h3>
+                    <h3 className="text-[23px] font-semibold">
+                      {item.title}
+                    </h3>
 
                     <p className="mt-5 max-w-[270px] text-[13px] leading-7 text-[#587166] transition-colors duration-500 group-hover:text-white/55">
                       {item.text}
@@ -432,6 +438,7 @@ export default function LeGroupePage() {
 
       <section className="bg-white px-6 py-24 md:px-10 md:py-32 lg:px-20">
         <div className="mx-auto max-w-[1450px]">
+
           <motion.div
             {...reveal}
             className="grid gap-10 lg:grid-cols-[1fr_0.65fr] lg:items-end"
@@ -501,7 +508,9 @@ export default function LeGroupePage() {
                   </div>
 
                   <div className="mt-24">
-                    <h3 className="text-[22px] font-semibold">{item.title}</h3>
+                    <h3 className="text-[22px] font-semibold">
+                      {item.title}
+                    </h3>
 
                     <p className="mt-5 text-[13px] leading-6 text-[#577065] transition-colors duration-500 group-hover:text-white/55">
                       {item.text}
@@ -520,6 +529,7 @@ export default function LeGroupePage() {
 
       <section className="bg-[#f6f1e5] px-6 py-24 md:px-10 md:py-32 lg:px-20">
         <div className="mx-auto max-w-[1450px]">
+
           <motion.div
             {...reveal}
             className="grid gap-10 border-b border-[#082c1f]/15 pb-12 lg:grid-cols-2 lg:items-end"
@@ -541,7 +551,7 @@ export default function LeGroupePage() {
             <p className="max-w-[600px] text-[15px] leading-8 text-[#567065] lg:justify-self-end">
               Trois entreprises, trois expertises et une même ambition :
               développer un groupe agroalimentaire tunisien structuré, fiable et
-              ouvert sur l'international.
+              ouvert sur l&apos;international.
             </p>
           </motion.div>
 
@@ -574,17 +584,11 @@ export default function LeGroupePage() {
                 }}
                 className="group overflow-hidden border border-[#082c1f]/15 bg-white shadow-[0_18px_55px_rgba(6,41,27,0.06)] transition-shadow duration-500 hover:shadow-[0_30px_80px_rgba(6,41,27,0.13)] lg:grid lg:grid-cols-[0.48fr_1.52fr]"
               >
-                {/* =========================
-                    LOGO COMPANY
-                ========================= */}
-
                 <div className="relative flex min-h-[330px] items-center justify-center overflow-hidden bg-[#073525] p-8 md:p-10">
-                  {/* Lumières */}
                   <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#d7ad6a]/10 blur-[75px]" />
 
                   <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#0f5b40]/40 blur-[75px]" />
 
-                  {/* Cercles */}
                   <motion.div
                     animate={
                       reduceMotion
@@ -617,12 +621,10 @@ export default function LeGroupePage() {
                     className="pointer-events-none absolute -right-6 -top-6 h-44 w-44 rounded-full border border-white/[0.07]"
                   />
 
-                  {/* numéro */}
                   <span className="absolute right-7 top-7 z-20 font-serif text-[14px] tracking-[0.12em] text-white/35">
                     {company.number} / 03
                   </span>
 
-                  {/* logo */}
                   <motion.div
                     initial={
                       reduceMotion
@@ -656,7 +658,6 @@ export default function LeGroupePage() {
                     }}
                     className="relative z-10 h-[190px] w-full max-w-[270px]"
                   >
-                    {/* glow */}
                     <div className="pointer-events-none absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7ad6a]/10 blur-[50px] transition-all duration-700 group-hover:bg-[#d7ad6a]/20" />
 
                     <Image
@@ -668,17 +669,12 @@ export default function LeGroupePage() {
                     />
                   </motion.div>
 
-                  {/* activité */}
                   <div className="absolute bottom-7 left-7 right-7 z-20 border-t border-white/10 pt-4">
                     <p className="text-[9px] font-bold uppercase tracking-[0.24em] text-[#d7ad6a]">
                       {company.activity}
                     </p>
                   </div>
                 </div>
-
-                {/* =========================
-                    COMPANY INFORMATION
-                ========================= */}
 
                 <div className="p-8 md:p-10 lg:p-12">
                   <div className="grid gap-10 xl:grid-cols-[1fr_0.65fr]">
@@ -701,8 +697,6 @@ export default function LeGroupePage() {
                         </p>
                       </div>
                     </div>
-
-                    {/* CONTACT */}
 
                     <div className="border-t border-[#082c1f]/10 pt-7 xl:border-l xl:border-t-0 xl:pl-9 xl:pt-0">
                       <p className="mb-5 text-[9px] font-bold uppercase tracking-[0.2em] text-[#9a6a35]">
@@ -730,6 +724,7 @@ export default function LeGroupePage() {
                             strokeWidth={1.5}
                             className="mt-0.5 shrink-0"
                           />
+
                           {company.email}
                         </a>
                       </div>
@@ -755,6 +750,7 @@ export default function LeGroupePage() {
 
       <section className="bg-white px-6 py-24 md:px-10 md:py-32 lg:px-20">
         <div className="mx-auto grid max-w-[1450px] gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+
           <motion.div {...reveal}>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#a9773e]">
               Implantation
@@ -769,7 +765,7 @@ export default function LeGroupePage() {
             </h2>
 
             <p className="mt-7 max-w-[540px] text-[15px] leading-8 text-[#567065]">
-              L'ancrage territorial du groupe permet de rester proche de la
+              L&apos;ancrage territorial du groupe permet de rester proche de la
               production agricole, des producteurs et des différents acteurs
               de la filière.
             </p>
@@ -784,7 +780,7 @@ export default function LeGroupePage() {
 
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.18em]">
-                    Société Almahdi Huile d'Olive
+                    Société Almahdi Huile d&apos;Olive
                   </p>
 
                   <p className="mt-2 text-[14px] leading-7 text-[#567065]">
@@ -943,6 +939,232 @@ export default function LeGroupePage() {
             </div>
           </div>
         </motion.div>
+      </section>
+
+      {/* =====================================================
+          MEDILIVA — NOTRE MARQUE EN BOUTEILLE
+      ===================================================== */}
+
+      <section className="relative overflow-hidden bg-[#f3ecd9] text-[#082c1f]">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-48 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#d7ad6a]/10 blur-[140px]" />
+
+          <div className="absolute -right-48 top-0 h-[520px] w-[520px] rounded-full bg-[#0a4a34]/5 blur-[150px]" />
+
+          <div
+            className="absolute inset-0 opacity-[0.025]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, #082c1f 1px, transparent 1px)",
+              backgroundSize: "26px 26px",
+            }}
+          />
+
+          <div className="absolute -right-[170px] top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full border border-[#082c1f]/5" />
+
+          <div className="absolute -right-[90px] top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full border border-[#082c1f]/5" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1450px] px-6 py-24 md:px-10 md:py-32 lg:px-20 lg:py-36">
+          <div className="grid gap-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-24">
+
+            <motion.div
+              initial={
+                reduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      y: 40,
+                    }
+              }
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+              transition={{
+                duration: reduceMotion ? 0 : 0.9,
+                ease,
+              }}
+            >
+              <div className="flex items-center gap-5">
+                <span className="h-px w-10 bg-[#a9773e]" />
+
+                <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#9a6a35]">
+                  Notre marque en bouteille
+                </p>
+              </div>
+
+              <motion.h2
+                initial={
+                  reduceMotion
+                    ? false
+                    : {
+                        opacity: 0,
+                        x: -30,
+                      }
+                }
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: reduceMotion ? 0 : 1,
+                  delay: reduceMotion ? 0 : 0.12,
+                  ease,
+                }}
+                className="mt-10 font-serif text-[54px] font-normal uppercase leading-[0.9] tracking-[0.12em] text-[#0a3527] sm:text-[68px] md:text-[86px] lg:text-[100px] xl:text-[112px]"
+              >
+                Mediliva
+              </motion.h2>
+
+              <motion.div
+                initial={reduceMotion ? false : { scaleX: 0 }}
+                whileInView={{
+                  scaleX: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: reduceMotion ? 0 : 1,
+                  delay: reduceMotion ? 0 : 0.25,
+                  ease,
+                }}
+                className="mt-8 h-px max-w-[720px] origin-left bg-[#082c1f]/15"
+              />
+
+              <p className="mt-8 max-w-[760px] text-[17px] font-light leading-8 text-[#52675f] md:text-[19px] md:leading-9">
+                L&apos;huile d&apos;olive extra vierge Al Mahdi, mise en
+                bouteille sous notre propre marque et médaillée à
+                l&apos;international. Découvrez la gamme, son histoire et son
+                identité.
+              </p>
+
+              <div className="mt-9 flex items-center gap-4">
+                <span className="h-px w-8 bg-[#a9773e]" />
+
+                <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#a9773e]">
+                  AlMahdi Olive Oil · Tunisie
+                </span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={
+                reduceMotion
+                  ? false
+                  : {
+                      opacity: 0,
+                      x: 45,
+                    }
+              }
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.25,
+              }}
+              transition={{
+                duration: reduceMotion ? 0 : 0.95,
+                delay: reduceMotion ? 0 : 0.15,
+                ease,
+              }}
+              className="relative"
+            >
+              <div className="relative overflow-hidden bg-[#082c1f] p-8 text-white shadow-[0_30px_90px_rgba(8,44,31,0.18)] md:p-10 lg:p-12">
+
+                <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-[#d7ad6a]/10" />
+
+                <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full border border-white/[0.05]" />
+
+                <div className="pointer-events-none absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-[#d7ad6a]/10 blur-[90px]" />
+
+                <div className="relative flex items-center justify-between border-b border-white/10 pb-6">
+                  <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#d7ad6a]">
+                    Une marque Al Mahdi
+                  </p>
+
+                  <span className="font-serif text-[12px] text-white/30">
+                    01
+                  </span>
+                </div>
+
+                <div className="relative py-12">
+                  <p className="font-serif text-[31px] leading-[1.2] text-[#f1e6d2] md:text-[38px]">
+                    Une huile tunisienne
+
+                    <span className="block italic text-[#d7ad6a]">
+                      pensée pour rayonner.
+                    </span>
+                  </p>
+
+                  <p className="mt-7 max-w-[500px] text-[13px] leading-7 text-white/50">
+                    Mediliva représente l&apos;expression en bouteille du
+                    savoir-faire de la Société Almahdi Huile d&apos;Olive et
+                    accompagne son développement auprès des consommateurs et
+                    des marchés internationaux.
+                  </p>
+                </div>
+
+                <Link
+                  href="https://mediliva.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex min-h-[72px] w-full items-center justify-between overflow-hidden border border-[#d7ad6a]/30 px-6 transition-all duration-500 hover:border-[#d7ad6a] md:px-8"
+                >
+                  <span className="absolute inset-0 origin-left scale-x-0 bg-[#d7ad6a] transition-transform duration-500 group-hover:scale-x-100" />
+
+                  <span className="relative z-10 text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-colors duration-500 group-hover:text-[#082c1f]">
+                    Découvrir Mediliva.com
+                  </span>
+
+                  <span className="relative z-10 ml-5 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/15 text-[#d7ad6a] transition-all duration-500 group-hover:rotate-[-45deg] group-hover:border-[#082c1f]/20 group-hover:text-[#082c1f]">
+                    <ArrowRight size={17} />
+                  </span>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    scaleX: 0.7,
+                  }
+            }
+            whileInView={{
+              opacity: 1,
+              scaleX: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: reduceMotion ? 0 : 0.9,
+              delay: reduceMotion ? 0 : 0.25,
+              ease,
+            }}
+            className="mt-20 flex origin-left items-center gap-5"
+          >
+            <div className="h-px flex-1 bg-[#082c1f]/10" />
+
+            <span className="h-1.5 w-1.5 rounded-full bg-[#a9773e]" />
+
+            <div className="h-px w-16 bg-[#082c1f]/10" />
+          </motion.div>
+        </div>
       </section>
 
       {/* =====================================================
