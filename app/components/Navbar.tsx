@@ -16,23 +16,23 @@ const navItems = [
     href: "/notre-groupe",
   },
   {
-    label: "Bio & USDA",
-    href: "/qualite",
-  },
-  {
     label: "Qualité",
     href: "/qualite",
   },
   {
-    label: "Offre Vrac",
-    href: "/export",
-  },
-  {
-    label: "médailles",
+    label: "Médailles",
     href: "/awards",
   },
   {
-    label: "Le Groupe",
+    label: "Notre marque",
+    href: "/almahdi-olive",
+  },
+  {
+    label: "Offre vrac",
+    href: "/export",
+  },
+  {
+    label: "Le groupe",
     href: "/le-groupe",
   },
   {
