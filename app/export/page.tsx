@@ -4,7 +4,7 @@ export default function ExportPage() {
   return (
     <CompanyPage
       title="Export"
-      image="/images/olivehero4.jpg"
+      image="/images/olive20.jpeg"
       description="Notre activité export accompagne le développement international de nos produits agricoles et valorise le savoir-faire tunisien sur les marchés étrangers."
     />
   );
