@@ -10,6 +10,7 @@ import {
 import SoftPaintingHero from "../components/SoftPaintingHero";
 import OrganicCertificationSection from "../components/OrganicCertificationSection";
 import IndustrialProcessSection from "../components/IndustrialProcessSection";
+import QualityControlSection from "../components/QualityControlSection";
 
 const sections = [
   {
@@ -148,6 +149,13 @@ export default function QualiteCertificatsPage() {
       ===================================================== */}
 
       <IndustrialProcessSection />
+
+      {/* =====================================================
+          NOTRE SYSTÈME QUALITÉ
+          3 NIVEAUX DE CONTRÔLE
+      ===================================================== */}
+
+      <QualityControlSection />
     </main>
   );
 }
