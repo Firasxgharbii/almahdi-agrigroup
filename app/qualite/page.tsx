@@ -143,6 +143,12 @@ export default function QualiteCertificatsPage() {
 
       <OrganicCertificationSection />
 
+  {/* =====================================================
+          NOTRE SYSTÈME QUALITÉ
+          3 NIVEAUX DE CONTRÔLE
+      ===================================================== */}
+
+      <QualityControlSection />
       {/* =====================================================
           DU VERGER À LA CUVE
           7 ÉTAPES MAÎTRISÉES
@@ -150,12 +156,7 @@ export default function QualiteCertificatsPage() {
 
       <IndustrialProcessSection />
 
-      {/* =====================================================
-          NOTRE SYSTÈME QUALITÉ
-          3 NIVEAUX DE CONTRÔLE
-      ===================================================== */}
-
-      <QualityControlSection />
+    
     </main>
   );
 }
